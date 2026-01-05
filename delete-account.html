@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Delete your Zain App account - Instructions for permanently deleting your account and all associated data.">
+    <title>Delete Your Account - Zain App</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="assets/images/logo.png" alt="Zain Logo" class="logo-img">
+                <span class="logo-text">Zain</span>
+            </a>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="support.html">Support</a>
+            </div>
+            <a href="/#download" class="nav-cta">Download Free</a>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="support.html">Support</a>
+        <a href="/#download" class="mobile-cta">Download Free</a>
+    </div>
+
+    <main class="legal-page">
+        <header class="legal-header">
+            <div class="section-container">
+                <h1 class="legal-title">Delete Your Account</h1>
+                <p class="legal-updated">Permanently remove your account and data</p>
+            </div>
+        </header>
+
+        <div class="legal-content">
+            <div class="warning-box">
+                <h3>&#9888; Important: This Action is Permanent</h3>
+                <p>Deleting your account will permanently remove all your data from Zain, including:</p>
+                <ul style="list-style: disc; margin-left: 20px; color: #7F1D1D;">
+                    <li>Your profile and account information</li>
+                    <li>All habits, streaks, and tracking history</li>
+                    <li>Reading progress, books, and collections</li>
+                    <li>All notes, journal entries, and quotes</li>
+                    <li>Posts, comments, and social activity</li>
+                    <li>Challenge history and achievements</li>
+                    <li>Book club memberships</li>
+                </ul>
+                <p style="margin-top: 16px; font-weight: 600;">This cannot be undone. Please make sure you want to proceed before deleting your account.</p>
+            </div>
+
+            <h2>Before You Delete</h2>
+            <p>Please consider the following before deleting your account:</p>
+
+            <h3>Cancel Your Subscription First</h3>
+            <p>If you have a Pro subscription, deleting your account does <strong>not</strong> automatically cancel your subscription. You must cancel separately through:</p>
+            <ul>
+                <li><strong>iOS:</strong> Settings > [Your Name] > Subscriptions > Zain > Cancel</li>
+                <li><strong>Android:</strong> Google Play Store > Menu > Subscriptions > Zain > Cancel</li>
+            </ul>
+            <p>If you don't cancel your subscription, you may continue to be charged even after deleting your account.</p>
+
+            <h3>Export Your Data</h3>
+            <p>Before deleting, you may want to export your data. In the Zain app, go to <strong>Settings > Account > Export Data</strong> to download a copy of your habits, notes, and reading history.</p>
+
+            <h3>Consider Taking a Break Instead</h3>
+            <p>If you're just looking for a break, you can pause your habits or simply stop using the app without deleting your account. Your data will be saved if you decide to return.</p>
+
+            <h2>How to Delete Your Account</h2>
+
+            <h3>Option 1: Delete from the App (Recommended)</h3>
+            <p>The easiest way to delete your account is directly from the Zain app:</p>
+            <ol>
+                <li>Open the Zain app</li>
+                <li>Go to <strong>Settings</strong> (gear icon)</li>
+                <li>Tap <strong>Account</strong></li>
+                <li>Scroll down and tap <strong>Delete Account</strong></li>
+                <li>Read the warning message carefully</li>
+                <li>Enter your password to confirm</li>
+                <li>Tap <strong>Delete My Account</strong></li>
+            </ol>
+            <p>Your account will be marked for deletion immediately, and all data will be permanently removed within 30 days.</p>
+
+            <h3>Option 2: Request Deletion via Email</h3>
+            <p>If you cannot access the app, you can request account deletion by email:</p>
+            <ol>
+                <li>Send an email to <a href="mailto:support@thezainapp.com">support@thezainapp.com</a></li>
+                <li>Use the subject line: <strong>"Account Deletion Request"</strong></li>
+                <li>Include the email address associated with your Zain account</li>
+                <li>We may ask you to verify your identity for security purposes</li>
+            </ol>
+            <p>We will process your request within 7 business days and confirm once your account has been deleted.</p>
+
+            <h3>Option 3: Submit a Deletion Request Form</h3>
+            <p>You can also submit a deletion request using the form below:</p>
+
+            <div class="support-form">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="delete-form">
+                    <input type="hidden" name="_subject" value="Account Deletion Request">
+
+                    <div class="form-group">
+                        <label for="delete-email">Email Address Associated with Your Account *</label>
+                        <input type="email" id="delete-email" name="email" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delete-reason">Reason for Leaving (Optional)</label>
+                        <select id="delete-reason" name="reason">
+                            <option value="">Select a reason...</option>
+                            <option value="no-longer-need">I no longer need the app</option>
+                            <option value="using-alternative">I'm using a different app</option>
+                            <option value="too-expensive">The subscription is too expensive</option>
+                            <option value="missing-features">Missing features I need</option>
+                            <option value="too-complicated">The app is too complicated</option>
+                            <option value="privacy-concerns">Privacy concerns</option>
+                            <option value="other">Other reason</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delete-feedback">Any feedback for us? (Optional)</label>
+                        <textarea id="delete-feedback" name="feedback" placeholder="We appreciate any feedback to help us improve..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer;">
+                            <input type="checkbox" name="confirm" required style="width: auto; margin-top: 4px;">
+                            <span>I understand that deleting my account is permanent and cannot be undone. I have cancelled any active subscriptions separately.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; background: #DC2626; box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);">Request Account Deletion</button>
+                </form>
+            </div>
+
+            <h2>What Happens After Deletion</h2>
+            <ul>
+                <li><strong>Immediate:</strong> Your account will be deactivated and you will be signed out</li>
+                <li><strong>Within 30 days:</strong> All your personal data will be permanently deleted from our servers</li>
+                <li><strong>Up to 90 days:</strong> Your data may remain in encrypted backups, which are automatically overwritten</li>
+                <li><strong>Retained:</strong> Anonymized, aggregated data that cannot identify you may be retained for analytics</li>
+            </ul>
+
+            <h2>What About Shared Content?</h2>
+            <p>When you delete your account:</p>
+            <ul>
+                <li>Posts you've made in book clubs or the social feed will be deleted</li>
+                <li>Comments you've made on others' posts will be deleted</li>
+                <li>Messages you've sent to other users will be deleted from your side; recipients may still have copies</li>
+                <li>Challenges you created will be ended and removed</li>
+                <li>Book clubs you created will be transferred to the next admin, or deleted if you're the only member</li>
+            </ul>
+
+            <h2>Need Help?</h2>
+            <p>If you're having issues with account deletion or have questions, please <a href="support.html#contact">contact our support team</a>. We're here to help.</p>
+
+            <div class="contact-box">
+                <h3>We're Sorry to See You Go</h3>
+                <p>If there's anything we can do to improve your experience with Zain, we'd love to hear from you. Your feedback helps us build a better app for everyone.</p>
+                <p><strong>Email:</strong> <a href="mailto:support@thezainapp.com">support@thezainapp.com</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <img src="assets/images/logo.png" alt="Zain">
+                        <span>Zain</span>
+                    </a>
+                    <p class="footer-tagline">Live with intention.<br>Every habit. Every insight. Every goal.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="/#features">Features</a>
+                        <a href="/#pricing">Pricing</a>
+                        <a href="/#download">Download</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="support.html">Help Center</a>
+                        <a href="support.html#contact">Contact Us</a>
+                        <a href="delete-account.html">Delete Account</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Zain App. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
