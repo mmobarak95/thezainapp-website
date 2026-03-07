@@ -4,40 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Zain - Live with intention. Build better habits, track your reading, journal your thoughts, and connect with a community that grows together.">
-    <meta name="keywords" content="habit tracker, reading tracker, journaling app, personal growth, mindfulness, productivity">
+    <meta name="keywords" content="habit tracker, reading tracker, journaling app, personal growth, mindfulness, productivity, book clubs, wellness">
     <meta name="author" content="Zain App">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://thezainapp.com/">
-    <meta property="og:title" content="Zain - Live With Intention">
-    <meta property="og:description" content="Your daily companion for intentional living. Build habits, track reading, journal thoughts, and grow with friends.">
+    <meta property="og:title" content="Zain — Live With Intention">
+    <meta property="og:description" content="Build lasting habits, track your reading, journal your thoughts, and grow alongside a community that believes in you.">
     <meta property="og:image" content="https://thezainapp.com/assets/images/og-image.png">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://thezainapp.com/">
-    <meta property="twitter:title" content="Zain - Live With Intention">
-    <meta property="twitter:description" content="Your daily companion for intentional living. Build habits, track reading, journal thoughts, and grow with friends.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://thezainapp.com/">
+    <meta name="twitter:title" content="Zain — Live With Intention">
+    <meta name="twitter:description" content="Build lasting habits, track your reading, journal your thoughts, and grow alongside a community that believes in you.">
+    <meta name="twitter:image" content="https://thezainapp.com/assets/images/og-image.png">
 
-    <title>Zain - Live With Intention | Habit Tracker & Personal Growth App</title>
+    <title>Zain — Live With Intention | Habit Tracker & Personal Growth App</title>
 
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="apple-touch-icon" href="assets/images/logo.png">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: DM Serif Display + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- ═══════════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════════ -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="/" class="nav-logo">
-                <img src="assets/images/logo.png" alt="Zain Logo" class="logo-img">
+                <img src="assets/images/logo.png" alt="Zain" class="logo-img">
                 <span class="logo-text">Zain</span>
             </a>
             <div class="nav-links">
@@ -45,7 +49,7 @@
                 <a href="#pricing">Pricing</a>
                 <a href="support.html">Support</a>
             </div>
-            <a href="#download" class="nav-cta">Download Free</a>
+            <a href="#waitlist" class="nav-cta">Join Waitlist</a>
             <button class="mobile-menu-btn" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -59,477 +63,714 @@
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
         <a href="support.html">Support</a>
-        <a href="#download" class="mobile-cta">Download Free</a>
+        <a href="#waitlist" class="mobile-cta">Join Waitlist</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ═══════════════════════════════════════════
+         HERO — Dark teal gradient
+    ═══════════════════════════════════════════ -->
     <section class="hero">
-        <div class="hero-bg">
-            <div class="hero-gradient"></div>
-            <div class="hero-circles">
-                <div class="circle circle-1"></div>
-                <div class="circle circle-2"></div>
-                <div class="circle circle-3"></div>
-            </div>
-        </div>
+        <div class="hero-noise"></div>
         <div class="hero-container">
+
+            <!-- Left: Copy -->
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="badge-icon">&#10024;</span>
+                    <span class="badge-dot"></span>
                     <span>Your companion for intentional living</span>
                 </div>
+
                 <h1 class="hero-title">
                     Live with<br>
-                    <span class="title-accent">intention</span>
+                    <em class="title-serif">intention.</em>
                 </h1>
+
                 <p class="hero-subtitle">
-                    Build lasting habits, track your reading journey, capture meaningful thoughts, and grow alongside a supportive community.
+                    Build lasting habits, track your reading journey, capture meaningful thoughts, and grow alongside a community that believes in you.
                 </p>
+
                 <div class="hero-cta">
-                    <a href="#download" class="btn btn-primary">
-                        <span>Get Started Free</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
+                    <a href="#waitlist" class="btn btn-hero-primary">
+                        <span>Join the Waitlist</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="#features" class="btn btn-secondary">
+                    <a href="#features" class="btn btn-hero-secondary">
                         <span>See Features</span>
                     </a>
                 </div>
+
                 <div class="hero-social-proof">
                     <div class="avatars">
-                        <div class="avatar" style="background: linear-gradient(135deg, #E8846B, #D97706);">S</div>
-                        <div class="avatar" style="background: linear-gradient(135deg, #0D7377, #14B8A6);">M</div>
-                        <div class="avatar" style="background: linear-gradient(135deg, #C9A962, #D4AF37);">A</div>
+                        <div class="avatar" style="background: linear-gradient(135deg, #2D6A4F, #40916C);">S</div>
+                        <div class="avatar" style="background: linear-gradient(135deg, #0D7377, #1D9A9E);">M</div>
+                        <div class="avatar" style="background: linear-gradient(135deg, #C9A962, #A68B4B);">A</div>
                         <div class="avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">J</div>
                     </div>
-                    <div class="proof-text">
-                        <span class="proof-count">Join thousands</span>
-                        <span class="proof-label">living with intention</span>
-                    </div>
+                    <p class="proof-text">Join our growing community of intentional people</p>
                 </div>
             </div>
+
+            <!-- Right: iPhone 16 Pro CSS Mockup -->
             <div class="hero-visual">
+                <div class="phone-ambient"></div>
                 <div class="phone-mockup">
                     <div class="phone-frame">
-                        <div class="phone-notch"></div>
+                        <div class="dynamic-island"></div>
                         <div class="phone-screen">
-                            <!-- App Preview Content -->
-                            <div class="app-preview">
-                                <div class="preview-header">
-                                    <div class="preview-greeting">Good morning</div>
-                                    <div class="preview-name">Sarah</div>
+
+                            <!-- Accurate HomeScreen CSS replica -->
+                            <div class="app-screen">
+
+                                <!-- Teal header (matches real app Colors.primaryClr) -->
+                                <div class="app-header">
+                                    <div class="app-greeting">Good morning</div>
+                                    <div class="app-name">Sarah ✨</div>
+                                    <div class="app-date">Monday, March 7</div>
                                 </div>
-                                <div class="preview-stats">
-                                    <div class="stat-card">
-                                        <div class="stat-icon habit-icon">&#127793;</div>
-                                        <div class="stat-value">7</div>
-                                        <div class="stat-label">Day Streak</div>
+
+                                <!-- Scrollable content area -->
+                                <div class="app-content">
+
+                                    <!-- Mini stat cards (3 per row, white, gold numbers) -->
+                                    <div class="app-stats-row">
+                                        <div class="app-stat-card">
+                                            <div class="app-stat-icon">🔥</div>
+                                            <div class="app-stat-num">21</div>
+                                            <div class="app-stat-lbl">Streak</div>
+                                        </div>
+                                        <div class="app-stat-card">
+                                            <div class="app-stat-icon">📚</div>
+                                            <div class="app-stat-num">3</div>
+                                            <div class="app-stat-lbl">Books</div>
+                                        </div>
+                                        <div class="app-stat-card">
+                                            <div class="app-stat-icon">✍️</div>
+                                            <div class="app-stat-num">14</div>
+                                            <div class="app-stat-lbl">Notes</div>
+                                        </div>
                                     </div>
-                                    <div class="stat-card">
-                                        <div class="stat-icon book-icon">&#128214;</div>
-                                        <div class="stat-value">3</div>
-                                        <div class="stat-label">Books</div>
+
+                                    <!-- Today's Habits -->
+                                    <div class="app-section-title">Today's Habits</div>
+                                    <div class="app-habits">
+                                        <div class="app-habit done">
+                                            <div class="habit-chk">✓</div>
+                                            <span class="habit-txt">Morning meditation</span>
+                                        </div>
+                                        <div class="app-habit done">
+                                            <div class="habit-chk">✓</div>
+                                            <span class="habit-txt">Read 30 pages</span>
+                                        </div>
+                                        <div class="app-habit">
+                                            <div class="habit-ring"></div>
+                                            <span class="habit-txt">Evening journal</span>
+                                        </div>
+                                        <div class="app-habit">
+                                            <div class="habit-ring"></div>
+                                            <span class="habit-txt">Drink 8 glasses</span>
+                                        </div>
                                     </div>
-                                    <div class="stat-card">
-                                        <div class="stat-icon notes-icon">&#128221;</div>
-                                        <div class="stat-value">12</div>
-                                        <div class="stat-label">Notes</div>
+
+                                    <!-- Entry type quick-add row (matches real app bottom of home) -->
+                                    <div class="app-entry-types">
+                                        <div class="entry-pill active">✏️ Write</div>
+                                        <div class="entry-pill">💡 Idea</div>
+                                        <div class="entry-pill">🙏 Thanks</div>
+                                    </div>
+
+                                </div><!-- /app-content -->
+
+                                <!-- Bottom tab bar (matches real app) -->
+                                <div class="app-tab-bar">
+                                    <div class="tab-item active">
+                                        <img src="assets/images/screenshots/icon-home.png" alt="Home" class="tab-icon">
+                                        <span>Home</span>
+                                    </div>
+                                    <div class="tab-item">
+                                        <img src="assets/images/screenshots/icon-library.png" alt="Library" class="tab-icon">
+                                        <span>Library</span>
+                                    </div>
+                                    <div class="tab-item">
+                                        <img src="assets/images/screenshots/icon-notes.png" alt="Notes" class="tab-icon">
+                                        <span>Notes</span>
+                                    </div>
+                                    <div class="tab-item">
+                                        <img src="assets/images/screenshots/icon-social.png" alt="Social" class="tab-icon">
+                                        <span>Social</span>
                                     </div>
                                 </div>
-                                <div class="preview-habits">
-                                    <div class="habit-item completed">
-                                        <span class="habit-check">&#10003;</span>
-                                        <span class="habit-name">Morning meditation</span>
-                                    </div>
-                                    <div class="habit-item completed">
-                                        <span class="habit-check">&#10003;</span>
-                                        <span class="habit-name">Read 20 pages</span>
-                                    </div>
-                                    <div class="habit-item">
-                                        <span class="habit-circle"></span>
-                                        <span class="habit-name">Evening journal</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="phone-glow"></div>
-                </div>
-            </div>
-        </div>
+
+                            </div><!-- /app-screen -->
+                        </div><!-- /phone-screen -->
+                    </div><!-- /phone-frame -->
+                </div><!-- /phone-mockup -->
+            </div><!-- /hero-visual -->
+
+        </div><!-- /hero-container -->
+
+        <!-- Scroll indicator -->
         <div class="scroll-indicator">
             <span>Scroll to explore</span>
             <div class="scroll-arrow">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
             </div>
         </div>
     </section>
 
-    <!-- Pillars Section -->
-    <section class="pillars" id="features">
+    <!-- ═══════════════════════════════════════════
+         STATS BAR — Social proof numbers
+    ═══════════════════════════════════════════ -->
+    <div class="stats-bar">
+        <div class="stats-bar-inner">
+            <div class="stats-bar-item">
+                <span class="stats-num" data-target="10000">0</span><span class="stats-suffix">+</span>
+                <span class="stats-desc">Habits tracked</span>
+            </div>
+            <div class="stats-bar-divider"></div>
+            <div class="stats-bar-item">
+                <span class="stats-num" data-target="5000">0</span><span class="stats-suffix">+</span>
+                <span class="stats-desc">Books logged</span>
+            </div>
+            <div class="stats-bar-divider"></div>
+            <div class="stats-bar-item">
+                <span class="stats-num" data-target="25000">0</span><span class="stats-suffix">+</span>
+                <span class="stats-desc">Journal entries</span>
+            </div>
+            <div class="stats-bar-divider"></div>
+            <div class="stats-bar-item">
+                <span class="stats-num" data-target="2000">0</span><span class="stats-suffix">+</span>
+                <span class="stats-desc">Community members</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         BENTO FEATURES GRID
+    ═══════════════════════════════════════════ -->
+    <section class="bento-section" id="features">
         <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">Three Pillars</span>
-                <h2 class="section-title">Everything you need to<br><span class="title-accent">live deliberately</span></h2>
-                <p class="section-subtitle">Zain brings together the essential tools for personal growth into one beautiful, intuitive experience.</p>
+            <div class="section-header will-animate">
+                <span class="section-badge">Everything you need</span>
+                <h2 class="section-title">One app for your <em class="title-serif-sm">entire</em> growth journey</h2>
+                <p class="section-subtitle">Zain brings together the essential tools for intentional living into one beautiful, connected experience.</p>
             </div>
-            <div class="pillars-grid">
-                <!-- Grow -->
-                <div class="pillar-card grow">
-                    <div class="pillar-icon">
-                        <span>&#127793;</span>
+
+            <div class="bento-grid">
+
+                <!-- Large: Habits (spans 2 rows) -->
+                <div class="bento-tile bento-habits will-animate">
+                    <div class="bento-tile-content">
+                        <div class="bento-icon-wrap">
+                            <img src="assets/images/screenshots/icon-home.png" alt="Habits" class="bento-3d-icon">
+                        </div>
+                        <div class="bento-label">Habits</div>
+                        <h3 class="bento-title">Build streaks<br>that actually stick</h3>
+                        <p class="bento-desc">Track daily, weekly, and monthly habits with flexible schedules, smart reminders, and visual streaks that make progress feel real.</p>
+                        <ul class="bento-features">
+                            <li>Yes/No, numeric &amp; checklist habits</li>
+                            <li>Visual streak calendar</li>
+                            <li>Smart reminders &amp; insights</li>
+                            <li>Challenge friends</li>
+                        </ul>
                     </div>
-                    <h3 class="pillar-title">Grow</h3>
-                    <p class="pillar-tagline">Habits, reading & reflection</p>
-                    <ul class="pillar-features">
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Unlimited habit tracking</span>
-                        </li>
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Reading progress & book clubs</span>
-                        </li>
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Daily journaling & gratitude</span>
-                        </li>
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Smart reminders</span>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Thrive -->
-                <div class="pillar-card thrive">
-                    <div class="pillar-icon">
-                        <span>&#10024;</span>
+                    <!-- CSS streak ring visual -->
+                    <div class="bento-visual-ring">
+                        <svg viewBox="0 0 100 100" class="streak-svg">
+                            <circle cx="50" cy="50" r="42" class="ring-track"/>
+                            <circle cx="50" cy="50" r="42" class="ring-fill" style="stroke-dasharray: 218 264;"/>
+                        </svg>
+                        <div class="ring-label">
+                            <span class="ring-num">21</span>
+                            <span class="ring-unit">day streak</span>
+                        </div>
                     </div>
-                    <h3 class="pillar-title">Thrive</h3>
-                    <p class="pillar-tagline">Fitness, mindfulness & wellness</p>
-                    <ul class="pillar-features">
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Apple Watch & Health sync</span>
-                        </li>
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Prayer time tracking</span>
-                        </li>
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Deep insights & analytics</span>
-                        </li>
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Pattern recognition</span>
-                        </li>
-                    </ul>
                 </div>
-                <!-- Connect -->
-                <div class="pillar-card connect">
-                    <div class="pillar-icon">
-                        <span>&#128171;</span>
+
+                <!-- Reading -->
+                <div class="bento-tile bento-reading will-animate">
+                    <img src="assets/images/screenshots/icon-library.png" alt="Reading" class="bento-3d-icon-sm">
+                    <div class="bento-label bento-label-gold">Reading</div>
+                    <h3 class="bento-title-sm">Track every<br>page you read</h3>
+                    <div class="mini-books">
+                        <div class="mini-book" style="--c:#2D6A4F;">78%</div>
+                        <div class="mini-book" style="--c:#7B6BA8;">45%</div>
+                        <div class="mini-book" style="--c:#9C6644;">23%</div>
                     </div>
-                    <h3 class="pillar-title">Connect</h3>
-                    <p class="pillar-tagline">Share & grow with friends</p>
-                    <ul class="pillar-features">
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Challenge friends on habits</span>
-                        </li>
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Join or create book clubs</span>
-                        </li>
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Share wins & milestones</span>
-                        </li>
-                        <li>
-                            <span class="feature-check">&#10003;</span>
-                            <span>Supportive community</span>
-                        </li>
-                    </ul>
                 </div>
-            </div>
+
+                <!-- Notes -->
+                <div class="bento-tile bento-notes will-animate">
+                    <img src="assets/images/screenshots/icon-notes.png" alt="Notes" class="bento-3d-icon-sm">
+                    <div class="bento-label bento-label-warm">Journal</div>
+                    <h3 class="bento-title-sm">Capture what<br>matters to you</h3>
+                    <div class="mini-note-tags">
+                        <span class="mini-tag">🙏 gratitude</span>
+                        <span class="mini-tag">💡 idea</span>
+                        <span class="mini-tag">✏️ journal</span>
+                    </div>
+                </div>
+
+                <!-- Community -->
+                <div class="bento-tile bento-community will-animate">
+                    <img src="assets/images/screenshots/icon-social.png" alt="Community" class="bento-3d-icon-sm">
+                    <div class="bento-label bento-label-teal-lt">Community</div>
+                    <h3 class="bento-title-sm">Grow with<br>your people</h3>
+                    <p class="bento-subdesc">Join book clubs, challenge friends on habits, share wins.</p>
+                </div>
+
+                <!-- Podcasts -->
+                <div class="bento-tile bento-podcasts will-animate">
+                    <img src="assets/images/screenshots/icon-stats.png" alt="Insights" class="bento-3d-icon-sm">
+                    <div class="bento-label bento-label-purple">Insights</div>
+                    <h3 class="bento-title-sm">Understand<br>your patterns</h3>
+                    <p class="bento-subdesc">Deep analytics that reveal how your habits shape your life.</p>
+                </div>
+
+            </div><!-- /bento-grid -->
         </div>
     </section>
 
-    <!-- Features Deep Dive -->
+    <!-- ═══════════════════════════════════════════
+         FEATURE DEEP DIVES — with CSS phone mockups
+    ═══════════════════════════════════════════ -->
     <section class="features-deep">
         <div class="section-container">
-            <!-- Habits Feature -->
-            <div class="feature-row">
+
+            <!-- ── HABITS ── -->
+            <div class="feature-row will-animate">
                 <div class="feature-content">
-                    <span class="feature-badge habits-badge">&#127793; Habits</span>
-                    <h3 class="feature-title">Build routines that<br><span class="title-accent">actually stick</span></h3>
-                    <p class="feature-description">
-                        Track daily, weekly, or monthly habits with flexible schedules. Get smart reminders, see your streaks grow, and celebrate every milestone along the way.
-                    </p>
+                    <span class="feature-badge badge-habits">🌱 Habits</span>
+                    <h3 class="feature-title">Build routines that<br><em class="title-serif-feature">actually stick</em></h3>
+                    <p class="feature-desc">Track daily, weekly, or monthly habits with flexible schedules. Get smart reminders, see your streaks grow, and celebrate every milestone along the way.</p>
                     <ul class="feature-list">
                         <li>Yes/No, numeric, or checklist habits</li>
-                        <li>Visual streak tracking</li>
-                        <li>Custom categories & icons</li>
+                        <li>Visual streak tracking &amp; calendar</li>
+                        <li>Custom categories &amp; icons</li>
                         <li>Progress insights over time</li>
+                        <li>Challenge friends &amp; compete</li>
                     </ul>
                 </div>
-                <div class="feature-visual habits-visual">
-                    <div class="visual-card">
-                        <div class="streak-display">
-                            <div class="streak-ring">
-                                <svg viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="45" class="streak-bg"/>
-                                    <circle cx="50" cy="50" r="45" class="streak-progress" style="stroke-dasharray: 220 283;"/>
-                                </svg>
-                                <div class="streak-center">
-                                    <span class="streak-number">21</span>
-                                    <span class="streak-label">days</span>
+                <div class="feature-visual">
+                    <!-- Habits screen phone mockup -->
+                    <div class="feat-phone">
+                        <div class="feat-phone-frame">
+                            <div class="feat-dynamic-island"></div>
+                            <div class="feat-screen">
+                                <div class="feat-header feat-header-teal">
+                                    <div class="feat-hdr-title">My Habits</div>
+                                    <div class="feat-hdr-sub">7 of 8 done today</div>
+                                </div>
+                                <div class="feat-body">
+                                    <div class="feat-streak-ring">
+                                        <svg viewBox="0 0 80 80">
+                                            <circle cx="40" cy="40" r="34" class="fs-ring-bg"/>
+                                            <circle cx="40" cy="40" r="34" class="fs-ring-fill" style="stroke-dasharray: 175 214;"/>
+                                        </svg>
+                                        <div class="feat-ring-center">
+                                            <span class="feat-ring-num">21</span>
+                                            <span class="feat-ring-unit">days</span>
+                                        </div>
+                                    </div>
+                                    <div class="feat-habits-list">
+                                        <div class="feat-habit-item fdone">
+                                            <div class="feat-chk">✓</div>
+                                            <div class="feat-hname">
+                                                <span class="feat-hemoji">📖</span> Read 30 min
+                                            </div>
+                                        </div>
+                                        <div class="feat-habit-item fdone">
+                                            <div class="feat-chk">✓</div>
+                                            <div class="feat-hname">
+                                                <span class="feat-hemoji">🧘</span> Meditate
+                                            </div>
+                                        </div>
+                                        <div class="feat-habit-item fdone">
+                                            <div class="feat-chk">✓</div>
+                                            <div class="feat-hname">
+                                                <span class="feat-hemoji">🏃</span> Exercise
+                                            </div>
+                                        </div>
+                                        <div class="feat-habit-item">
+                                            <div class="feat-ring-sm"></div>
+                                            <div class="feat-hname">
+                                                <span class="feat-hemoji">💧</span> Drink water
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="habit-samples">
-                            <div class="sample-habit">
-                                <span class="sample-emoji">&#128218;</span>
-                                <span class="sample-name">Read 30 min</span>
-                                <span class="sample-check done">&#10003;</span>
-                            </div>
-                            <div class="sample-habit">
-                                <span class="sample-emoji">&#129495;</span>
-                                <span class="sample-name">Exercise</span>
-                                <span class="sample-check done">&#10003;</span>
-                            </div>
-                            <div class="sample-habit">
-                                <span class="sample-emoji">&#128167;</span>
-                                <span class="sample-name">Drink water</span>
-                                <span class="sample-check">&#9675;</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Reading Feature -->
-            <div class="feature-row reverse">
+            <!-- ── READING ── (reversed) -->
+            <div class="feature-row feature-row-reverse will-animate">
                 <div class="feature-content">
-                    <span class="feature-badge reading-badge">&#128214; Reading</span>
-                    <h3 class="feature-title">Track your<br><span class="title-accent">reading journey</span></h3>
-                    <p class="feature-description">
-                        Keep all your books in one place. Log progress, save favorite quotes, write notes, and join book clubs to discuss what you're reading with friends.
-                    </p>
+                    <span class="feature-badge badge-reading">📚 Reading</span>
+                    <h3 class="feature-title">Track your<br><em class="title-serif-feature">reading journey</em></h3>
+                    <p class="feature-desc">Keep all your books in one place. Log progress, save favourite quotes, write notes, and join book clubs to discuss what you're reading with friends.</p>
                     <ul class="feature-list">
                         <li>Multiple books at once</li>
-                        <li>Quotes & notes collection</li>
-                        <li>Reading goals & statistics</li>
+                        <li>Quotes &amp; notes collection</li>
+                        <li>Reading goals &amp; statistics</li>
                         <li>Book clubs with friends</li>
+                        <li>Want-to-read shelf</li>
                     </ul>
                 </div>
-                <div class="feature-visual reading-visual">
-                    <div class="visual-card books-card">
-                        <div class="book-stack">
-                            <div class="book-item" style="--book-color: #2D6A4F;">
-                                <div class="book-spine"></div>
-                                <div class="book-progress" style="--progress: 78%;">78%</div>
+                <div class="feature-visual">
+                    <!-- Reading/Bookshelf screen -->
+                    <div class="feat-phone">
+                        <div class="feat-phone-frame">
+                            <div class="feat-dynamic-island"></div>
+                            <div class="feat-screen">
+                                <div class="feat-header feat-header-dark">
+                                    <div class="feat-hdr-title">My Library</div>
+                                    <div class="feat-hdr-sub">3 books in progress</div>
+                                </div>
+                                <div class="feat-body feat-body-reading">
+                                    <!-- Gold stats hero card (matches real app) -->
+                                    <div class="feat-reading-stats">
+                                        <div class="feat-rstat">
+                                            <span class="feat-rnum">3</span>
+                                            <span class="feat-rlbl">Reading</span>
+                                        </div>
+                                        <div class="feat-rdivider"></div>
+                                        <div class="feat-rstat">
+                                            <span class="feat-rnum">12</span>
+                                            <span class="feat-rlbl">Finished</span>
+                                        </div>
+                                        <div class="feat-rdivider"></div>
+                                        <div class="feat-rstat">
+                                            <span class="feat-rnum">8</span>
+                                            <span class="feat-rlbl">Saved</span>
+                                        </div>
+                                    </div>
+                                    <!-- Book tiles 2×2 -->
+                                    <div class="feat-books-grid">
+                                        <div class="feat-book-tile" style="--bc:#2D6A4F;">
+                                            <div class="feat-book-bar" style="--p:78%;"></div>
+                                            <span class="feat-book-pct">78%</span>
+                                        </div>
+                                        <div class="feat-book-tile" style="--bc:#7B6BA8;">
+                                            <div class="feat-book-bar" style="--p:45%;"></div>
+                                            <span class="feat-book-pct">45%</span>
+                                        </div>
+                                        <div class="feat-book-tile" style="--bc:#9C6644;">
+                                            <div class="feat-book-bar" style="--p:23%;"></div>
+                                            <span class="feat-book-pct">23%</span>
+                                        </div>
+                                        <div class="feat-book-tile feat-book-add">
+                                            <span class="feat-book-plus">+</span>
+                                            <span class="feat-book-add-lbl">Add book</span>
+                                        </div>
+                                    </div>
+                                    <!-- 2026 reading goal -->
+                                    <div class="feat-goal-card">
+                                        <div class="feat-goal-top">
+                                            <span class="feat-goal-label">2026 Reading Goal</span>
+                                            <span class="feat-goal-count">12 / 24 books</span>
+                                        </div>
+                                        <div class="feat-goal-bar-bg">
+                                            <div class="feat-goal-bar-fill" style="width:50%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="book-item" style="--book-color: #7B6BA8;">
-                                <div class="book-spine"></div>
-                                <div class="book-progress" style="--progress: 45%;">45%</div>
-                            </div>
-                            <div class="book-item" style="--book-color: #9C6644;">
-                                <div class="book-spine"></div>
-                                <div class="book-progress" style="--progress: 23%;">23%</div>
-                            </div>
-                        </div>
-                        <div class="reading-goal">
-                            <div class="goal-label">2025 Goal</div>
-                            <div class="goal-progress">
-                                <div class="goal-bar" style="--progress: 40%;"></div>
-                            </div>
-                            <div class="goal-count">8 of 20 books</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Notes Feature -->
-            <div class="feature-row">
+            <!-- ── NOTES / JOURNAL ── -->
+            <div class="feature-row will-animate">
                 <div class="feature-content">
-                    <span class="feature-badge notes-badge">&#128221; Notes</span>
-                    <h3 class="feature-title">Capture thoughts<br><span class="title-accent">that matter</span></h3>
-                    <p class="feature-description">
-                        Journal your day, record gratitude, save ideas, and track goals. Your notes are organized, searchable, and always with you.
-                    </p>
+                    <span class="feature-badge badge-notes">✏️ Journal</span>
+                    <h3 class="feature-title">Capture thoughts<br><em class="title-serif-feature">that matter</em></h3>
+                    <p class="feature-desc">Journal your day, record gratitude, save ideas, and track goals. Multiple note types, offline access, and a beautiful timeline that makes reflection a joy.</p>
                     <ul class="feature-list">
                         <li>Daily journal entries</li>
-                        <li>Gratitude & reflection prompts</li>
-                        <li>Ideas & goal tracking</li>
+                        <li>Gratitude &amp; reflection prompts</li>
+                        <li>Ideas, lists &amp; goal tracking</li>
                         <li>Offline access to all notes</li>
+                        <li>Searchable &amp; tagged</li>
                     </ul>
                 </div>
-                <div class="feature-visual notes-visual">
-                    <div class="visual-card notes-card">
-                        <div class="note-preview">
-                            <div class="note-date">Today</div>
-                            <div class="note-title">Morning Reflection</div>
-                            <div class="note-excerpt">Grateful for the quiet morning. Set intentions to focus on deep work and...</div>
-                            <div class="note-tags">
-                                <span class="note-tag">&#128591; gratitude</span>
-                                <span class="note-tag">&#127775; intention</span>
-                            </div>
-                        </div>
-                        <div class="notes-list-preview">
-                            <div class="note-item">
-                                <span class="note-icon">&#128161;</span>
-                                <span>App idea: daily prompts</span>
-                            </div>
-                            <div class="note-item">
-                                <span class="note-icon">&#127919;</span>
-                                <span>Q1 Goals Review</span>
+                <div class="feature-visual">
+                    <!-- Notes/Journal screen -->
+                    <div class="feat-phone">
+                        <div class="feat-phone-frame">
+                            <div class="feat-dynamic-island"></div>
+                            <div class="feat-screen">
+                                <div class="feat-header feat-header-teal">
+                                    <div class="feat-hdr-title">My Journal</div>
+                                    <div class="feat-hdr-sub">14 entries this month</div>
+                                </div>
+                                <div class="feat-body feat-body-notes">
+                                    <!-- Elegant note card (matches real elegantCard style) -->
+                                    <div class="feat-note-card">
+                                        <div class="feat-note-accent" style="background:#8B5A3C;"></div>
+                                        <div class="feat-note-inner">
+                                            <div class="feat-note-header">
+                                                <div class="feat-note-badge" style="background:rgba(139,90,60,0.12);">✏️</div>
+                                                <span class="feat-note-date">Today</span>
+                                            </div>
+                                            <div class="feat-note-title">Morning Reflection</div>
+                                            <div class="feat-note-excerpt">Grateful for the quiet morning. Set intentions to focus on deep work and meaningful connections…</div>
+                                            <div class="feat-note-tags">
+                                                <span class="feat-note-tag">🙏 gratitude</span>
+                                                <span class="feat-note-tag">🌟 intention</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Second card -->
+                                    <div class="feat-note-card feat-note-card-sm">
+                                        <div class="feat-note-accent" style="background:#3B82F6;"></div>
+                                        <div class="feat-note-inner">
+                                            <div class="feat-note-header">
+                                                <div class="feat-note-badge" style="background:rgba(59,130,246,0.12);">💡</div>
+                                                <span class="feat-note-date">Yesterday</span>
+                                            </div>
+                                            <div class="feat-note-title">App idea: daily prompts</div>
+                                        </div>
+                                    </div>
+                                    <!-- Entry type quick row -->
+                                    <div class="feat-entry-row">
+                                        <div class="feat-entry-chip active-chip">✏️ Write</div>
+                                        <div class="feat-entry-chip">💡 Idea</div>
+                                        <div class="feat-entry-chip">🙏 Thanks</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- ═══════════════════════════════════════════
+         TESTIMONIALS
+    ═══════════════════════════════════════════ -->
+    <section class="testimonials-section">
+        <div class="section-container">
+            <div class="section-header will-animate">
+                <span class="section-badge">Early community</span>
+                <h2 class="section-title">People who live<br><em class="title-serif-sm">with intention</em></h2>
+            </div>
+
+            <div class="testimonials-grid">
+
+                <!-- PLACEHOLDER: replace with real testimonial -->
+                <div class="testimonial-card will-animate">
+                    <div class="testi-stars">★★★★★</div>
+                    <blockquote class="testi-quote">"I've tried every habit app out there. Zain is the first one that actually feels like it was made for someone who cares about <em>why</em> they're building habits, not just ticking boxes."</blockquote>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background: linear-gradient(135deg, #2D6A4F, #40916C);">S</div>
+                        <div class="testi-info">
+                            <span class="testi-name">Sarah M.</span>
+                            <span class="testi-detail">Habit streak: 47 days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLACEHOLDER: replace with real testimonial -->
+                <div class="testimonial-card will-animate">
+                    <div class="testi-stars">★★★★★</div>
+                    <blockquote class="testi-quote">"The book clubs feature alone is worth it. My reading group moved from WhatsApp to Zain and we actually discuss books properly now. It's like Goodreads but with soul."</blockquote>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background: linear-gradient(135deg, #C9A962, #A68B4B);">A</div>
+                        <div class="testi-info">
+                            <span class="testi-name">Ahmed K.</span>
+                            <span class="testi-detail">Read 18 books this year</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLACEHOLDER: replace with real testimonial -->
+                <div class="testimonial-card will-animate">
+                    <div class="testi-stars">★★★★★</div>
+                    <blockquote class="testi-quote">"The journal section surprised me most. The different entry types — gratitude, reflection, ideas — each feel distinct and intentional. My morning routine now starts with Zain."</blockquote>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">L</div>
+                        <div class="testi-info">
+                            <span class="testi-name">Layla R.</span>
+                            <span class="testi-detail">Journal streak: 31 days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLACEHOLDER: replace with real testimonial -->
+                <div class="testimonial-card will-animate">
+                    <div class="testi-stars">★★★★★</div>
+                    <blockquote class="testi-quote">"Competing with my brother on habit streaks has been the most fun I've had getting healthy. We're both more consistent than we've ever been."</blockquote>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background: linear-gradient(135deg, #0D7377, #1D9A9E);">M</div>
+                        <div class="testi-info">
+                            <span class="testi-name">Marcus T.</span>
+                            <span class="testi-detail">Fitness streak: 62 days</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         HOW IT WORKS
+    ═══════════════════════════════════════════ -->
+    <section class="how-section">
+        <div class="section-container">
+            <div class="section-header will-animate">
+                <span class="section-badge">Getting started</span>
+                <h2 class="section-title">Up and running<br><em class="title-serif-sm">in minutes</em></h2>
+            </div>
+
+            <div class="how-steps">
+                <div class="how-step will-animate">
+                    <div class="how-num">01</div>
+                    <img src="assets/images/screenshots/icon-home.png" alt="Download" class="how-icon">
+                    <h4 class="how-title">Download Zain</h4>
+                    <p class="how-desc">Available on iOS and Android. Free to start — no credit card needed.</p>
+                </div>
+                <div class="how-arrow">→</div>
+                <div class="how-step will-animate">
+                    <div class="how-num">02</div>
+                    <img src="assets/images/screenshots/icon-notes.png" alt="Journal" class="how-icon">
+                    <h4 class="how-title">Set your first habit</h4>
+                    <p class="how-desc">Choose from pre-made habits or create your own. Pick your schedule and reminder time.</p>
+                </div>
+                <div class="how-arrow">→</div>
+                <div class="how-step will-animate">
+                    <div class="how-num">03</div>
+                    <img src="assets/images/screenshots/icon-social.png" alt="Community" class="how-icon">
+                    <h4 class="how-title">Grow with your community</h4>
+                    <p class="how-desc">Join book clubs, challenge friends, share wins, and build momentum together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PRICING
+    ═══════════════════════════════════════════ -->
     <section class="pricing" id="pricing">
         <div class="section-container">
-            <div class="section-header">
+            <div class="section-header will-animate">
                 <span class="section-badge">Simple Pricing</span>
-                <h2 class="section-title">Start free, upgrade<br><span class="title-accent">when you're ready</span></h2>
-                <p class="section-subtitle">Try everything with a 7-day free trial. No credit card required to start.</p>
+                <h2 class="section-title">Start free, unlock more<br><em class="title-serif-sm">when you're ready</em></h2>
+                <p class="section-subtitle">Try everything free. Upgrade when it feels right — no pressure.</p>
+
+                <!-- Annual/Monthly toggle -->
+                <div class="pricing-toggle">
+                    <button class="toggle-btn active" data-period="annual">Annual <span class="toggle-save">Save 40%</span></button>
+                    <button class="toggle-btn" data-period="monthly">Monthly</button>
+                </div>
             </div>
+
             <div class="pricing-grid">
-                <!-- Free Plan -->
-                <div class="pricing-card free">
-                    <div class="pricing-header">
-                        <h3 class="plan-name">Free</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$0</span>
-                            <span class="price-period">forever</span>
-                        </div>
+                <!-- Free -->
+                <div class="pricing-card will-animate">
+                    <div class="plan-name">Free</div>
+                    <div class="plan-price-block">
+                        <span class="plan-amount">$0</span>
+                        <span class="plan-period">forever</span>
                     </div>
-                    <p class="plan-description">Perfect for getting started with intentional living.</p>
-                    <ul class="plan-features">
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>Up to 5 habits</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>1 book at a time</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>Basic notes & journaling</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>Daily reminders</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>Community access</span>
-                        </li>
+                    <p class="plan-desc">Perfect for getting started with intentional living.</p>
+                    <ul class="plan-feats">
+                        <li><span class="feat-dot"></span>Up to 5 habits</li>
+                        <li><span class="feat-dot"></span>1 book at a time</li>
+                        <li><span class="feat-dot"></span>Basic notes &amp; journaling</li>
+                        <li><span class="feat-dot"></span>Daily reminders</li>
+                        <li><span class="feat-dot"></span>Community access</li>
                     </ul>
-                    <a href="#download" class="btn btn-outline">Get Started</a>
+                    <a href="#waitlist" class="btn btn-outline-teal">Get Started Free</a>
                 </div>
-                <!-- Pro Plan -->
-                <div class="pricing-card pro">
-                    <div class="plan-badge">
-                        <span>&#10024;</span> Launch Special - 50% Off Forever
+
+                <!-- Pro -->
+                <div class="pricing-card pricing-card-pro will-animate">
+                    <div class="pro-badge">✦ Launch Special — 50% Off</div>
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price-block">
+                        <span class="plan-original" data-annual="$59.99" data-monthly="$5.99">$59.99</span>
+                        <span class="plan-amount plan-amount-gold" data-annual="$29.99" data-monthly="$3.99">$29.99</span>
+                        <span class="plan-period" data-annual="/year" data-monthly="/month">/year</span>
                     </div>
-                    <div class="pricing-header">
-                        <h3 class="plan-name">Pro</h3>
-                        <div class="plan-price">
-                            <span class="price-original">$59.99</span>
-                            <span class="price-amount">$29.99</span>
-                            <span class="price-period">/year</span>
-                        </div>
-                        <div class="price-monthly">Just $2.50/month</div>
-                    </div>
-                    <p class="plan-description">Unlock your full potential with unlimited access.</p>
-                    <ul class="plan-features">
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span><strong>Unlimited</strong> habits</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span><strong>Unlimited</strong> books & collections</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span><strong>Unlimited</strong> notes & quotes</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>Checklist habits for complex routines</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>Apple Watch & fitness sync</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>Deep insights & pattern recognition</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>Priority support</span>
-                        </li>
-                        <li>
-                            <span class="check">&#10003;</span>
-                            <span>Ad-free experience</span>
-                        </li>
+                    <div class="plan-monthly-note" data-annual="Just $2.50/month" data-monthly="Billed monthly">Just $2.50/month</div>
+                    <p class="plan-desc">Unlock your full potential with unlimited access to everything.</p>
+                    <ul class="plan-feats">
+                        <li><span class="feat-dot feat-dot-gold"></span><strong>Unlimited</strong> habits</li>
+                        <li><span class="feat-dot feat-dot-gold"></span><strong>Unlimited</strong> books &amp; collections</li>
+                        <li><span class="feat-dot feat-dot-gold"></span><strong>Unlimited</strong> notes &amp; quotes</li>
+                        <li><span class="feat-dot feat-dot-gold"></span>Checklist habits for complex routines</li>
+                        <li><span class="feat-dot feat-dot-gold"></span>Apple Watch &amp; fitness sync</li>
+                        <li><span class="feat-dot feat-dot-gold"></span>Deep insights &amp; pattern recognition</li>
+                        <li><span class="feat-dot feat-dot-gold"></span>Priority support</li>
+                        <li><span class="feat-dot feat-dot-gold"></span>Ad-free experience</li>
                     </ul>
-                    <a href="#download" class="btn btn-primary">Start 7-Day Free Trial</a>
-                    <p class="trial-note">No payment required to start trial</p>
+                    <a href="#waitlist" class="btn btn-gold">Join Waitlist for Pro Access</a>
+                    <p class="plan-note">Early waitlist members get 3 months Pro free at launch</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section class="download" id="download">
+    <!-- ═══════════════════════════════════════════
+         WAITLIST — replaces Download section
+    ═══════════════════════════════════════════ -->
+    <section class="waitlist-section" id="waitlist">
+        <div class="waitlist-noise"></div>
         <div class="section-container">
-            <div class="download-content">
-                <div class="download-icon">
-                    <img src="assets/images/logo.png" alt="Zain App Icon">
+            <div class="waitlist-content">
+                <div class="waitlist-icon">
+                    <img src="assets/images/logo.png" alt="Zain">
                 </div>
-                <h2 class="download-title">Ready to live with intention?</h2>
-                <p class="download-subtitle">Download Zain free and start your journey today.</p>
-                <div class="download-buttons">
-                    <a href="#" class="store-btn app-store" aria-label="Download on App Store">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                        </svg>
-                        <div class="store-text">
-                            <span class="store-label">Download on the</span>
-                            <span class="store-name">App Store</span>
-                        </div>
-                    </a>
-                    <a href="#" class="store-btn play-store" aria-label="Get it on Google Play">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                        </svg>
-                        <div class="store-text">
-                            <span class="store-label">Get it on</span>
-                            <span class="store-name">Google Play</span>
-                        </div>
-                    </a>
+                <h2 class="waitlist-title">Be first to know<br>when we launch.</h2>
+                <p class="waitlist-subtitle">Join the waitlist and get <strong>3 months of Pro free</strong> when Zain launches on iOS &amp; Android.</p>
+
+                <form class="waitlist-form" action="https://formspree.io/YOUR_FORM_ID" method="POST" id="waitlistForm">
+                    <div class="form-row">
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            class="waitlist-input"
+                            required
+                            autocomplete="email"
+                        >
+                        <button type="submit" class="waitlist-btn">
+                            <span class="btn-text">Join Waitlist</span>
+                            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                    <div class="waitlist-success" id="waitlistSuccess" hidden>
+                        <span>🎉 You're on the list! We'll email you the moment we launch.</span>
+                    </div>
+                </form>
+
+                <p class="waitlist-note">No spam. One email when we launch. Unsubscribe any time.</p>
+
+                <!-- Greyed store badges (not linked — pre-launch) -->
+                <div class="store-badges-preview">
+                    <div class="store-badge-placeholder">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" opacity="0.5"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        <span>App Store</span>
+                    </div>
+                    <div class="store-badge-placeholder">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" opacity="0.5"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                        <span>Google Play</span>
+                    </div>
+                    <span class="store-coming">Coming soon to iOS &amp; Android</span>
                 </div>
-                <p class="coming-soon-note">Coming soon to both platforms</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════ -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-main">
@@ -541,19 +782,19 @@
                     <p class="footer-tagline">Live with intention.<br>Every habit. Every insight. Every goal.</p>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-column">
+                    <div class="footer-col">
                         <h4>Product</h4>
                         <a href="#features">Features</a>
                         <a href="#pricing">Pricing</a>
-                        <a href="#download">Download</a>
+                        <a href="#waitlist">Join Waitlist</a>
                     </div>
-                    <div class="footer-column">
+                    <div class="footer-col">
                         <h4>Support</h4>
                         <a href="support.html">Help Center</a>
                         <a href="support.html#contact">Contact Us</a>
                         <a href="delete-account.html">Delete Account</a>
                     </div>
-                    <div class="footer-column">
+                    <div class="footer-col">
                         <h4>Legal</h4>
                         <a href="privacy.html">Privacy Policy</a>
                         <a href="terms.html">Terms of Service</a>
@@ -561,17 +802,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="copyright">&copy; 2025 Zain App. All rights reserved.</p>
+                <p class="footer-copy">&copy; 2026 Zain App. All rights reserved.</p>
                 <div class="footer-social">
-                    <a href="#" aria-label="Twitter">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
+                    <!-- REPLACE href with real social handles -->
+                    <a href="#" aria-label="Twitter / X" class="social-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
+                    <a href="#" aria-label="Instagram" class="social-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                 </div>
             </div>

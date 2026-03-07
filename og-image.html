@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  OG IMAGE GENERATOR
+  ─────────────────────────────────────────────────────────────────
+  Open this file in Chrome, resize the browser window to exactly
+  1200 × 630 pixels, then take a screenshot and save it as:
+  website/assets/images/og-image.png
+
+  Or use a tool like:
+    npx capture-website og-image.html --width=1200 --height=630 --output=assets/images/og-image.png
+  ─────────────────────────────────────────────────────────────────
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    background: linear-gradient(135deg, #062F31 0%, #0A5060 45%, #0D7377 100%);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Grain */
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+  }
+
+  /* Ambient circles */
+  body::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,98,0.15) 0%, transparent 70%);
+    top: -200px;
+    right: -100px;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    padding: 0 90px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+  }
+
+  /* Left content */
+  .left { flex: 1; }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .logo-img {
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+  }
+
+  .logo-name {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 36px;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  h1 {
+    font-size: 68px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -3px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  h1 em {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    color: #C9A962;
+    font-size: 74px;
+    display: block;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    max-width: 460px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    margin-top: 28px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #C9A962;
+    box-shadow: 0 0 8px rgba(201,169,98,0.8);
+  }
+
+  /* Right: mini phone */
+  .right { flex-shrink: 0; }
+
+  .phone {
+    width: 220px;
+    height: 430px;
+    background: linear-gradient(160deg, #2C2C2E, #1C1C1E);
+    border-radius: 44px;
+    padding: 12px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.08);
+  }
+
+  .phone-di {
+    width: 80px;
+    height: 24px;
+    background: #0A0A0A;
+    border-radius: 16px;
+    margin: 0 auto 12px;
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #FDFCFA;
+    border-radius: 33px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-hdr {
+    background: linear-gradient(135deg, #0D7377, #1D9A9E);
+    padding: 16px 14px 12px;
+  }
+
+  .app-hi { font-size: 10px; color: rgba(255,255,255,0.7); }
+  .app-nm { font-size: 18px; font-weight: 700; color: #fff; }
+
+  .app-body { flex: 1; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 5px;
+  }
+
+  .stat-c {
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 4px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(13,115,119,0.06);
+  }
+
+  .stat-i { font-size: 14px; }
+  .stat-n { font-size: 15px; font-weight: 800; color: #A68B4B; }
+  .stat-l { font-size: 7px; color: #9CABA9; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .habit {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #fff;
+    padding: 7px 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(13,115,119,0.05);
+  }
+
+  .habit.done { background: rgba(13,115,119,0.06); }
+
+  .hchk {
+    width: 16px; height: 16px;
+    border-radius: 5px;
+    background: #0D7377;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .hrng {
+    width: 16px; height: 16px;
+    border-radius: 5px;
+    border: 2px solid #D4E5E7;
+    flex-shrink: 0;
+  }
+
+  .htxt { font-size: 10px; font-weight: 500; color: #1E2E3D; }
+  .habit.done .htxt { color: #0D7377; }
+
+  /* Domain label */
+  .domain {
+    position: absolute;
+    bottom: 36px;
+    left: 90px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="logo-row">
+        <div class="logo-img">🌱</div>
+        <span class="logo-name">Zain</span>
+      </div>
+      <h1>
+        Live with<br>
+        <em>intention.</em>
+      </h1>
+      <p class="subtitle">Build lasting habits, track your reading, journal your thoughts, and grow with a community that believes in you.</p>
+      <div class="badge">
+        <div class="badge-dot"></div>
+        Coming to iOS &amp; Android
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="phone">
+        <div class="phone-di"></div>
+        <div class="phone-screen">
+          <div class="app-hdr">
+            <div class="app-hi">Good morning</div>
+            <div class="app-nm">Sarah ✨</div>
+          </div>
+          <div class="app-body">
+            <div class="stat-row">
+              <div class="stat-c"><div class="stat-i">🔥</div><div class="stat-n">21</div><div class="stat-l">Streak</div></div>
+              <div class="stat-c"><div class="stat-i">📚</div><div class="stat-n">3</div><div class="stat-l">Books</div></div>
+              <div class="stat-c"><div class="stat-i">✍️</div><div class="stat-n">14</div><div class="stat-l">Notes</div></div>
+            </div>
+            <div class="habit done"><div class="hchk">✓</div><span class="htxt">Morning meditation</span></div>
+            <div class="habit done"><div class="hchk">✓</div><span class="htxt">Read 30 pages</span></div>
+            <div class="habit"><div class="hrng"></div><span class="htxt">Evening journal</span></div>
+            <div class="habit"><div class="hrng"></div><span class="htxt">Drink 8 glasses</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="domain">thezainapp.com</div>
+</body>
+</html>
