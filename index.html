@@ -32,8 +32,422 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+
+    <!-- ══════════════════════════════════════════════════════════
+         COMING SOON MODE TOGGLE
+         Set to true  = show coming-soon landing + waitlist
+         Set to false = show full website
+    ══════════════════════════════════════════════════════════ -->
+    <script>window.COMING_SOON_MODE = true;</script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style id="coming-soon-styles">
+      /* ═══ Coming Soon Landing ═══ */
+      .cs-landing { display: none; }
+      .cs-landing.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #FDFCFA;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Paper grain texture */
+      .cs-landing::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+        background-size: 200px 200px;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* Ambient glow */
+      .cs-landing::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background:
+          radial-gradient(ellipse at 50% 40%, rgba(13, 115, 119, 0.03) 0%, transparent 55%),
+          radial-gradient(ellipse at 25% 70%, rgba(201, 169, 98, 0.02) 0%, transparent 40%),
+          radial-gradient(ellipse at 75% 70%, rgba(232, 132, 107, 0.02) 0%, transparent 40%);
+        z-index: 0;
+      }
+
+      /* Floating particles */
+      .cs-particles {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 1;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .cs-particle {
+        position: absolute;
+        width: 3px; height: 3px;
+        border-radius: 50%;
+        background: rgba(201, 169, 98, 0.25);
+        opacity: 0;
+        animation: csFloatUp linear infinite;
+      }
+      .cs-particle:nth-child(1)  { left: 12%; width: 2px; height: 2px; animation-duration: 18s; animation-delay: 0s; }
+      .cs-particle:nth-child(2)  { left: 28%; width: 3px; height: 3px; animation-duration: 22s; animation-delay: 2s; }
+      .cs-particle:nth-child(3)  { left: 45%; width: 2px; height: 2px; animation-duration: 20s; animation-delay: 4s; }
+      .cs-particle:nth-child(4)  { left: 62%; width: 2.5px; height: 2.5px; animation-duration: 24s; animation-delay: 1s; }
+      .cs-particle:nth-child(5)  { left: 78%; width: 2px; height: 2px; animation-duration: 19s; animation-delay: 3s; }
+      .cs-particle:nth-child(6)  { left: 35%; width: 1.5px; height: 1.5px; animation-duration: 21s; animation-delay: 5s; }
+      .cs-particle:nth-child(7)  { left: 55%; width: 2px; height: 2px; animation-duration: 23s; animation-delay: 6s; }
+      .cs-particle:nth-child(8)  { left: 85%; width: 1.5px; height: 1.5px; animation-duration: 17s; animation-delay: 2.5s; }
+      .cs-particle:nth-child(9)  { left: 20%; width: 2.5px; height: 2.5px; animation-duration: 25s; animation-delay: 7s; }
+      .cs-particle:nth-child(10) { left: 70%; width: 2px; height: 2px; animation-duration: 20s; animation-delay: 4.5s; }
+
+      @keyframes csFloatUp {
+        0%   { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
+        10%  { opacity: 0.3; transform: translateY(85vh) translateX(5px) scale(0.8); }
+        50%  { opacity: 0.15; transform: translateY(40vh) translateX(-8px) scale(1); }
+        90%  { opacity: 0.05; transform: translateY(5vh) translateX(3px) scale(0.6); }
+        100% { transform: translateY(-5vh) translateX(0) scale(0); opacity: 0; }
+      }
+
+      .cs-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 24px;
+      }
+
+      /* Reveal animations */
+      .cs-reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .cs-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .cs-meet {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 22px;
+        font-weight: 300;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+        color: #aaa;
+      }
+
+      .cs-logo {
+        height: 120px;
+        object-fit: contain;
+        margin-top: 14px;
+        transform: translateY(18px) scale(0.96);
+        transition: opacity 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .cs-logo.visible {
+        transform: translateY(0) scale(1);
+      }
+
+      .cs-divider {
+        width: 0;
+        height: 0.5px;
+        background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.6), transparent);
+        margin-top: 30px;
+        transition: width 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .cs-divider.visible {
+        width: 100px;
+        opacity: 1;
+        transform: none;
+      }
+
+      .cs-tagline {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        font-weight: 400;
+        font-style: italic;
+        color: #333;
+        margin-top: 26px;
+        text-align: center;
+        line-height: 1.55;
+        max-width: 520px;
+      }
+
+      /* Pillars */
+      .cs-pillars {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        margin-top: 36px;
+      }
+      .cs-pillar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 1s ease, transform 1s ease;
+      }
+      .cs-pillar.visible { opacity: 1; transform: translateY(0); }
+      .cs-pillar-dot {
+        width: 5px; height: 5px;
+        border-radius: 50%;
+      }
+      .cs-dot-teal  { background: #0D7377; }
+      .cs-dot-gold  { background: #C9A962; }
+      .cs-dot-coral { background: #E8846B; }
+      .cs-pillar-label {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #777;
+      }
+      .cs-pillar-sep {
+        color: #ccc;
+        font-size: 11px;
+        margin: 0 18px;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+      .cs-pillar-sep.visible { opacity: 1; }
+
+      /* Coming soon text */
+      .cs-divider2 {
+        width: 0;
+        height: 0.5px;
+        background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.5), transparent);
+        margin-top: 40px;
+        transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .cs-divider2.visible { width: 50px; opacity: 1; transform: none; }
+
+      .cs-coming-soon {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 11px;
+        text-transform: uppercase;
+        color: #0D7377;
+        margin-top: 20px;
+      }
+
+      .cs-platforms {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 12px;
+      }
+      .cs-platform-label {
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        font-weight: 300;
+        color: #aaa;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .cs-platform-dot {
+        width: 3px; height: 3px;
+        border-radius: 50%;
+        background: #ccc;
+      }
+
+      /* Waitlist form */
+      .cs-waitlist {
+        margin-top: 44px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 1.4s ease, transform 1.4s ease;
+      }
+      .cs-waitlist.visible { opacity: 1; transform: translateY(0); }
+
+      .cs-waitlist-label {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #999;
+        margin-bottom: 16px;
+      }
+
+      .cs-form-row {
+        display: flex;
+        gap: 0;
+        border: 1px solid rgba(13, 115, 119, 0.15);
+        border-radius: 28px;
+        overflow: hidden;
+        background: rgba(255,255,255, 0.7);
+        backdrop-filter: blur(10px);
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+      .cs-form-row:focus-within {
+        border-color: rgba(13, 115, 119, 0.35);
+        box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.06);
+      }
+
+      .cs-email-input {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        color: #333;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 14px 24px;
+        width: 280px;
+        letter-spacing: 0.3px;
+      }
+      .cs-email-input::placeholder {
+        color: #bbb;
+        font-weight: 300;
+      }
+
+      .cs-submit-btn {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: white;
+        background: #0D7377;
+        border: none;
+        padding: 14px 28px;
+        cursor: pointer;
+        transition: background 0.3s;
+        white-space: nowrap;
+      }
+      .cs-submit-btn:hover { background: #0a5c5f; }
+
+      .cs-waitlist-success {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        color: #0D7377;
+        margin-top: 12px;
+        text-align: center;
+      }
+
+      .cs-waitlist-note {
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        font-weight: 300;
+        color: #bbb;
+        margin-top: 12px;
+        letter-spacing: 0.3px;
+      }
+
+      .cs-waitlist-promo {
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #C9A962;
+        margin-top: 8px;
+        letter-spacing: 0.3px;
+      }
+
+      .cs-url {
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        font-weight: 300;
+        color: #bbb;
+        letter-spacing: 1.5px;
+        margin-top: 18px;
+      }
+
+      /* Logo breathing */
+      @keyframes csBreathe {
+        0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+        50% { filter: drop-shadow(0 0 20px rgba(13, 115, 119, 0.06)); }
+      }
+      .cs-logo.visible { animation: csBreathe 6s ease-in-out infinite 5s; }
+
+      /* Gold shimmer */
+      @keyframes csShimmer {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      .cs-divider.visible, .cs-divider2.visible { animation: csShimmer 5s ease-in-out infinite 7s; }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        .cs-tagline { font-size: 22px; padding: 0 12px; }
+        .cs-meet { font-size: 18px; letter-spacing: 8px; }
+        .cs-logo { height: 90px; }
+        .cs-email-input { width: 200px; padding: 12px 18px; font-size: 13px; }
+        .cs-submit-btn { padding: 12px 20px; font-size: 12px; letter-spacing: 2px; }
+        .cs-pillar-label { font-size: 12px; letter-spacing: 2px; }
+        .cs-pillar-sep { margin: 0 12px; }
+        .cs-coming-soon { font-size: 15px; letter-spacing: 8px; }
+      }
+
+      /* Hide full site when coming soon is active */
+      body.coming-soon-active .full-site { display: none !important; }
+      body:not(.coming-soon-active) .cs-landing { display: none !important; }
+    </style>
 </head>
 <body>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         COMING SOON LANDING PAGE
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="cs-landing" id="csLanding">
+      <div class="cs-particles">
+        <div class="cs-particle"></div><div class="cs-particle"></div>
+        <div class="cs-particle"></div><div class="cs-particle"></div>
+        <div class="cs-particle"></div><div class="cs-particle"></div>
+        <div class="cs-particle"></div><div class="cs-particle"></div>
+        <div class="cs-particle"></div><div class="cs-particle"></div>
+      </div>
+      <div class="cs-content">
+        <div class="cs-meet cs-reveal" id="cs1">Meet</div>
+        <img class="cs-logo cs-reveal" id="cs2" src="assets/images/logo_with_name.png" alt="Zain">
+        <div class="cs-divider cs-reveal" id="cs3"></div>
+        <div class="cs-tagline cs-reveal" id="cs4">Your daily companion to<br>living with intention</div>
+        <div class="cs-pillars">
+          <div class="cs-pillar" id="csp1"><div class="cs-pillar-dot cs-dot-teal"></div><div class="cs-pillar-label">Habits</div></div>
+          <div class="cs-pillar-sep" id="csps1">&middot;</div>
+          <div class="cs-pillar" id="csp2"><div class="cs-pillar-dot cs-dot-gold"></div><div class="cs-pillar-label">Reading</div></div>
+          <div class="cs-pillar-sep" id="csps2">&middot;</div>
+          <div class="cs-pillar" id="csp3"><div class="cs-pillar-dot cs-dot-coral"></div><div class="cs-pillar-label">Journaling</div></div>
+        </div>
+        <div class="cs-divider2 cs-reveal" id="cs6"></div>
+        <div class="cs-coming-soon cs-reveal" id="cs7">Coming Soon</div>
+        <div class="cs-platforms cs-reveal" id="cs8">
+          <span class="cs-platform-label">iOS</span>
+          <div class="cs-platform-dot"></div>
+          <span class="cs-platform-label">Android</span>
+        </div>
+
+        <!-- Waitlist -->
+        <div class="cs-waitlist" id="cs9">
+          <div class="cs-waitlist-label">Join the Waitlist</div>
+          <form class="cs-form" id="csWaitlistForm">
+            <div class="cs-form-row">
+              <input type="email" name="email" placeholder="your@email.com" class="cs-email-input" required autocomplete="email">
+              <button type="submit" class="cs-submit-btn">Join</button>
+            </div>
+            <div class="cs-waitlist-success" id="csWaitlistSuccess" hidden>You're on the list — we'll be in touch.</div>
+          </form>
+          <div class="cs-waitlist-promo">Early members get 1 month of Pro free</div>
+          <div class="cs-waitlist-note">No spam, ever. One email when we launch.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         FULL SITE (hidden when COMING_SOON_MODE is true)
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="full-site">
 
     <!-- ═══════════════════════════════════════════
          NAVIGATION
@@ -711,7 +1125,7 @@
                         <li><span class="feat-dot feat-dot-gold"></span>Ad-free experience</li>
                     </ul>
                     <a href="#waitlist" class="btn btn-gold">Join Waitlist for Pro Access</a>
-                    <p class="plan-note">Early waitlist members get 3 months Pro free at launch</p>
+                    <p class="plan-note">Early waitlist members get 1 month Pro free at launch</p>
                 </div>
             </div>
         </div>
@@ -728,9 +1142,9 @@
                     <img src="assets/images/logo.png" alt="Zain">
                 </div>
                 <h2 class="waitlist-title">Be first to know<br>when we launch.</h2>
-                <p class="waitlist-subtitle">Join the waitlist and get <strong>3 months of Pro free</strong> when Zain launches on iOS &amp; Android.</p>
+                <p class="waitlist-subtitle">Join the waitlist and get <strong>1 month of Pro free</strong> when Zain launches on iOS &amp; Android.</p>
 
-                <form class="waitlist-form" action="https://formspree.io/YOUR_FORM_ID" method="POST" id="waitlistForm">
+                <form class="waitlist-form" action="https://zain1-linux.azurewebsites.net/api/Waitlist" method="POST" id="waitlistForm">
                     <div class="form-row">
                         <input
                             type="email"
@@ -816,6 +1230,88 @@
         </div>
     </footer>
 
+    </div><!-- /.full-site -->
+
     <script src="script.js"></script>
+
+    <!-- Coming Soon Mode Toggle & Animation -->
+    <script>
+    (function() {
+      if (!window.COMING_SOON_MODE) return;
+
+      document.body.classList.add('coming-soon-active');
+      document.getElementById('csLanding').classList.add('active');
+
+      // Animation sequence
+      const seq = [
+        [1000, 'cs1'],
+        [1200, 'cs2'],
+        [1000, 'cs3'],
+        [800,  'cs4'],
+        [600,  'csp1'],
+        [200,  'csps1'],
+        [500,  'csp2'],
+        [200,  'csps2'],
+        [500,  'csp3'],
+        [900,  'cs6'],
+        [700,  'cs7'],
+        [500,  'cs8'],
+        [600,  'cs9']
+      ];
+
+      const allIds = ['cs1','cs2','cs3','cs4','csp1','csps1','csp2','csps2','csp3','cs6','cs7','cs8','cs9'];
+
+      function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+      async function runReveal() {
+        allIds.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.remove('visible');
+        });
+        await sleep(800);
+        for (const [delay, ...ids] of seq) {
+          await sleep(delay);
+          ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('visible');
+          });
+        }
+      }
+
+      runReveal();
+
+      // Waitlist form submission
+      const form = document.getElementById('csWaitlistForm');
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = form.querySelector('.cs-submit-btn');
+          const origText = btn.textContent;
+          btn.textContent = '...';
+          btn.disabled = true;
+
+          try {
+            const email = form.querySelector('.cs-email-input').value;
+            const response = await fetch('https://zain1-linux.azurewebsites.net/api/Waitlist', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: email })
+            });
+            const data = await response.json();
+            if (data.success) {
+              form.querySelector('.cs-form-row').style.display = 'none';
+              document.getElementById('csWaitlistSuccess').hidden = false;
+            } else {
+              throw new Error(data.message || 'Form submission failed');
+            }
+          } catch (err) {
+            btn.textContent = origText;
+            btn.disabled = false;
+            alert('Something went wrong. Please try again.');
+          }
+        });
+      }
+    })();
+    </script>
 </body>
 </html>

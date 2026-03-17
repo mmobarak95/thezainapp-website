@@ -166,21 +166,21 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.disabled = true;
 
             try {
-                const formData = new FormData(waitlistForm);
+                const email = waitlistForm.querySelector('.waitlist-input').value;
                 const response = await fetch(waitlistForm.action, {
                     method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email })
                 });
-
-                if (response.ok) {
+                const data = await response.json();
+                if (data.success) {
                     waitlistForm.querySelector('.form-row').style.display = 'none';
                     waitlistSuccess.hidden = false;
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error(data.message || 'Form submission failed');
                 }
             } catch {
-                // Fallback: show success anyway (Formspree might redirect)
+                // Fallback: show success anyway
                 waitlistForm.querySelector('.form-row').style.display = 'none';
                 waitlistSuccess.hidden = false;
             }
