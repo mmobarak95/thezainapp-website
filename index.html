@@ -21,6 +21,9 @@
     <meta name="twitter:description" content="Build lasting habits, track your reading, journal your thoughts, and grow alongside a community that believes in you.">
     <meta name="twitter:image" content="https://thezainapp.com/assets/images/og-image.png">
 
+    <!-- Smart App Banner (iOS Safari) -->
+    <meta name="apple-itunes-app" content="app-id=6757399804">
+
     <title>Zain — Live With Intention | Habit Tracker & Personal Growth App</title>
 
     <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -125,8 +128,8 @@
       .cs-reveal {
         opacity: 0;
         transform: translateY(18px);
-        transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
       .cs-reveal.visible {
         opacity: 1;
@@ -147,8 +150,8 @@
         object-fit: contain;
         margin-top: 14px;
         transform: translateY(18px) scale(0.96);
-        transition: opacity 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    transform 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
       .cs-logo.visible {
         transform: translateY(0) scale(1);
@@ -159,7 +162,7 @@
         height: 0.5px;
         background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.6), transparent);
         margin-top: 30px;
-        transition: width 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: width 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
       .cs-divider.visible {
         width: 100px;
@@ -192,7 +195,7 @@
         gap: 8px;
         opacity: 0;
         transform: translateY(12px);
-        transition: opacity 1s ease, transform 1s ease;
+        transition: opacity 0.5s ease, transform 0.5s ease;
       }
       .cs-pillar.visible { opacity: 1; transform: translateY(0); }
       .cs-pillar-dot {
@@ -215,7 +218,7 @@
         font-size: 11px;
         margin: 0 18px;
         opacity: 0;
-        transition: opacity 0.8s ease;
+        transition: opacity 0.4s ease;
       }
       .cs-pillar-sep.visible { opacity: 1; }
 
@@ -225,7 +228,7 @@
         height: 0.5px;
         background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.5), transparent);
         margin-top: 40px;
-        transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
       .cs-divider2.visible { width: 50px; opacity: 1; transform: none; }
 
@@ -267,7 +270,7 @@
         align-items: center;
         opacity: 0;
         transform: translateY(18px);
-        transition: opacity 1.4s ease, transform 1.4s ease;
+        transition: opacity 0.7s ease, transform 0.7s ease;
       }
       .cs-waitlist.visible { opacity: 1; transform: translateY(0); }
 
@@ -1244,19 +1247,19 @@
 
       // Animation sequence
       const seq = [
-        [1000, 'cs1'],
-        [1200, 'cs2'],
-        [1000, 'cs3'],
-        [800,  'cs4'],
-        [600,  'csp1'],
-        [200,  'csps1'],
-        [500,  'csp2'],
-        [200,  'csps2'],
-        [500,  'csp3'],
-        [900,  'cs6'],
-        [700,  'cs7'],
-        [500,  'cs8'],
-        [600,  'cs9']
+        [500, 'cs1'],
+        [600, 'cs2'],
+        [500, 'cs3'],
+        [400, 'cs4'],
+        [300, 'csp1'],
+        [100, 'csps1'],
+        [250, 'csp2'],
+        [100, 'csps2'],
+        [250, 'csp3'],
+        [450, 'cs6'],
+        [350, 'cs7'],
+        [250, 'cs8'],
+        [300, 'cs9']
       ];
 
       const allIds = ['cs1','cs2','cs3','cs4','csp1','csps1','csp2','csps2','csp3','cs6','cs7','cs8','cs9'];
@@ -1268,7 +1271,7 @@
           const el = document.getElementById(id);
           if (el) el.classList.remove('visible');
         });
-        await sleep(800);
+        await sleep(400);
         for (const [delay, ...ids] of seq) {
           await sleep(delay);
           ids.forEach(id => {
