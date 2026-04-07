@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zain - Live with intention. Build better habits, track your reading, journal your thoughts, and connect with a community that grows together.">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thezainapp.com/">
+    <meta property="og:title" content="Zain — Live With Intention">
+    <meta property="og:description" content="Build lasting habits, track your reading, journal your thoughts, and grow alongside a community that believes in you.">
+    <meta property="og:image" content="https://thezainapp.com/assets/images/og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zain — Live With Intention">
+    <meta name="twitter:description" content="Build lasting habits, track your reading, journal your thoughts, and grow alongside a community that believes in you.">
+    <meta name="twitter:image" content="https://thezainapp.com/assets/images/og-image.png">
+
+    <!-- Smart App Banner (iOS Safari) -->
+    <meta name="apple-itunes-app" content="app-id=6757399804">
+
+    <title>Zain — Open in App</title>
+
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <link rel="apple-touch-icon" href="/assets/images/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FDFCFA;
+            color: #2D2B28;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            color: #2D2B28;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #8B8680;
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+        }
+
+        .context-message {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2D2B28;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .context-detail {
+            font-size: 14px;
+            color: #8B8680;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .open-btn {
+            display: block;
+            width: 100%;
+            padding: 16px 24px;
+            background: #2D2B28;
+            color: #FDFCFA;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 16px;
+            transition: background 0.2s;
+        }
+
+        .open-btn:hover { background: #1a1918; }
+
+        .store-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .store-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 16px;
+            background: #F5F3F0;
+            border: 1px solid #E8E4DF;
+            border-radius: 12px;
+            color: #2D2B28;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .store-btn:hover { background: #EBE8E4; }
+
+        .store-icon { font-size: 18px; }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            color: #C4BFB8;
+            font-size: 12px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #E8E4DF;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #C4BFB8;
+        }
+
+        .footer a {
+            color: #8B8680;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/assets/images/logo.png" alt="Zain" class="logo">
+        <h1 class="brand">Zain</h1>
+        <p class="tagline">LIVE WITH INTENTION</p>
+
+        <p class="context-message" id="contextMessage">Someone shared something with you</p>
+        <p class="context-detail" id="contextDetail">Open the Zain app to view it, or download it to get started.</p>
+
+        <a class="open-btn" id="openBtn" href="#">Open in Zain</a>
+
+        <div class="divider">or download the app</div>
+
+        <div class="store-buttons">
+            <a class="store-btn" id="appStoreBtn" href="https://apps.apple.com/app/id6757399804">
+                <span class="store-icon">&#63743;</span>
+                App Store
+            </a>
+            <a class="store-btn" id="playStoreBtn" href="https://play.google.com/store/apps/details?id=com.zainapp">
+                <span class="store-icon">&#9654;</span>
+                Google Play
+            </a>
+        </div>
+
+        <p class="footer">
+            <a href="https://thezainapp.com">thezainapp.com</a>
+        </p>
+    </div>
+
+    <script>
+        (function() {
+            var path = window.location.pathname;
+            var fullUrl = window.location.href;
+
+            // Context-aware messaging based on URL path
+            var messages = {
+                '/post/': { title: 'Someone shared a post with you', detail: 'Open the Zain app to see this post and join the conversation.' },
+                '/u/': { title: 'Check out this profile on Zain', detail: 'Open the Zain app to view their habits, books, and notes.' },
+                '/club/': { title: 'You\'re invited to a book club', detail: 'Open the Zain app to join this club and read together.' },
+                '/book/': { title: 'Someone shared a book with you', detail: 'Open the Zain app to see this book and start reading.' },
+                '/note/': { title: 'Someone shared a note with you', detail: 'Open the Zain app to read this note.' },
+                '/competition/': { title: 'You\'re invited to a competition', detail: 'Open the Zain app to join this challenge.' },
+                '/invite': { title: 'You have a pending invitation', detail: 'Open the Zain app to view your invitations.' },
+            };
+
+            var msgEl = document.getElementById('contextMessage');
+            var detailEl = document.getElementById('contextDetail');
+
+            for (var prefix in messages) {
+                if (path.indexOf(prefix) === 0) {
+                    msgEl.textContent = messages[prefix].title;
+                    detailEl.textContent = messages[prefix].detail;
+                    break;
+                }
+            }
+
+            // "Open in Zain" button links to the same URL (app intercepts if installed)
+            document.getElementById('openBtn').href = fullUrl;
+
+            // Deferred deep link: copy URL to clipboard before redirecting to store
+            function handleStoreRedirect(e, storeUrl) {
+                e.preventDefault();
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(fullUrl).then(function() {
+                            window.location.href = storeUrl;
+                        }).catch(function() {
+                            window.location.href = storeUrl;
+                        });
+                    } else {
+                        window.location.href = storeUrl;
+                    }
+                } catch (err) {
+                    window.location.href = storeUrl;
+                }
+            }
+
+            var appStoreUrl = 'https://apps.apple.com/app/id6757399804';
+            var playStoreUrl = 'https://play.google.com/store/apps/details?id=com.zainapp';
+
+            document.getElementById('appStoreBtn').addEventListener('click', function(e) {
+                handleStoreRedirect(e, appStoreUrl);
+            });
+            document.getElementById('playStoreBtn').addEventListener('click', function(e) {
+                handleStoreRedirect(e, playStoreUrl);
+            });
+        })();
+    </script>
+</body>
+</html>

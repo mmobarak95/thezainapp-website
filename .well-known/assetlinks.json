@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.zainapp",
+    "sha256_cert_fingerprints": ["1D:6C:03:52:A9:42:CF:2F:EC:49:6F:60:97:46:63:3A:AE:E9:3F:DC:1F:E0:EB:65:45:C9:60:FE:DE:71:5C:70"]
+  }
+}]

@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "HC3BJ28FNY.com.itoasis.zainApp",
+        "paths": [
+          "/post/*",
+          "/u/*",
+          "/club/*",
+          "/book/*",
+          "/note/*",
+          "/competition/*",
+          "/invite"
+        ]
+      }
+    ]
+  }
+}
