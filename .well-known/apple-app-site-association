@@ -11,6 +11,9 @@
           "/book/*",
           "/note/*",
           "/competition/*",
+          "/group-challenge/*",
+          "/challenge/*",
+          "/reading-buddy/*",
           "/invite"
         ]
       }
