@@ -1,1320 +1,529 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zain - Live with intention. Build better habits, track your reading, journal your thoughts, and connect with a community that grows together.">
-    <meta name="keywords" content="habit tracker, reading tracker, journaling app, personal growth, mindfulness, productivity, book clubs, wellness">
-    <meta name="author" content="Zain App">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#FBF9F4" />
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://thezainapp.com/">
-    <meta property="og:title" content="Zain — Live With Intention">
-    <meta property="og:description" content="Build lasting habits, track your reading, journal your thoughts, and grow alongside a community that believes in you.">
-    <meta property="og:image" content="https://thezainapp.com/assets/images/og-image.png">
+<title>Zain — A daily companion for living with intention</title>
+<meta name="description" content="Zain is a quiet, literary home for the small practices that add up to a meaningful life — habits, reading, journaling, fitness, and a community that believes in the same thing." />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://thezainapp.com/">
-    <meta name="twitter:title" content="Zain — Live With Intention">
-    <meta name="twitter:description" content="Build lasting habits, track your reading, journal your thoughts, and grow alongside a community that believes in you.">
-    <meta name="twitter:image" content="https://thezainapp.com/assets/images/og-image.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Zain — A daily companion" />
+<meta property="og:description" content="Habits, reading, journaling, fitness, and a community that believes in the same thing. A quiet, literary home for the practices that add up." />
+<meta property="og:image" content="https://thezainapp.com/assets/brand/logo_with_name.png" />
+<meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Smart App Banner (iOS Safari) -->
-    <meta name="apple-itunes-app" content="app-id=6757399804">
+<!-- Smart App Banner -->
+<meta name="apple-itunes-app" content="app-id=6757399804" />
 
-    <title>Zain — Live With Intention | Habit Tracker & Personal Growth App</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="assets/brand/logo.png" />
+<link rel="apple-touch-icon" href="assets/brand/logo.png" />
 
-    <link rel="icon" type="image/png" href="assets/images/logo.png">
-    <link rel="apple-touch-icon" href="assets/images/logo.png">
+<!-- Fonts: Georgia is system-resident (used for display); Inter for UI copy -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
 
-    <!-- Google Fonts: DM Serif Display + Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- ══════════════════════════════════════════════════════════
-         COMING SOON MODE TOGGLE
-         Set to true  = show coming-soon landing + waitlist
-         Set to false = show full website
-    ══════════════════════════════════════════════════════════ -->
-    <script>window.COMING_SOON_MODE = true;</script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
-    <style id="coming-soon-styles">
-      /* ═══ Coming Soon Landing ═══ */
-      .cs-landing { display: none; }
-      .cs-landing.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        background: #FDFCFA;
-        position: relative;
-        overflow: hidden;
-      }
-
-      /* Paper grain texture */
-      .cs-landing::after {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
-        background-size: 200px 200px;
-        z-index: 1;
-        pointer-events: none;
-      }
-
-      /* Ambient glow */
-      .cs-landing::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background:
-          radial-gradient(ellipse at 50% 40%, rgba(13, 115, 119, 0.03) 0%, transparent 55%),
-          radial-gradient(ellipse at 25% 70%, rgba(201, 169, 98, 0.02) 0%, transparent 40%),
-          radial-gradient(ellipse at 75% 70%, rgba(232, 132, 107, 0.02) 0%, transparent 40%);
-        z-index: 0;
-      }
-
-      /* Floating particles */
-      .cs-particles {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        z-index: 1;
-        pointer-events: none;
-        overflow: hidden;
-      }
-      .cs-particle {
-        position: absolute;
-        width: 3px; height: 3px;
-        border-radius: 50%;
-        background: rgba(201, 169, 98, 0.25);
-        opacity: 0;
-        animation: csFloatUp linear infinite;
-      }
-      .cs-particle:nth-child(1)  { left: 12%; width: 2px; height: 2px; animation-duration: 18s; animation-delay: 0s; }
-      .cs-particle:nth-child(2)  { left: 28%; width: 3px; height: 3px; animation-duration: 22s; animation-delay: 2s; }
-      .cs-particle:nth-child(3)  { left: 45%; width: 2px; height: 2px; animation-duration: 20s; animation-delay: 4s; }
-      .cs-particle:nth-child(4)  { left: 62%; width: 2.5px; height: 2.5px; animation-duration: 24s; animation-delay: 1s; }
-      .cs-particle:nth-child(5)  { left: 78%; width: 2px; height: 2px; animation-duration: 19s; animation-delay: 3s; }
-      .cs-particle:nth-child(6)  { left: 35%; width: 1.5px; height: 1.5px; animation-duration: 21s; animation-delay: 5s; }
-      .cs-particle:nth-child(7)  { left: 55%; width: 2px; height: 2px; animation-duration: 23s; animation-delay: 6s; }
-      .cs-particle:nth-child(8)  { left: 85%; width: 1.5px; height: 1.5px; animation-duration: 17s; animation-delay: 2.5s; }
-      .cs-particle:nth-child(9)  { left: 20%; width: 2.5px; height: 2.5px; animation-duration: 25s; animation-delay: 7s; }
-      .cs-particle:nth-child(10) { left: 70%; width: 2px; height: 2px; animation-duration: 20s; animation-delay: 4.5s; }
-
-      @keyframes csFloatUp {
-        0%   { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
-        10%  { opacity: 0.3; transform: translateY(85vh) translateX(5px) scale(0.8); }
-        50%  { opacity: 0.15; transform: translateY(40vh) translateX(-8px) scale(1); }
-        90%  { opacity: 0.05; transform: translateY(5vh) translateX(3px) scale(0.6); }
-        100% { transform: translateY(-5vh) translateX(0) scale(0); opacity: 0; }
-      }
-
-      .cs-content {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0 24px;
-      }
-
-      /* Reveal animations */
-      .cs-reveal {
-        opacity: 0;
-        transform: translateY(18px);
-        transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      .cs-reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .cs-meet {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 22px;
-        font-weight: 300;
-        letter-spacing: 10px;
-        text-transform: uppercase;
-        color: #aaa;
-      }
-
-      .cs-logo {
-        height: 120px;
-        object-fit: contain;
-        margin-top: 14px;
-        transform: translateY(18px) scale(0.96);
-        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      .cs-logo.visible {
-        transform: translateY(0) scale(1);
-      }
-
-      .cs-divider {
-        width: 0;
-        height: 0.5px;
-        background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.6), transparent);
-        margin-top: 30px;
-        transition: width 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      .cs-divider.visible {
-        width: 100px;
-        opacity: 1;
-        transform: none;
-      }
-
-      .cs-tagline {
-        font-family: 'Playfair Display', serif;
-        font-size: 28px;
-        font-weight: 400;
-        font-style: italic;
-        color: #333;
-        margin-top: 26px;
-        text-align: center;
-        line-height: 1.55;
-        max-width: 520px;
-      }
-
-      /* Pillars */
-      .cs-pillars {
-        display: flex;
-        align-items: center;
-        gap: 0;
-        margin-top: 36px;
-      }
-      .cs-pillar {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        opacity: 0;
-        transform: translateY(12px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-      }
-      .cs-pillar.visible { opacity: 1; transform: translateY(0); }
-      .cs-pillar-dot {
-        width: 5px; height: 5px;
-        border-radius: 50%;
-      }
-      .cs-dot-teal  { background: #0D7377; }
-      .cs-dot-gold  { background: #C9A962; }
-      .cs-dot-coral { background: #E8846B; }
-      .cs-pillar-label {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 14px;
-        font-weight: 400;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: #777;
-      }
-      .cs-pillar-sep {
-        color: #ccc;
-        font-size: 11px;
-        margin: 0 18px;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-      .cs-pillar-sep.visible { opacity: 1; }
-
-      /* Coming soon text */
-      .cs-divider2 {
-        width: 0;
-        height: 0.5px;
-        background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.5), transparent);
-        margin-top: 40px;
-        transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      .cs-divider2.visible { width: 50px; opacity: 1; transform: none; }
-
-      .cs-coming-soon {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 18px;
-        font-weight: 500;
-        letter-spacing: 11px;
-        text-transform: uppercase;
-        color: #0D7377;
-        margin-top: 20px;
-      }
-
-      .cs-platforms {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-top: 12px;
-      }
-      .cs-platform-label {
-        font-family: 'Inter', sans-serif;
-        font-size: 11px;
-        font-weight: 300;
-        color: #aaa;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-      .cs-platform-dot {
-        width: 3px; height: 3px;
-        border-radius: 50%;
-        background: #ccc;
-      }
-
-      /* Waitlist form */
-      .cs-waitlist {
-        margin-top: 44px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        opacity: 0;
-        transform: translateY(18px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
-      }
-      .cs-waitlist.visible { opacity: 1; transform: translateY(0); }
-
-      .cs-waitlist-label {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 15px;
-        font-weight: 400;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: #999;
-        margin-bottom: 16px;
-      }
-
-      .cs-form-row {
-        display: flex;
-        gap: 0;
-        border: 1px solid rgba(13, 115, 119, 0.15);
-        border-radius: 28px;
-        overflow: hidden;
-        background: rgba(255,255,255, 0.7);
-        backdrop-filter: blur(10px);
-        transition: border-color 0.3s, box-shadow 0.3s;
-      }
-      .cs-form-row:focus-within {
-        border-color: rgba(13, 115, 119, 0.35);
-        box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.06);
-      }
-
-      .cs-email-input {
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-        font-weight: 300;
-        color: #333;
-        background: transparent;
-        border: none;
-        outline: none;
-        padding: 14px 24px;
-        width: 280px;
-        letter-spacing: 0.3px;
-      }
-      .cs-email-input::placeholder {
-        color: #bbb;
-        font-weight: 300;
-      }
-
-      .cs-submit-btn {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: white;
-        background: #0D7377;
-        border: none;
-        padding: 14px 28px;
-        cursor: pointer;
-        transition: background 0.3s;
-        white-space: nowrap;
-      }
-      .cs-submit-btn:hover { background: #0a5c5f; }
-
-      .cs-waitlist-success {
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-        color: #0D7377;
-        margin-top: 12px;
-        text-align: center;
-      }
-
-      .cs-waitlist-note {
-        font-family: 'Inter', sans-serif;
-        font-size: 11px;
-        font-weight: 300;
-        color: #bbb;
-        margin-top: 12px;
-        letter-spacing: 0.3px;
-      }
-
-      .cs-waitlist-promo {
-        font-family: 'Inter', sans-serif;
-        font-size: 12px;
-        font-weight: 400;
-        color: #C9A962;
-        margin-top: 8px;
-        letter-spacing: 0.3px;
-      }
-
-      .cs-url {
-        font-family: 'Inter', sans-serif;
-        font-size: 11px;
-        font-weight: 300;
-        color: #bbb;
-        letter-spacing: 1.5px;
-        margin-top: 18px;
-      }
-
-      /* Logo breathing */
-      @keyframes csBreathe {
-        0%, 100% { filter: drop-shadow(0 0 0px transparent); }
-        50% { filter: drop-shadow(0 0 20px rgba(13, 115, 119, 0.06)); }
-      }
-      .cs-logo.visible { animation: csBreathe 6s ease-in-out infinite 5s; }
-
-      /* Gold shimmer */
-      @keyframes csShimmer {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-      }
-      .cs-divider.visible, .cs-divider2.visible { animation: csShimmer 5s ease-in-out infinite 7s; }
-
-      /* Responsive */
-      @media (max-width: 600px) {
-        .cs-tagline { font-size: 22px; padding: 0 12px; }
-        .cs-meet { font-size: 18px; letter-spacing: 8px; }
-        .cs-logo { height: 90px; }
-        .cs-email-input { width: 200px; padding: 12px 18px; font-size: 13px; }
-        .cs-submit-btn { padding: 12px 20px; font-size: 12px; letter-spacing: 2px; }
-        .cs-pillar-label { font-size: 12px; letter-spacing: 2px; }
-        .cs-pillar-sep { margin: 0 12px; }
-        .cs-coming-soon { font-size: 15px; letter-spacing: 8px; }
-      }
-
-      /* Hide full site when coming soon is active */
-      body.coming-soon-active .full-site { display: none !important; }
-      body:not(.coming-soon-active) .cs-landing { display: none !important; }
-    </style>
+<link rel="stylesheet" href="home.css" />
 </head>
+
 <body>
 
-    <!-- ═══════════════════════════════════════════════════════════
-         COMING SOON LANDING PAGE
-    ═══════════════════════════════════════════════════════════ -->
-    <div class="cs-landing" id="csLanding">
-      <div class="cs-particles">
-        <div class="cs-particle"></div><div class="cs-particle"></div>
-        <div class="cs-particle"></div><div class="cs-particle"></div>
-        <div class="cs-particle"></div><div class="cs-particle"></div>
-        <div class="cs-particle"></div><div class="cs-particle"></div>
-        <div class="cs-particle"></div><div class="cs-particle"></div>
-      </div>
-      <div class="cs-content">
-        <div class="cs-meet cs-reveal" id="cs1">Meet</div>
-        <img class="cs-logo cs-reveal" id="cs2" src="assets/images/logo_with_name.png" alt="Zain">
-        <div class="cs-divider cs-reveal" id="cs3"></div>
-        <div class="cs-tagline cs-reveal" id="cs4">Your daily companion to<br>living with intention</div>
-        <div class="cs-pillars">
-          <div class="cs-pillar" id="csp1"><div class="cs-pillar-dot cs-dot-teal"></div><div class="cs-pillar-label">Habits</div></div>
-          <div class="cs-pillar-sep" id="csps1">&middot;</div>
-          <div class="cs-pillar" id="csp2"><div class="cs-pillar-dot cs-dot-gold"></div><div class="cs-pillar-label">Reading</div></div>
-          <div class="cs-pillar-sep" id="csps2">&middot;</div>
-          <div class="cs-pillar" id="csp3"><div class="cs-pillar-dot cs-dot-coral"></div><div class="cs-pillar-label">Journaling</div></div>
-        </div>
-        <div class="cs-divider2 cs-reveal" id="cs6"></div>
-        <div class="cs-coming-soon cs-reveal" id="cs7">Coming Soon</div>
-        <div class="cs-platforms cs-reveal" id="cs8">
-          <span class="cs-platform-label">iOS</span>
-          <div class="cs-platform-dot"></div>
-          <span class="cs-platform-label">Android</span>
-        </div>
+<!-- ─────────────────────────────────────────────────────────────
+     MASTHEAD
+     ───────────────────────────────────────────────────────────── -->
+<header class="masthead" id="top">
+  <div class="wrap masthead__inner">
+    <a class="masthead__brand" href="#top" aria-label="Zain — home">
+      <img src="assets/brand/logo.png" alt="" class="masthead__mark" />
+      <span class="masthead__wordmark">Zain</span>
+    </a>
 
-        <!-- Waitlist -->
-        <div class="cs-waitlist" id="cs9">
-          <div class="cs-waitlist-label">Join the Waitlist</div>
-          <form class="cs-form" id="csWaitlistForm">
-            <div class="cs-form-row">
-              <input type="email" name="email" placeholder="your@email.com" class="cs-email-input" required autocomplete="email">
-              <button type="submit" class="cs-submit-btn">Join</button>
-            </div>
-            <div class="cs-waitlist-success" id="csWaitlistSuccess" hidden>You're on the list — we'll be in touch.</div>
-          </form>
-          <div class="cs-waitlist-promo">Early members get 1 month of Pro free</div>
-          <div class="cs-waitlist-note">No spam, ever. One email when we launch.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════════════
-         FULL SITE (hidden when COMING_SOON_MODE is true)
-    ═══════════════════════════════════════════════════════════ -->
-    <div class="full-site">
-
-    <!-- ═══════════════════════════════════════════
-         NAVIGATION
-    ═══════════════════════════════════════════ -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <img src="assets/images/logo.png" alt="Zain" class="logo-img">
-                <span class="logo-text">Zain</span>
-            </a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="support.html">Support</a>
-            </div>
-            <a href="#waitlist" class="nav-cta">Join Waitlist</a>
-            <button class="mobile-menu-btn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+    <nav class="masthead__nav" aria-label="Sections">
+      <a href="#pillars">The App</a>
+      <a href="#habits">Habits</a>
+      <a href="#library">Library</a>
+      <a href="#journal">Journal</a>
+      <a href="#community">Community</a>
+      <a href="#day">A Day</a>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="support.html">Support</a>
-        <a href="#waitlist" class="mobile-cta">Join Waitlist</a>
+    <a class="btn btn--small btn--primary" href="#download">
+      <svg aria-hidden="true" width="14" height="16" viewBox="0 0 14 16" fill="currentColor"><path d="M11.5 8.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.6-3.4zM9.2 1.6c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/></svg>
+      <span>Download</span>
+    </a>
+  </div>
+  <div class="masthead__rule"></div>
+  <p class="dateline wrap">Vol. I · Spring 2026 · Preview edition · <em>thezainapp.com</em></p>
+</header>
+
+
+<!-- ─────────────────────────────────────────────────────────────
+     HERO
+     ───────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero__grain" aria-hidden="true"></div>
+
+  <div class="wrap hero__inner">
+    <div class="hero__copy will-animate">
+      <div class="kicker"><span class="kicker__line"></span>A daily companion</div>
+      <h1 class="hero__title">
+        Living with <em>intention,</em><br />
+        one quiet day <br class="br-mobile" />at a time.
+      </h1>
+      <p class="hero__lede">
+        Zain is a literary home for the small practices that add up to a
+        meaningful life — your <strong>habits</strong>, your <strong>reading</strong>,
+        your <strong>journal</strong>, your <strong>fitness</strong>, and a
+        <strong>community</strong> that believes in the same thing.
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg" href="#download" data-track="hero-download">
+          <svg aria-hidden="true" width="18" height="20" viewBox="0 0 14 16" fill="currentColor"><path d="M11.5 8.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.6-3.4zM9.2 1.6c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/></svg>
+          <span>Download the app</span>
+        </a>
+        <a class="btn btn--ghost btn--lg" href="#pillars">
+          See what's inside
+          <span aria-hidden="true" class="btn__arrow">→</span>
+        </a>
+      </div>
+
+      <p class="hero__meta">
+        <span class="hero__meta-dot" aria-hidden="true"></span>
+        Free to start · Pro arrives with a 30-day trial
+      </p>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         HERO — Dark teal gradient
-    ═══════════════════════════════════════════ -->
-    <section class="hero">
-        <div class="hero-noise"></div>
-        <div class="hero-container">
+    <div class="hero__art will-animate">
+      <!-- Device frame -->
+      <div class="device">
+        <div class="device__notch" aria-hidden="true"></div>
+        <img class="device__screen" src="assets/screenshots/home.jpg" alt="The Zain home screen at night — today's habits, reading, and a gentle prompt to reflect." />
+      </div>
 
-            <!-- Left: Copy -->
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    <span>Your companion for intentional living</span>
-                </div>
+      <!-- Gold foil rule anchor -->
+      <div class="hero__foilrule" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
 
-                <h1 class="hero-title">
-                    Live with<br>
-                    <em class="title-serif">intention.</em>
-                </h1>
 
-                <p class="hero-subtitle">
-                    Build lasting habits, track your reading journey, capture meaningful thoughts, and grow alongside a community that believes in you.
-                </p>
+<!-- ─────────────────────────────────────────────────────────────
+     SIX PILLARS — the sections of the app
+     ───────────────────────────────────────────────────────────── -->
+<section class="pillars" id="pillars">
+  <div class="wrap">
+    <header class="section-head will-animate">
+      <div class="kicker"><span class="kicker__line"></span>Inside the app</div>
+      <h2 class="section-head__title">
+        Six quiet rooms.<br />
+        <em>One companion.</em>
+      </h2>
+      <p class="section-head__lede">
+        Most apps pull you in a dozen directions. Zain has six — chosen with
+        care, laid out like the sections of a well-kept journal.
+      </p>
+    </header>
 
-                <div class="hero-cta">
-                    <a href="#waitlist" class="btn btn-hero-primary">
-                        <span>Join the Waitlist</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="#features" class="btn btn-hero-secondary">
-                        <span>See Features</span>
-                    </a>
-                </div>
+    <div class="pillars__grid">
+      <a class="pillar will-animate" href="#habits">
+        <img class="pillar__icon" src="assets/icons/habits.png" alt="" />
+        <span class="pillar__kicker">The Ritual</span>
+        <h3 class="pillar__title">Habits</h3>
+        <p class="pillar__body">Streaks that don't shame. Checklists for the days that need scaffolding.</p>
+        <span class="pillar__read">Read more →</span>
+      </a>
 
-                <div class="hero-social-proof">
-                    <div class="avatars">
-                        <div class="avatar" style="background: linear-gradient(135deg, #2D6A4F, #40916C);">S</div>
-                        <div class="avatar" style="background: linear-gradient(135deg, #0D7377, #1D9A9E);">M</div>
-                        <div class="avatar" style="background: linear-gradient(135deg, #C9A962, #A68B4B);">A</div>
-                        <div class="avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">J</div>
-                    </div>
-                    <p class="proof-text">Join our growing community of intentional people</p>
-                </div>
-            </div>
+      <a class="pillar will-animate" href="#library">
+        <img class="pillar__icon" src="assets/icons/library.png" alt="" />
+        <span class="pillar__kicker">The Library</span>
+        <h3 class="pillar__title">Reading</h3>
+        <p class="pillar__body">A shelf for every book you've touched, with the notes and passages you want to remember.</p>
+        <span class="pillar__read">Read more →</span>
+      </a>
 
-            <!-- Right: iPhone 16 Pro CSS Mockup -->
-            <div class="hero-visual">
-                <div class="phone-ambient"></div>
-                <div class="phone-mockup">
-                    <div class="phone-frame">
-                        <div class="dynamic-island"></div>
-                        <div class="phone-screen">
+      <a class="pillar will-animate" href="#journal">
+        <img class="pillar__icon" src="assets/icons/journal.png" alt="" />
+        <span class="pillar__kicker">The Journal</span>
+        <h3 class="pillar__title">Notes</h3>
+        <p class="pillar__body">Gratitude, reflection, lists, letters. A softer place than a blank page.</p>
+        <span class="pillar__read">Read more →</span>
+      </a>
 
-                            <!-- Accurate HomeScreen CSS replica -->
-                            <div class="app-screen">
+      <a class="pillar will-animate" href="#community">
+        <img class="pillar__icon" src="assets/icons/community.png" alt="" />
+        <span class="pillar__kicker">The Gazette</span>
+        <h3 class="pillar__title">Community</h3>
+        <p class="pillar__body">A quiet feed of the people you trust — book clubs, habit challenges, small wins.</p>
+        <span class="pillar__read">Read more →</span>
+      </a>
 
-                                <!-- Teal header (matches real app Colors.primaryClr) -->
-                                <div class="app-header">
-                                    <div class="app-greeting">Good morning</div>
-                                    <div class="app-name">Sarah ✨</div>
-                                    <div class="app-date">Monday, March 7</div>
-                                </div>
+      <a class="pillar will-animate" href="#fitness">
+        <img class="pillar__icon" src="assets/icons/fitness.png" alt="" />
+        <span class="pillar__kicker">The Broadsheet</span>
+        <h3 class="pillar__title">Fitness</h3>
+        <p class="pillar__body">Walks, workouts, personal records — the dossier of a body kept in motion.</p>
+        <span class="pillar__read">Read more →</span>
+      </a>
 
-                                <!-- Scrollable content area -->
-                                <div class="app-content">
+      <a class="pillar will-animate" href="#insights">
+        <img class="pillar__icon" src="assets/icons/insights.png" alt="" />
+        <span class="pillar__kicker">The Record</span>
+        <h3 class="pillar__title">Insights</h3>
+        <p class="pillar__body">Weekly reflections from your own data. Patterns you can actually use.</p>
+        <span class="pillar__read">Read more →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-                                    <!-- Mini stat cards (3 per row, white, gold numbers) -->
-                                    <div class="app-stats-row">
-                                        <div class="app-stat-card">
-                                            <div class="app-stat-icon">🔥</div>
-                                            <div class="app-stat-num">21</div>
-                                            <div class="app-stat-lbl">Streak</div>
-                                        </div>
-                                        <div class="app-stat-card">
-                                            <div class="app-stat-icon">📚</div>
-                                            <div class="app-stat-num">3</div>
-                                            <div class="app-stat-lbl">Books</div>
-                                        </div>
-                                        <div class="app-stat-card">
-                                            <div class="app-stat-icon">✍️</div>
-                                            <div class="app-stat-num">14</div>
-                                            <div class="app-stat-lbl">Notes</div>
-                                        </div>
-                                    </div>
 
-                                    <!-- Today's Habits -->
-                                    <div class="app-section-title">Today's Habits</div>
-                                    <div class="app-habits">
-                                        <div class="app-habit done">
-                                            <div class="habit-chk">✓</div>
-                                            <span class="habit-txt">Morning meditation</span>
-                                        </div>
-                                        <div class="app-habit done">
-                                            <div class="habit-chk">✓</div>
-                                            <span class="habit-txt">Read 30 pages</span>
-                                        </div>
-                                        <div class="app-habit">
-                                            <div class="habit-ring"></div>
-                                            <span class="habit-txt">Evening journal</span>
-                                        </div>
-                                        <div class="app-habit">
-                                            <div class="habit-ring"></div>
-                                            <span class="habit-txt">Drink 8 glasses</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Entry type quick-add row (matches real app bottom of home) -->
-                                    <div class="app-entry-types">
-                                        <div class="entry-pill active">✏️ Write</div>
-                                        <div class="entry-pill">💡 Idea</div>
-                                        <div class="entry-pill">🙏 Thanks</div>
-                                    </div>
-
-                                </div><!-- /app-content -->
-
-                                <!-- Bottom tab bar (matches real app) -->
-                                <div class="app-tab-bar">
-                                    <div class="tab-item active">
-                                        <img src="assets/images/screenshots/icon-home.png" alt="Home" class="tab-icon">
-                                        <span>Home</span>
-                                    </div>
-                                    <div class="tab-item">
-                                        <img src="assets/images/screenshots/icon-library.png" alt="Library" class="tab-icon">
-                                        <span>Library</span>
-                                    </div>
-                                    <div class="tab-item">
-                                        <img src="assets/images/screenshots/icon-notes.png" alt="Notes" class="tab-icon">
-                                        <span>Notes</span>
-                                    </div>
-                                    <div class="tab-item">
-                                        <img src="assets/images/screenshots/icon-social.png" alt="Social" class="tab-icon">
-                                        <span>Social</span>
-                                    </div>
-                                </div>
-
-                            </div><!-- /app-screen -->
-                        </div><!-- /phone-screen -->
-                    </div><!-- /phone-frame -->
-                </div><!-- /phone-mockup -->
-            </div><!-- /hero-visual -->
-
-        </div><!-- /hero-container -->
-
-        <!-- Scroll indicator -->
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="scroll-arrow">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
-         STATS BAR — Social proof numbers
-    ═══════════════════════════════════════════ -->
-    <div class="stats-bar">
-        <div class="stats-bar-inner">
-            <div class="stats-bar-item">
-                <div class="stats-number-row"><span class="stats-num" data-target="10000">0</span><span class="stats-suffix">+</span></div>
-                <span class="stats-desc">Habits tracked</span>
-            </div>
-            <div class="stats-bar-divider"></div>
-            <div class="stats-bar-item">
-                <div class="stats-number-row"><span class="stats-num" data-target="5000">0</span><span class="stats-suffix">+</span></div>
-                <span class="stats-desc">Books logged</span>
-            </div>
-            <div class="stats-bar-divider"></div>
-            <div class="stats-bar-item">
-                <div class="stats-number-row"><span class="stats-num" data-target="25000">0</span><span class="stats-suffix">+</span></div>
-                <span class="stats-desc">Journal entries</span>
-            </div>
-            <div class="stats-bar-divider"></div>
-            <div class="stats-bar-item">
-                <div class="stats-number-row"><span class="stats-num" data-target="2000">0</span><span class="stats-suffix">+</span></div>
-                <span class="stats-desc">Community members</span>
-            </div>
-        </div>
+<!-- ─────────────────────────────────────────────────────────────
+     FEATURE: HABITS
+     ───────────────────────────────────────────────────────────── -->
+<section class="feature" id="habits">
+  <div class="wrap feature__inner">
+    <div class="feature__copy will-animate">
+      <img class="feature__glyph" src="assets/icons/habits.png" alt="" />
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Ritual Column</div>
+      <h2 class="feature__title">Build routines <em>that actually hold.</em></h2>
+      <p class="feature__lede">
+        A habit tracker shouldn't make you feel bad on the day you skip. Zain
+        is built around streaks you <em>earn</em> and checklists that support
+        you when the day gets complicated.
+      </p>
+      <ul class="feature__list">
+        <li><span class="feature__li-dot"></span>Daily, weekly, and checklist habits — with their own rhythm.</li>
+        <li><span class="feature__li-dot"></span>Streak calendars that celebrate, not shame.</li>
+        <li><span class="feature__li-dot"></span>Challenges with friends — one small thing, done together.</li>
+        <li><span class="feature__li-dot"></span>Gentle reminders — never nagging, never noisy.</li>
+      </ul>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         BENTO FEATURES GRID
-    ═══════════════════════════════════════════ -->
-    <section class="bento-section" id="features">
-        <div class="section-container">
-            <div class="section-header will-animate">
-                <span class="section-badge">Everything you need</span>
-                <h2 class="section-title">One app for your <em class="title-serif-sm">entire</em> growth journey</h2>
-                <p class="section-subtitle">Zain brings together the essential tools for intentional living into one beautiful, connected experience.</p>
-            </div>
+    <div class="feature__art will-animate">
+      <div class="device device--tilt-left">
+        <div class="device__notch" aria-hidden="true"></div>
+        <img class="device__screen" src="assets/screenshots/habits-marketplace.jpg" alt="A habit challenge in the Zain community — pick it up yourself, or challenge a friend." />
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="bento-grid">
 
-                <!-- Large: Habits (spans 2 rows) -->
-                <div class="bento-tile bento-habits will-animate">
-                    <div class="bento-tile-content">
-                        <div class="bento-icon-wrap">
-                            <img src="assets/images/screenshots/icon-home.png" alt="Habits" class="bento-3d-icon">
-                        </div>
-                        <div class="bento-label">Habits</div>
-                        <h3 class="bento-title">Build streaks<br>that actually stick</h3>
-                        <p class="bento-desc">Track daily, weekly, and monthly habits with flexible schedules, smart reminders, and visual streaks that make progress feel real.</p>
-                        <ul class="bento-features">
-                            <li>Yes/No, numeric &amp; checklist habits</li>
-                            <li>Visual streak calendar</li>
-                            <li>Smart reminders &amp; insights</li>
-                            <li>Challenge friends</li>
-                        </ul>
-                    </div>
-                    <!-- CSS streak ring visual -->
-                    <div class="bento-visual-ring">
-                        <svg viewBox="0 0 100 100" class="streak-svg">
-                            <circle cx="50" cy="50" r="42" class="ring-track"/>
-                            <circle cx="50" cy="50" r="42" class="ring-fill" style="stroke-dasharray: 218 264;"/>
-                        </svg>
-                        <div class="ring-label">
-                            <span class="ring-num">21</span>
-                            <span class="ring-unit">day streak</span>
-                        </div>
-                    </div>
-                </div>
+<!-- ─────────────────────────────────────────────────────────────
+     FEATURE: LIBRARY
+     ───────────────────────────────────────────────────────────── -->
+<section class="feature feature--reverse" id="library">
+  <div class="wrap feature__inner">
+    <div class="feature__copy will-animate">
+      <img class="feature__glyph" src="assets/icons/library.png" alt="" />
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Library Desk</div>
+      <h2 class="feature__title">Read what matters. <em>Remember what you read.</em></h2>
+      <p class="feature__lede">
+        A shelf for every book you're in the middle of. A place for the
+        passages and thoughts that would otherwise slip away. Book clubs with
+        people you actually want to read alongside.
+      </p>
+      <ul class="feature__list">
+        <li><span class="feature__li-dot"></span>Track currently reading, finished, and to-read.</li>
+        <li><span class="feature__li-dot"></span>Highlights and notes, kept with each book.</li>
+        <li><span class="feature__li-dot"></span>Reading goals without the pressure of a leaderboard.</li>
+        <li><span class="feature__li-dot"></span>Private book clubs — small, quiet, real.</li>
+      </ul>
+    </div>
 
-                <!-- Reading -->
-                <div class="bento-tile bento-reading will-animate">
-                    <img src="assets/images/screenshots/icon-library.png" alt="Reading" class="bento-3d-icon-sm">
-                    <div class="bento-label bento-label-gold">Reading</div>
-                    <h3 class="bento-title-sm">Track every<br>page you read</h3>
-                    <div class="mini-books">
-                        <div class="mini-book" style="--c:#2D6A4F;">78%</div>
-                        <div class="mini-book" style="--c:#7B6BA8;">45%</div>
-                        <div class="mini-book" style="--c:#9C6644;">23%</div>
-                    </div>
-                </div>
+    <div class="feature__art will-animate">
+      <div class="device device--tilt-right">
+        <div class="device__notch" aria-hidden="true"></div>
+        <img class="device__screen" src="assets/screenshots/library.jpg" alt="A Reading Room — 54 books, currently reading, and curated collections." />
+      </div>
+    </div>
+  </div>
+</section>
 
-                <!-- Notes -->
-                <div class="bento-tile bento-notes will-animate">
-                    <img src="assets/images/screenshots/icon-notes.png" alt="Notes" class="bento-3d-icon-sm">
-                    <div class="bento-label bento-label-warm">Journal</div>
-                    <h3 class="bento-title-sm">Capture what<br>matters to you</h3>
-                    <div class="mini-note-tags">
-                        <span class="mini-tag">🙏 gratitude</span>
-                        <span class="mini-tag">💡 idea</span>
-                        <span class="mini-tag">✏️ journal</span>
-                    </div>
-                </div>
 
-                <!-- Community -->
-                <div class="bento-tile bento-community will-animate">
-                    <img src="assets/images/screenshots/icon-social.png" alt="Community" class="bento-3d-icon-sm">
-                    <div class="bento-label bento-label-teal-lt">Community</div>
-                    <h3 class="bento-title-sm">Grow with<br>your people</h3>
-                    <p class="bento-subdesc">Join book clubs, challenge friends on habits, share wins.</p>
-                </div>
+<!-- ─────────────────────────────────────────────────────────────
+     FEATURE: JOURNAL
+     ───────────────────────────────────────────────────────────── -->
+<section class="feature" id="journal">
+  <div class="wrap feature__inner">
+    <div class="feature__copy will-animate">
+      <img class="feature__glyph" src="assets/icons/journal.png" alt="" />
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Journal</div>
+      <h2 class="feature__title">A softer place <em>than a blank page.</em></h2>
+      <p class="feature__lede">
+        Gratitude on the mornings you need it. Reflection when the day asks
+        more of you. Lists, letters, and the small observations that become a
+        life, re-read later.
+      </p>
+      <ul class="feature__list">
+        <li><span class="feature__li-dot"></span>Six entry types, each with its own mood and palette.</li>
+        <li><span class="feature__li-dot"></span>Offline-first — write on a plane, on a walk, anywhere.</li>
+        <li><span class="feature__li-dot"></span>Searchable, private, yours.</li>
+        <li><span class="feature__li-dot"></span>Optional prompts, never required.</li>
+      </ul>
+    </div>
 
-                <!-- Podcasts -->
-                <div class="bento-tile bento-podcasts will-animate">
-                    <img src="assets/images/screenshots/icon-stats.png" alt="Insights" class="bento-3d-icon-sm">
-                    <div class="bento-label bento-label-purple">Insights</div>
-                    <h3 class="bento-title-sm">Understand<br>your patterns</h3>
-                    <p class="bento-subdesc">Deep analytics that reveal how your habits shape your life.</p>
-                </div>
+    <div class="feature__art will-animate">
+      <div class="device device--tilt-left">
+        <div class="device__notch" aria-hidden="true"></div>
+        <img class="device__screen" src="assets/screenshots/journal.jpg" alt="This week in the journal — quotes saved across the week, softly shelved." />
+      </div>
+    </div>
+  </div>
+</section>
 
-            </div><!-- /bento-grid -->
-        </div>
-    </section>
 
-    <!-- ═══════════════════════════════════════════
-         FEATURE DEEP DIVES — with CSS phone mockups
-    ═══════════════════════════════════════════ -->
-    <section class="features-deep">
-        <div class="section-container">
+<!-- ─────────────────────────────────────────────────────────────
+     FEATURE: COMMUNITY
+     ───────────────────────────────────────────────────────────── -->
+<section class="feature feature--reverse" id="community">
+  <div class="wrap feature__inner">
+    <div class="feature__copy will-animate">
+      <img class="feature__glyph" src="assets/icons/community.png" alt="" />
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Gazette</div>
+      <h2 class="feature__title">A feed that <em>roots for you.</em></h2>
+      <p class="feature__lede">
+        A community where the front page is book clubs, habit challenges, and
+        small wins. No public follower counts. No outrage. No infinite scroll
+        optimised to hurt you.
+      </p>
+      <ul class="feature__list">
+        <li><span class="feature__li-dot"></span>Posts that celebrate streaks, books, and reflections.</li>
+        <li><span class="feature__li-dot"></span>Book clubs with shared notes and discussions.</li>
+        <li><span class="feature__li-dot"></span>Habit challenges with your closest people.</li>
+        <li><span class="feature__li-dot"></span>A feed you can close, and not miss.</li>
+      </ul>
+    </div>
 
-            <!-- ── HABITS ── -->
-            <div class="feature-row will-animate">
-                <div class="feature-content">
-                    <span class="feature-badge badge-habits">🌱 Habits</span>
-                    <h3 class="feature-title">Build routines that<br><em class="title-serif-feature">actually stick</em></h3>
-                    <p class="feature-desc">Track daily, weekly, or monthly habits with flexible schedules. Get smart reminders, see your streaks grow, and celebrate every milestone along the way.</p>
-                    <ul class="feature-list">
-                        <li>Yes/No, numeric, or checklist habits</li>
-                        <li>Visual streak tracking &amp; calendar</li>
-                        <li>Custom categories &amp; icons</li>
-                        <li>Progress insights over time</li>
-                        <li>Challenge friends &amp; compete</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <!-- Habits screen phone mockup -->
-                    <div class="feat-phone">
-                        <div class="feat-phone-frame">
-                            <div class="feat-dynamic-island"></div>
-                            <div class="feat-screen">
-                                <div class="feat-header feat-header-teal">
-                                    <div class="feat-hdr-title">My Habits</div>
-                                    <div class="feat-hdr-sub">7 of 8 done today</div>
-                                </div>
-                                <div class="feat-body">
-                                    <div class="feat-streak-ring">
-                                        <svg viewBox="0 0 80 80">
-                                            <circle cx="40" cy="40" r="34" class="fs-ring-bg"/>
-                                            <circle cx="40" cy="40" r="34" class="fs-ring-fill" style="stroke-dasharray: 175 214;"/>
-                                        </svg>
-                                        <div class="feat-ring-center">
-                                            <span class="feat-ring-num">21</span>
-                                            <span class="feat-ring-unit">days</span>
-                                        </div>
-                                    </div>
-                                    <div class="feat-habits-list">
-                                        <div class="feat-habit-item fdone">
-                                            <div class="feat-chk">✓</div>
-                                            <div class="feat-hname">
-                                                <span class="feat-hemoji">📖</span> Read 30 min
-                                            </div>
-                                        </div>
-                                        <div class="feat-habit-item fdone">
-                                            <div class="feat-chk">✓</div>
-                                            <div class="feat-hname">
-                                                <span class="feat-hemoji">🧘</span> Meditate
-                                            </div>
-                                        </div>
-                                        <div class="feat-habit-item fdone">
-                                            <div class="feat-chk">✓</div>
-                                            <div class="feat-hname">
-                                                <span class="feat-hemoji">🏃</span> Exercise
-                                            </div>
-                                        </div>
-                                        <div class="feat-habit-item">
-                                            <div class="feat-ring-sm"></div>
-                                            <div class="feat-hname">
-                                                <span class="feat-hemoji">💧</span> Drink water
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="feature__art will-animate">
+      <div class="device device--tilt-right">
+        <div class="device__notch" aria-hidden="true"></div>
+        <img class="device__screen" src="assets/screenshots/community.jpg" alt="The community feed — a friend's run, a 10K completed, cheers from people who care." />
+      </div>
+    </div>
+  </div>
+</section>
 
-            <!-- ── READING ── (reversed) -->
-            <div class="feature-row feature-row-reverse will-animate">
-                <div class="feature-content">
-                    <span class="feature-badge badge-reading">📚 Reading</span>
-                    <h3 class="feature-title">Track your<br><em class="title-serif-feature">reading journey</em></h3>
-                    <p class="feature-desc">Keep all your books in one place. Log progress, save favourite quotes, write notes, and join book clubs to discuss what you're reading with friends.</p>
-                    <ul class="feature-list">
-                        <li>Multiple books at once</li>
-                        <li>Quotes &amp; notes collection</li>
-                        <li>Reading goals &amp; statistics</li>
-                        <li>Book clubs with friends</li>
-                        <li>Want-to-read shelf</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <!-- Reading/Bookshelf screen -->
-                    <div class="feat-phone">
-                        <div class="feat-phone-frame">
-                            <div class="feat-dynamic-island"></div>
-                            <div class="feat-screen">
-                                <div class="feat-header feat-header-dark">
-                                    <div class="feat-hdr-title">My Library</div>
-                                    <div class="feat-hdr-sub">3 books in progress</div>
-                                </div>
-                                <div class="feat-body feat-body-reading">
-                                    <!-- Gold stats hero card (matches real app) -->
-                                    <div class="feat-reading-stats">
-                                        <div class="feat-rstat">
-                                            <span class="feat-rnum">3</span>
-                                            <span class="feat-rlbl">Reading</span>
-                                        </div>
-                                        <div class="feat-rdivider"></div>
-                                        <div class="feat-rstat">
-                                            <span class="feat-rnum">12</span>
-                                            <span class="feat-rlbl">Finished</span>
-                                        </div>
-                                        <div class="feat-rdivider"></div>
-                                        <div class="feat-rstat">
-                                            <span class="feat-rnum">8</span>
-                                            <span class="feat-rlbl">Saved</span>
-                                        </div>
-                                    </div>
-                                    <!-- Book tiles 2×2 -->
-                                    <div class="feat-books-grid">
-                                        <div class="feat-book-tile" style="--bc:#2D6A4F;">
-                                            <div class="feat-book-bar" style="--p:78%;"></div>
-                                            <span class="feat-book-pct">78%</span>
-                                        </div>
-                                        <div class="feat-book-tile" style="--bc:#7B6BA8;">
-                                            <div class="feat-book-bar" style="--p:45%;"></div>
-                                            <span class="feat-book-pct">45%</span>
-                                        </div>
-                                        <div class="feat-book-tile" style="--bc:#9C6644;">
-                                            <div class="feat-book-bar" style="--p:23%;"></div>
-                                            <span class="feat-book-pct">23%</span>
-                                        </div>
-                                        <div class="feat-book-tile feat-book-add">
-                                            <span class="feat-book-plus">+</span>
-                                            <span class="feat-book-add-lbl">Add book</span>
-                                        </div>
-                                    </div>
-                                    <!-- 2026 reading goal -->
-                                    <div class="feat-goal-card">
-                                        <div class="feat-goal-top">
-                                            <span class="feat-goal-label">2026 Reading Goal</span>
-                                            <span class="feat-goal-count">12 / 24 books</span>
-                                        </div>
-                                        <div class="feat-goal-bar-bg">
-                                            <div class="feat-goal-bar-fill" style="width:50%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- ── NOTES / JOURNAL ── -->
-            <div class="feature-row will-animate">
-                <div class="feature-content">
-                    <span class="feature-badge badge-notes">✏️ Journal</span>
-                    <h3 class="feature-title">Capture thoughts<br><em class="title-serif-feature">that matter</em></h3>
-                    <p class="feature-desc">Journal your day, record gratitude, save ideas, and track goals. Multiple note types, offline access, and a beautiful timeline that makes reflection a joy.</p>
-                    <ul class="feature-list">
-                        <li>Daily journal entries</li>
-                        <li>Gratitude &amp; reflection prompts</li>
-                        <li>Ideas, lists &amp; goal tracking</li>
-                        <li>Offline access to all notes</li>
-                        <li>Searchable &amp; tagged</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <!-- Notes/Journal screen -->
-                    <div class="feat-phone">
-                        <div class="feat-phone-frame">
-                            <div class="feat-dynamic-island"></div>
-                            <div class="feat-screen">
-                                <div class="feat-header feat-header-teal">
-                                    <div class="feat-hdr-title">My Journal</div>
-                                    <div class="feat-hdr-sub">14 entries this month</div>
-                                </div>
-                                <div class="feat-body feat-body-notes">
-                                    <!-- Elegant note card (matches real elegantCard style) -->
-                                    <div class="feat-note-card">
-                                        <div class="feat-note-accent" style="background:#8B5A3C;"></div>
-                                        <div class="feat-note-inner">
-                                            <div class="feat-note-header">
-                                                <div class="feat-note-badge" style="background:rgba(139,90,60,0.12);">✏️</div>
-                                                <span class="feat-note-date">Today</span>
-                                            </div>
-                                            <div class="feat-note-title">Morning Reflection</div>
-                                            <div class="feat-note-excerpt">Grateful for the quiet morning. Set intentions to focus on deep work and meaningful connections…</div>
-                                            <div class="feat-note-tags">
-                                                <span class="feat-note-tag">🙏 gratitude</span>
-                                                <span class="feat-note-tag">🌟 intention</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Second card -->
-                                    <div class="feat-note-card feat-note-card-sm">
-                                        <div class="feat-note-accent" style="background:#3B82F6;"></div>
-                                        <div class="feat-note-inner">
-                                            <div class="feat-note-header">
-                                                <div class="feat-note-badge" style="background:rgba(59,130,246,0.12);">💡</div>
-                                                <span class="feat-note-date">Yesterday</span>
-                                            </div>
-                                            <div class="feat-note-title">App idea: daily prompts</div>
-                                        </div>
-                                    </div>
-                                    <!-- Entry type quick row -->
-                                    <div class="feat-entry-row">
-                                        <div class="feat-entry-chip active-chip">✏️ Write</div>
-                                        <div class="feat-entry-chip">💡 Idea</div>
-                                        <div class="feat-entry-chip">🙏 Thanks</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- ─────────────────────────────────────────────────────────────
+     FEATURE: FITNESS
+     ───────────────────────────────────────────────────────────── -->
+<section class="feature" id="fitness">
+  <div class="wrap feature__inner">
+    <div class="feature__copy will-animate">
+      <img class="feature__glyph" src="assets/icons/fitness.png" alt="" />
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Broadsheet</div>
+      <h2 class="feature__title">The quiet dossier <em>of a body in motion.</em></h2>
+      <p class="feature__lede">
+        Steps, walks, workouts, and personal records — kept the way a morning
+        sports broadsheet would keep them. Clean newsprint. Earned gold for
+        the records that matter.
+      </p>
+      <ul class="feature__list">
+        <li><span class="feature__li-dot"></span>Apple Health and Garmin sync, set-and-forget.</li>
+        <li><span class="feature__li-dot"></span>Personal records — celebrated in trophy gold.</li>
+        <li><span class="feature__li-dot"></span>Daily, weekly, and monthly summaries.</li>
+        <li><span class="feature__li-dot"></span>Fitness challenges with friends, not strangers.</li>
+      </ul>
+    </div>
 
-        </div>
-    </section>
+    <div class="feature__art will-animate">
+      <div class="device device--tilt-left">
+        <div class="device__notch" aria-hidden="true"></div>
+        <img class="device__screen" src="assets/screenshots/fitness-dashboard.jpg" alt="The fitness dashboard — trailing twelve weeks, the record book, and earned personal bests." />
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ═══════════════════════════════════════════
-         TESTIMONIALS
-    ═══════════════════════════════════════════ -->
-    <section class="testimonials-section">
-        <div class="section-container">
-            <div class="section-header will-animate">
-                <span class="section-badge">Early community</span>
-                <h2 class="section-title">People who live<br><em class="title-serif-sm">with intention</em></h2>
-            </div>
 
-            <div class="testimonials-grid">
+<!-- ─────────────────────────────────────────────────────────────
+     A DAY IN ZAIN
+     ───────────────────────────────────────────────────────────── -->
+<section class="day" id="day">
+  <div class="day__grain" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="section-head section-head--centered will-animate">
+      <div class="kicker"><span class="kicker__line"></span>A day in Zain</div>
+      <h2 class="section-head__title">How the day <em>holds together.</em></h2>
+      <p class="section-head__lede">
+        A companion is only useful if it fits the rhythm of your day. Here's
+        how ours tends to.
+      </p>
+    </header>
 
-                <!-- PLACEHOLDER: replace with real testimonial -->
-                <div class="testimonial-card will-animate">
-                    <div class="testi-stars">★★★★★</div>
-                    <blockquote class="testi-quote">"I've tried every habit app out there. Zain is the first one that actually feels like it was made for someone who cares about <em>why</em> they're building habits, not just ticking boxes."</blockquote>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #2D6A4F, #40916C);">S</div>
-                        <div class="testi-info">
-                            <span class="testi-name">Sarah M.</span>
-                            <span class="testi-detail">Habit streak: 47 days</span>
-                        </div>
-                    </div>
-                </div>
+    <ol class="timeline">
+      <li class="timeline__entry will-animate">
+        <img class="timeline__icon" src="assets/icons/morning.png" alt="" />
+        <time class="timeline__time">06:12</time>
+        <h3 class="timeline__title">The morning ritual</h3>
+        <p class="timeline__body">Three habits you care about, quietly checked. A gratitude note if the day calls for one.</p>
+      </li>
+      <li class="timeline__entry will-animate">
+        <img class="timeline__icon" src="assets/icons/smallTree.png" alt="" />
+        <time class="timeline__time">10:40</time>
+        <h3 class="timeline__title">A chapter before work</h3>
+        <p class="timeline__body">Ten pages. A highlight. A passing thought, kept with the book.</p>
+      </li>
+      <li class="timeline__entry will-animate">
+        <img class="timeline__icon" src="assets/icons/fitness.png" alt="" />
+        <time class="timeline__time">17:30</time>
+        <h3 class="timeline__title">A walk, logged</h3>
+        <p class="timeline__body">Apple Health hands it over. You don't need to look — the Broadsheet keeps the record.</p>
+      </li>
+      <li class="timeline__entry will-animate">
+        <img class="timeline__icon" src="assets/icons/sunset.png" alt="" />
+        <time class="timeline__time">20:05</time>
+        <h3 class="timeline__title">A note to yourself</h3>
+        <p class="timeline__body">A short reflection. A gratitude. A list of things the day gave you.</p>
+      </li>
+      <li class="timeline__entry will-animate">
+        <img class="timeline__icon" src="assets/icons/night.png" alt="" />
+        <time class="timeline__time">22:18</time>
+        <h3 class="timeline__title">A quiet close</h3>
+        <p class="timeline__body">Three habits done. A book page ahead. Tomorrow already a little gentler.</p>
+      </li>
+    </ol>
+  </div>
+</section>
 
-                <!-- PLACEHOLDER: replace with real testimonial -->
-                <div class="testimonial-card will-animate">
-                    <div class="testi-stars">★★★★★</div>
-                    <blockquote class="testi-quote">"The book clubs feature alone is worth it. My reading group moved from WhatsApp to Zain and we actually discuss books properly now. It's like Goodreads but with soul."</blockquote>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #C9A962, #A68B4B);">A</div>
-                        <div class="testi-info">
-                            <span class="testi-name">Ahmed K.</span>
-                            <span class="testi-detail">Read 18 books this year</span>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- PLACEHOLDER: replace with real testimonial -->
-                <div class="testimonial-card will-animate">
-                    <div class="testi-stars">★★★★★</div>
-                    <blockquote class="testi-quote">"The journal section surprised me most. The different entry types — gratitude, reflection, ideas — each feel distinct and intentional. My morning routine now starts with Zain."</blockquote>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">L</div>
-                        <div class="testi-info">
-                            <span class="testi-name">Layla R.</span>
-                            <span class="testi-detail">Journal streak: 31 days</span>
-                        </div>
-                    </div>
-                </div>
+<!-- ─────────────────────────────────────────────────────────────
+     PULL QUOTE
+     ───────────────────────────────────────────────────────────── -->
+<section class="pullquote">
+  <div class="wrap pullquote__inner will-animate">
+    <div class="pullquote__mark" aria-hidden="true">&ldquo;</div>
+    <p class="pullquote__body">
+      I've tried every habit app. This is the first one that felt like it was
+      <em>on my side,</em> not keeping score against me.
+    </p>
+    <p class="pullquote__cite">— A reader, London</p>
+  </div>
+</section>
 
-                <!-- PLACEHOLDER: replace with real testimonial -->
-                <div class="testimonial-card will-animate">
-                    <div class="testi-stars">★★★★★</div>
-                    <blockquote class="testi-quote">"Competing with my brother on habit streaks has been the most fun I've had getting healthy. We're both more consistent than we've ever been."</blockquote>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #0D7377, #1D9A9E);">M</div>
-                        <div class="testi-info">
-                            <span class="testi-name">Marcus T.</span>
-                            <span class="testi-detail">Fitness streak: 62 days</span>
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-    </section>
+<!-- ─────────────────────────────────────────────────────────────
+     DOWNLOAD
+     ───────────────────────────────────────────────────────────── -->
+<section class="download" id="download">
+  <div class="download__grain" aria-hidden="true"></div>
+  <div class="wrap download__inner">
+    <div class="will-animate">
+      <div class="kicker kicker--light"><span class="kicker__line"></span>The App</div>
+      <h2 class="download__title">
+        Available now <em>on iPhone and Android.</em>
+      </h2>
+      <p class="download__lede">
+        Free to start. Pro is £3.99 a month, with a 30-day free trial — so you
+        can live with the app for a month before deciding.
+      </p>
 
-    <!-- ═══════════════════════════════════════════
-         HOW IT WORKS
-    ═══════════════════════════════════════════ -->
-    <section class="how-section">
-        <div class="section-container">
-            <div class="section-header will-animate">
-                <span class="section-badge">Getting started</span>
-                <h2 class="section-title">Up and running<br><em class="title-serif-sm">in minutes</em></h2>
-            </div>
+      <div class="download__cta">
+        <a class="btn btn--lg btn--light" href="https://apps.apple.com/app/id6757399804" data-track="download-appstore">
+          <svg aria-hidden="true" width="18" height="20" viewBox="0 0 14 16" fill="currentColor"><path d="M11.5 8.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.6-3.4zM9.2 1.6c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/></svg>
+          <span>Download on the App Store</span>
+        </a>
+        <a class="btn btn--lg btn--light" href="https://play.google.com/store/apps/details?id=com.zainapp" data-track="download-playstore">
+          <svg aria-hidden="true" width="18" height="20" viewBox="0 0 20 22" fill="currentColor"><path d="M3.6.6c-.3.3-.5.8-.5 1.3v18.2c0 .6.2 1 .5 1.3l10.2-10.4L3.6.6zm11.4 11.6l2.6-1.5c.9-.5.9-1.3 0-1.8l-2.3-1.3-2.8 2.8 2.5 1.8zm-2-3.3L5.3 1.2 13.5 6l-.5 2.9zm-.5 2.9L5.3 19.6 13 13.5l-.5-2.7z"/></svg>
+          <span>Get it on Google Play</span>
+        </a>
+      </div>
 
-            <div class="how-steps">
-                <div class="how-step will-animate">
-                    <div class="how-num">01</div>
-                    <img src="assets/images/screenshots/icon-home.png" alt="Download" class="how-icon">
-                    <h4 class="how-title">Download Zain</h4>
-                    <p class="how-desc">Available on iOS and Android. Free to start — no credit card needed.</p>
-                </div>
-                <div class="how-arrow">→</div>
-                <div class="how-step will-animate">
-                    <div class="how-num">02</div>
-                    <img src="assets/images/screenshots/icon-notes.png" alt="Journal" class="how-icon">
-                    <h4 class="how-title">Set your first habit</h4>
-                    <p class="how-desc">Choose from pre-made habits or create your own. Pick your schedule and reminder time.</p>
-                </div>
-                <div class="how-arrow">→</div>
-                <div class="how-step will-animate">
-                    <div class="how-num">03</div>
-                    <img src="assets/images/screenshots/icon-social.png" alt="Community" class="how-icon">
-                    <h4 class="how-title">Grow with your community</h4>
-                    <p class="how-desc">Join book clubs, challenge friends, share wins, and build momentum together.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <ul class="download__bullets">
+        <li>No account required to look around.</li>
+        <li>Offline-first. Your journal works on a plane.</li>
+        <li>No ads. Ever. Your attention isn't the product.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <!-- ═══════════════════════════════════════════
-         PRICING
-    ═══════════════════════════════════════════ -->
-    <section class="pricing" id="pricing">
-        <div class="section-container">
-            <div class="section-header will-animate">
-                <span class="section-badge">Simple Pricing</span>
-                <h2 class="section-title">Start free, unlock more<br><em class="title-serif-sm">when you're ready</em></h2>
-                <p class="section-subtitle">Try everything free. Upgrade when it feels right — no pressure.</p>
 
-                <!-- Annual/Monthly toggle -->
-                <div class="pricing-toggle">
-                    <button class="toggle-btn active" data-period="annual">Annual <span class="toggle-save">Save 40%</span></button>
-                    <button class="toggle-btn" data-period="monthly">Monthly</button>
-                </div>
-            </div>
+<!-- ─────────────────────────────────────────────────────────────
+     UPDATES / WAITLIST
+     ───────────────────────────────────────────────────────────── -->
+<section class="updates">
+  <div class="wrap">
+    <div class="updates__card will-animate">
+      <img class="updates__rose" src="assets/icons/rose.png" alt="" />
+      <div class="kicker"><span class="kicker__line"></span>The Dispatch</div>
+      <h3 class="updates__title">A quiet letter, <em>once in a while.</em></h3>
+      <p class="updates__lede">
+        Product updates, the occasional reflection, a seasonal reading list.
+        No spam. You can leave any time.
+      </p>
+      <form id="waitlistForm" class="updates__form" novalidate>
+        <label for="waitlistEmail" class="sr-only">Your email</label>
+        <input id="waitlistEmail" name="email" type="email" required autocomplete="email" placeholder="you@thezainapp.com" />
+        <button type="submit" class="btn btn--primary">Subscribe</button>
+      </form>
+      <p id="waitlistSuccess" class="updates__success" hidden>On the list. We'll write when we have something worth saying.</p>
+      <p class="updates__fine">One email. Unsubscribe with one tap.</p>
+    </div>
+  </div>
+</section>
 
-            <div class="pricing-grid">
-                <!-- Free -->
-                <div class="pricing-card will-animate">
-                    <div class="plan-name">Free</div>
-                    <div class="plan-price-block">
-                        <span class="plan-amount">$0</span>
-                        <span class="plan-period">forever</span>
-                    </div>
-                    <p class="plan-desc">Perfect for getting started with intentional living.</p>
-                    <ul class="plan-feats">
-                        <li><span class="feat-dot"></span>Up to 5 habits</li>
-                        <li><span class="feat-dot"></span>1 book at a time</li>
-                        <li><span class="feat-dot"></span>Basic notes &amp; journaling</li>
-                        <li><span class="feat-dot"></span>Daily reminders</li>
-                        <li><span class="feat-dot"></span>Community access</li>
-                    </ul>
-                    <a href="#waitlist" class="btn btn-outline-teal">Get Started Free</a>
-                </div>
 
-                <!-- Pro -->
-                <div class="pricing-card pricing-card-pro will-animate">
-                    <div class="pro-badge">✦ Launch Special — 50% Off</div>
-                    <div class="plan-name">Pro</div>
-                    <div class="plan-price-block">
-                        <span class="plan-original" data-annual="$59.99" data-monthly="$5.99">$59.99</span>
-                        <span class="plan-amount plan-amount-gold" data-annual="$29.99" data-monthly="$3.99">$29.99</span>
-                        <span class="plan-period" data-annual="/year" data-monthly="/month">/year</span>
-                    </div>
-                    <div class="plan-monthly-note" data-annual="Just $2.50/month" data-monthly="Billed monthly">Just $2.50/month</div>
-                    <p class="plan-desc">Unlock your full potential with unlimited access to everything.</p>
-                    <ul class="plan-feats">
-                        <li><span class="feat-dot feat-dot-gold"></span><strong>Unlimited</strong> habits</li>
-                        <li><span class="feat-dot feat-dot-gold"></span><strong>Unlimited</strong> books &amp; collections</li>
-                        <li><span class="feat-dot feat-dot-gold"></span><strong>Unlimited</strong> notes &amp; quotes</li>
-                        <li><span class="feat-dot feat-dot-gold"></span>Checklist habits for complex routines</li>
-                        <li><span class="feat-dot feat-dot-gold"></span>Apple Watch &amp; fitness sync</li>
-                        <li><span class="feat-dot feat-dot-gold"></span>Deep insights &amp; pattern recognition</li>
-                        <li><span class="feat-dot feat-dot-gold"></span>Priority support</li>
-                        <li><span class="feat-dot feat-dot-gold"></span>Ad-free experience</li>
-                    </ul>
-                    <a href="#waitlist" class="btn btn-gold">Join Waitlist for Pro Access</a>
-                    <p class="plan-note">Early waitlist members get 1 month Pro free at launch</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ─────────────────────────────────────────────────────────────
+     FOOTER / COLOPHON
+     ───────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__rule"></div>
+  <div class="wrap footer__inner">
+    <div class="footer__brand">
+      <img class="footer__mark" src="assets/brand/logo.png" alt="" />
+      <p class="footer__wordmark">Zain</p>
+      <p class="footer__tagline">A daily companion for living with intention.</p>
+    </div>
 
-    <!-- ═══════════════════════════════════════════
-         WAITLIST — replaces Download section
-    ═══════════════════════════════════════════ -->
-    <section class="waitlist-section" id="waitlist">
-        <div class="waitlist-noise"></div>
-        <div class="section-container">
-            <div class="waitlist-content">
-                <div class="waitlist-icon">
-                    <img src="assets/images/logo.png" alt="Zain">
-                </div>
-                <h2 class="waitlist-title">Be first to know<br>when we launch.</h2>
-                <p class="waitlist-subtitle">Join the waitlist and get <strong>1 month of Pro free</strong> when Zain launches on iOS &amp; Android.</p>
+    <nav class="footer__nav" aria-label="Footer">
+      <div>
+        <h4>The App</h4>
+        <ul>
+          <li><a href="#pillars">What's inside</a></li>
+          <li><a href="#day">A day in Zain</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="../support.html">Help centre</a></li>
+          <li><a href="mailto:hello@thezainapp.com">hello@thezainapp.com</a></li>
+          <li><a href="../delete-account.html">Delete account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy</a></li>
+          <li><a href="../terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-                <form class="waitlist-form" action="https://zain1-linux.azurewebsites.net/api/Waitlist" method="POST" id="waitlistForm">
-                    <div class="form-row">
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="your@email.com"
-                            class="waitlist-input"
-                            required
-                            autocomplete="email"
-                        >
-                        <button type="submit" class="waitlist-btn">
-                            <span class="btn-text">Join Waitlist</span>
-                            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </button>
-                    </div>
-                    <div class="waitlist-success" id="waitlistSuccess" hidden>
-                        <span>🎉 You're on the list! We'll email you the moment we launch.</span>
-                    </div>
-                </form>
+  <p class="colophon wrap">
+    Zain · Vol. I · made with care in 2026 · Set in Georgia &amp; Inter · Printed on the web.
+  </p>
+</footer>
 
-                <p class="waitlist-note">No spam. One email when we launch. Unsubscribe any time.</p>
 
-                <!-- Greyed store badges (not linked — pre-launch) -->
-                <div class="store-badges-preview">
-                    <div class="store-badge-placeholder">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" opacity="0.5"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                        <span>App Store</span>
-                    </div>
-                    <div class="store-badge-placeholder">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" opacity="0.5"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-                        <span>Google Play</span>
-                    </div>
-                    <span class="store-coming">Coming soon to iOS &amp; Android</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Sticky download bar (appears after hero) -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <div class="wrap sticky-cta__inner">
+    <span class="sticky-cta__copy">Zain · A daily companion</span>
+    <a class="btn btn--primary btn--small" href="#download">Download</a>
+  </div>
+</div>
 
-    <!-- ═══════════════════════════════════════════
-         FOOTER
-    ═══════════════════════════════════════════ -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <a href="/" class="footer-logo">
-                        <img src="assets/images/logo.png" alt="Zain">
-                        <span>Zain</span>
-                    </a>
-                    <p class="footer-tagline">Live with intention.<br>Every habit. Every insight. Every goal.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h4>Product</h4>
-                        <a href="#features">Features</a>
-                        <a href="#pricing">Pricing</a>
-                        <a href="#waitlist">Join Waitlist</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Support</h4>
-                        <a href="support.html">Help Center</a>
-                        <a href="support.html#contact">Contact Us</a>
-                        <a href="delete-account.html">Delete Account</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Legal</h4>
-                        <a href="privacy.html">Privacy Policy</a>
-                        <a href="terms.html">Terms of Service</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="footer-copy">&copy; 2026 Zain App. All rights reserved.</p>
-                <div class="footer-social">
-                    <!-- REPLACE href with real social handles -->
-                    <a href="#" aria-label="Twitter / X" class="social-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Instagram" class="social-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    </div><!-- /.full-site -->
-
-    <script src="script.js"></script>
-
-    <!-- Coming Soon Mode Toggle & Animation -->
-    <script>
-    (function() {
-      if (!window.COMING_SOON_MODE) return;
-
-      document.body.classList.add('coming-soon-active');
-      document.getElementById('csLanding').classList.add('active');
-
-      // Animation sequence
-      const seq = [
-        [500, 'cs1'],
-        [600, 'cs2'],
-        [500, 'cs3'],
-        [400, 'cs4'],
-        [300, 'csp1'],
-        [100, 'csps1'],
-        [250, 'csp2'],
-        [100, 'csps2'],
-        [250, 'csp3'],
-        [450, 'cs6'],
-        [350, 'cs7'],
-        [250, 'cs8'],
-        [300, 'cs9']
-      ];
-
-      const allIds = ['cs1','cs2','cs3','cs4','csp1','csps1','csp2','csps2','csp3','cs6','cs7','cs8','cs9'];
-
-      function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-      async function runReveal() {
-        allIds.forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.classList.remove('visible');
-        });
-        await sleep(400);
-        for (const [delay, ...ids] of seq) {
-          await sleep(delay);
-          ids.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.classList.add('visible');
-          });
-        }
-      }
-
-      runReveal();
-
-      // Waitlist form submission
-      const form = document.getElementById('csWaitlistForm');
-      if (form) {
-        form.addEventListener('submit', async function(e) {
-          e.preventDefault();
-          const btn = form.querySelector('.cs-submit-btn');
-          const origText = btn.textContent;
-          btn.textContent = '...';
-          btn.disabled = true;
-
-          try {
-            const email = form.querySelector('.cs-email-input').value;
-            const response = await fetch('https://zain1-linux.azurewebsites.net/api/Waitlist', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ email: email })
-            });
-            const data = await response.json();
-            if (data.success) {
-              form.querySelector('.cs-form-row').style.display = 'none';
-              document.getElementById('csWaitlistSuccess').hidden = false;
-            } else {
-              throw new Error(data.message || 'Form submission failed');
-            }
-          } catch (err) {
-            btn.textContent = origText;
-            btn.disabled = false;
-            alert('Something went wrong. Please try again.');
-          }
-        });
-      }
-    })();
-    </script>
+<script src="home.js"></script>
 </body>
 </html>
