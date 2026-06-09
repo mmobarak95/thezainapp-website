@@ -21,14 +21,14 @@
     <!-- Smart App Banner (iOS Safari) -->
     <meta name="apple-itunes-app" content="app-id=6757399804">
 
-    <title>Zain — Open in App</title>
+    <title data-i18n-title="doc.title.404">Zain — Open in App</title>
 
     <link rel="icon" type="image/png" href="/assets/images/logo.png">
     <link rel="apple-touch-icon" href="/assets/images/logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -165,16 +165,17 @@
 </head>
 <body>
     <div class="container">
+        <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch to Arabic" lang="ar" style="position:absolute;top:16px;right:16px;background:transparent;border:1px solid #C4BFB8;color:#2D2B28;font-family:'Amiri',Georgia,serif;font-size:14px;padding:6px 12px;border-radius:999px;cursor:pointer;">العربية</button>
         <img src="/assets/images/logo.png" alt="Zain" class="logo">
         <h1 class="brand">Zain</h1>
-        <p class="tagline">LIVE WITH INTENTION</p>
+        <p class="tagline" data-i18n="open.tagline">LIVE WITH INTENTION</p>
 
-        <p class="context-message" id="contextMessage">Someone shared something with you</p>
-        <p class="context-detail" id="contextDetail">Open the Zain app to view it, or download it to get started.</p>
+        <p class="context-message" id="contextMessage" data-i18n="open.default_msg">Someone shared something with you</p>
+        <p class="context-detail" id="contextDetail" data-i18n="open.default_detail">Open the Zain app to view it, or download it to get started.</p>
 
-        <a class="open-btn" id="openBtn" href="#">Open in Zain</a>
+        <a class="open-btn" id="openBtn" href="#" data-i18n="open.open_btn">Open in Zain</a>
 
-        <div class="divider">or download the app</div>
+        <div class="divider" data-i18n="open.divider">or download the app</div>
 
         <div class="store-buttons">
             <a class="store-btn" id="appStoreBtn" href="https://apps.apple.com/app/id6757399804">
@@ -191,6 +192,8 @@
             <a href="https://thezainapp.com">thezainapp.com</a>
         </p>
     </div>
+
+    <script src="/i18n.js"></script>
 
     <script>
         (function() {

@@ -1026,3 +1026,179 @@ em { font-style: italic; font-family: var(--serif); font-weight: 400; }
   .hero__art .device { animation: none; }
   .orbit { animation: none; }
 }
+
+
+/* ─────────────────────────────────────────────────────────────
+   Language toggle (masthead pill)
+   ───────────────────────────────────────────────────────────── */
+.masthead__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(10, 63, 66, .22);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease);
+}
+.lang-toggle:hover {
+  background: rgba(10, 63, 66, .06);
+  border-color: var(--ink);
+}
+/* Show the Arabic word in its native script even when the page is in English */
+.lang-toggle[lang="ar"] {
+  font-family: 'Amiri', 'Tajawal', Georgia, serif;
+  font-size: 14px;
+}
+
+@media (max-width: 460px) {
+  .lang-toggle { padding: 7px 11px; font-size: 12px; }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   Arabic / RTL adjustments
+   When the language is Arabic, the page flips to RTL and the
+   font-family swaps to Tajawal (UI) + Amiri (editorial display).
+   ───────────────────────────────────────────────────────────── */
+html[dir="rtl"] body,
+body.lang-ar {
+  font-family: 'Tajawal', 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17.5px;
+  line-height: 1.75;
+}
+
+/* Editorial display (serif) — Amiri reads beautifully for Arabic headings */
+body.lang-ar .masthead__wordmark,
+body.lang-ar .hero__title,
+body.lang-ar .section-head__title,
+body.lang-ar .feature__title,
+body.lang-ar .download__title,
+body.lang-ar .updates__title,
+body.lang-ar .pillar__title,
+body.lang-ar .pullquote__body,
+body.lang-ar .footer__wordmark {
+  font-family: 'Amiri', Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Arabic doesn't render true italic — drop it and use the accent color
+   (oxblood) instead so emphasis carries through without slanted glyphs. */
+body.lang-ar em {
+  font-style: normal;
+  font-family: inherit;
+  color: var(--oxblood);
+  font-weight: 700;
+}
+body.lang-ar .hero__title em,
+body.lang-ar .section-head__title em,
+body.lang-ar .feature__title em,
+body.lang-ar .download__title em,
+body.lang-ar .updates__title em,
+body.lang-ar .pullquote__body em,
+body.lang-ar .day .section-head__title em {
+  color: var(--oxblood);
+  font-style: normal;
+  font-family: 'Amiri', Georgia, serif;
+  font-weight: 700;
+}
+body.lang-ar .dateline em {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--oxblood);
+  letter-spacing: .04em;
+}
+
+/* Arabic letterforms have more vertical presence — give headings a touch
+   more breathing room so they don't feel cramped against the rule. */
+body.lang-ar .hero__title         { line-height: 1.18; letter-spacing: 0; }
+body.lang-ar .section-head__title { line-height: 1.22; }
+body.lang-ar .feature__title      { line-height: 1.22; }
+body.lang-ar .download__title     { line-height: 1.22; }
+
+/* Kicker — uppercase + tracking are Latin-typographic ideas. In Arabic
+   we keep the small caption look but drop uppercase (no such concept)
+   and ease the letter-spacing. */
+body.lang-ar .kicker {
+  text-transform: none;
+  letter-spacing: .04em;
+  font-size: 12.5px;
+}
+body.lang-ar .dateline {
+  text-transform: none;
+  letter-spacing: .03em;
+  font-size: 13px;
+}
+body.lang-ar .pillar__kicker,
+body.lang-ar .pillar__read,
+body.lang-ar .pullquote__cite {
+  text-transform: none;
+  letter-spacing: .02em;
+}
+
+/* Directional glyphs — the arrow on the ghost CTA flips so it points
+   "forward" in RTL reading order. */
+body.lang-ar .btn__arrow,
+body.lang-ar .pillar__read {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+body.lang-ar .btn--ghost:hover .btn__arrow { transform: scaleX(-1) translateX(4px); }
+
+/* Pillar grid arrows: replace literal "→" with a flipped one already
+   covered above via scaleX. Same for "Read more →" inside spans. */
+
+/* Footer nav — preserve grid order; the column structure remains. */
+body.lang-ar .footer__nav { direction: rtl; }
+
+/* The kicker line sits "before" the text — under RTL it should sit on
+   the right of the text instead of the left. Flex handles this for us
+   because the kicker uses inline-flex; just make sure spacing reads. */
+body.lang-ar .kicker { gap: 10px; }
+
+/* Sticky CTA copy — Amiri reads warmer than Tajawal for the brand line. */
+body.lang-ar .sticky-cta__copy {
+  font-family: 'Amiri', Georgia, serif;
+  font-size: 15px;
+}
+
+/* Inputs — the placeholder should align right and font-swap. */
+body.lang-ar .updates__form input {
+  font-family: inherit;
+  text-align: right;
+}
+
+/* The pull quote's open-quote mark — RTL Arabic uses different
+   quotation glyphs. Swap the visual hook to an Arabic-friendly mark. */
+body.lang-ar .pullquote__mark::before {
+  content: '\201D'; /* right double quote, reads as opening quote in RTL flow */
+}
+body.lang-ar .pullquote__mark {
+  font-size: inherit;
+}
+
+/* Hide the literal LDquo character node by replacing it via CSS — the
+   ::before above is additive so we hide the inline text. */
+body.lang-ar .pullquote__mark { font-size: 0; }
+body.lang-ar .pullquote__mark::before { font-size: 6rem; }
+
+/* The timeline times (06:12, 10:40 …) should stay LTR even inside an
+   RTL page — colons and digit pairs read better left-to-right. */
+body.lang-ar .timeline__time {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}

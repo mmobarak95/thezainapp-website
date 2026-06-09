@@ -2146,3 +2146,118 @@ ul { list-style: none; }
 
     .scroll-indicator { display: none; }
 }
+
+
+/* ─────────────────────────────────────────────────────────────
+   Language toggle (navbar pill)
+   ───────────────────────────────────────────────────────────── */
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, .15);
+    color: inherit;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: background .25s ease, border-color .25s ease;
+}
+.lang-toggle:hover {
+    background: rgba(0, 0, 0, .04);
+    border-color: rgba(0, 0, 0, .35);
+}
+.lang-toggle[lang="ar"] {
+    font-family: 'Amiri', Georgia, serif;
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .nav-container .lang-toggle { padding: 6px 10px; font-size: 12.5px; }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   Arabic legal-notice strip
+   Visible only when the page is in Arabic — softens the
+   "this is a translation, the English text is canonical" point.
+   ───────────────────────────────────────────────────────────── */
+.legal-ar-notice {
+    display: none;
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: rgba(184, 152, 90, .10);
+    border: 1px solid rgba(184, 152, 90, .35);
+    color: #6B4F1E;
+    font-size: 14px;
+    line-height: 1.6;
+}
+body.lang-ar .legal-ar-notice { display: block; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   Arabic / RTL
+   When the page is in Arabic, flip direction and font.
+   ───────────────────────────────────────────────────────────── */
+html[dir="rtl"] body,
+body.lang-ar {
+    font-family: 'Tajawal', 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.75;
+}
+
+body.lang-ar h1,
+body.lang-ar h2,
+body.lang-ar h3,
+body.lang-ar h4,
+body.lang-ar .legal-title,
+body.lang-ar .footer-logo span,
+body.lang-ar .logo-text {
+    font-family: 'Amiri', Georgia, serif;
+    letter-spacing: 0;
+    line-height: 1.3;
+}
+
+/* Italics don't translate to Arabic typography — drop and recolor */
+body.lang-ar em,
+body.lang-ar i {
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* Mirror the mobile menu button on the right edge under RTL */
+body.lang-ar .nav-container { direction: rtl; }
+body.lang-ar .nav-links { direction: rtl; }
+body.lang-ar .mobile-menu { direction: rtl; }
+body.lang-ar .footer-container,
+body.lang-ar .footer-main,
+body.lang-ar .footer-links,
+body.lang-ar .footer-column { direction: rtl; }
+
+/* Legal page body — paragraphs and lists read right-to-left.
+   The legal body text itself stays in English (it's the canonical
+   reference), but the headings/intro that ARE translated align
+   naturally under RTL. */
+body.lang-ar .legal-page { direction: rtl; }
+body.lang-ar .legal-content p[data-i18n],
+body.lang-ar .legal-content h2[data-i18n],
+body.lang-ar .legal-content h3[data-i18n] { text-align: right; }
+
+/* The untranslated legal body keeps LTR so English paragraphs
+   inside an RTL page still read naturally. */
+body.lang-ar .legal-content > h2:not([data-i18n]),
+body.lang-ar .legal-content > h3:not([data-i18n]),
+body.lang-ar .legal-content > p:not([data-i18n]),
+body.lang-ar .legal-content > ul:not([data-i18n]),
+body.lang-ar .legal-content > ol:not([data-i18n]) {
+    direction: ltr;
+    text-align: left;
+}
+
+/* Compact the lang toggle margin under RTL (gap flips visually) */
+body.lang-ar .lang-toggle { margin-right: 0; margin-left: 8px; }

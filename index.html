@@ -6,8 +6,8 @@
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#FBF9F4" />
 
-<title>Zain — A daily companion for living with intention</title>
-<meta name="description" content="Zain is a home for the practices that compound into a meaningful life — habits, reading, journaling, fitness, and a community that's all in. Not more apps. One that's actually about you." />
+<title data-i18n-title="doc.title.home">Zain — A daily companion for living with intention</title>
+<meta name="description" content="Zain is a home for the practices that compound into a meaningful life — habits, reading, journaling, fitness, and a community that's all in. Not more apps. One that's actually about you." data-i18n-content="doc.desc.home" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -23,10 +23,11 @@
 <link rel="icon" type="image/png" href="assets/brand/logo.png" />
 <link rel="apple-touch-icon" href="assets/brand/logo.png" />
 
-<!-- Fonts: Georgia is system-resident (used for display); Inter for UI copy -->
+<!-- Fonts: Georgia is system-resident (used for display); Inter for UI copy.
+     Arabic: Amiri for editorial serif display, Tajawal for UI body. -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Tajawal:wght@300;400;500;700&display=swap" />
 
 <link rel="stylesheet" href="home.css" />
 </head>
@@ -38,28 +39,31 @@
      ───────────────────────────────────────────────────────────── -->
 <header class="masthead" id="top">
   <div class="wrap masthead__inner">
-    <a class="masthead__brand" href="#top" aria-label="Zain — home">
+    <a class="masthead__brand" href="#top" aria-label="Zain — home" data-i18n-attr="aria-label:nav.brand_aria">
       <img src="assets/brand/logo.png" alt="" class="masthead__mark" />
       <span class="masthead__wordmark">Zain</span>
     </a>
 
-    <nav class="masthead__nav" aria-label="Sections">
-      <a href="#pillars">The App</a>
-      <a href="#habits">Habits</a>
-      <a href="#library">Library</a>
-      <a href="#journal">Journal</a>
-      <a href="#community">Community</a>
-      <a href="#day">A Day</a>
+    <nav class="masthead__nav" aria-label="Sections" data-i18n-attr="aria-label:nav.sections_aria">
+      <a href="#pillars" data-i18n="nav.app">The App</a>
+      <a href="#habits" data-i18n="nav.habits">Habits</a>
+      <a href="#library" data-i18n="nav.library">Library</a>
+      <a href="#journal" data-i18n="nav.journal">Journal</a>
+      <a href="#community" data-i18n="nav.community">Community</a>
+      <a href="#day" data-i18n="nav.day">A Day</a>
     </nav>
 
-    <a class="btn btn--small btn--primary" href="#download" data-track="nav-download">
-      <svg aria-hidden="true" width="14" height="16" viewBox="0 0 14 16" fill="currentColor"><path d="M11.5 8.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.6-3.4zM9.2 1.6c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/></svg>
-      <svg aria-hidden="true" width="14" height="16" viewBox="0 0 20 22" fill="currentColor"><path d="M3.6.6c-.3.3-.5.8-.5 1.3v18.2c0 .6.2 1 .5 1.3l10.2-10.4L3.6.6zm11.4 11.6l2.6-1.5c.9-.5.9-1.3 0-1.8l-2.3-1.3-2.8 2.8 2.5 1.8zm-2-3.3L5.3 1.2 13.5 6l-.5 2.9zm-.5 2.9L5.3 19.6 13 13.5l-.5-2.7z"/></svg>
-      <span>Download</span>
-    </a>
+    <div class="masthead__actions">
+      <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch to Arabic" lang="ar">العربية</button>
+      <a class="btn btn--small btn--primary" href="#download" data-track="nav-download">
+        <svg aria-hidden="true" width="14" height="16" viewBox="0 0 14 16" fill="currentColor"><path d="M11.5 8.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.6-3.4zM9.2 1.6c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/></svg>
+        <svg aria-hidden="true" width="14" height="16" viewBox="0 0 20 22" fill="currentColor"><path d="M3.6.6c-.3.3-.5.8-.5 1.3v18.2c0 .6.2 1 .5 1.3l10.2-10.4L3.6.6zm11.4 11.6l2.6-1.5c.9-.5.9-1.3 0-1.8l-2.3-1.3-2.8 2.8 2.5 1.8zm-2-3.3L5.3 1.2 13.5 6l-.5 2.9zm-.5 2.9L5.3 19.6 13 13.5l-.5-2.7z"/></svg>
+        <span data-i18n="nav.download">Download</span>
+      </a>
+    </div>
   </div>
   <div class="masthead__rule"></div>
-  <p class="dateline wrap">Vol. I · Spring 2026 · Preview edition · <em>thezainapp.com</em></p>
+  <p class="dateline wrap" data-i18n="masthead.dateline">Vol. I · Spring 2026 · Preview edition · <em>thezainapp.com</em></p>
 </header>
 
 
@@ -71,11 +75,11 @@
 
   <div class="wrap hero__inner">
     <div class="hero__copy will-animate">
-      <div class="kicker"><span class="kicker__line"></span>A daily companion</div>
-      <h1 class="hero__title">
+      <div class="kicker"><span class="kicker__line"></span><span data-i18n="hero.kicker">A daily companion</span></div>
+      <h1 class="hero__title" data-i18n="hero.title">
         <em>Deliberately</em> <br class="br-mobile" />yours.
       </h1>
-      <p class="hero__lede">
+      <p class="hero__lede" data-i18n="hero.lede">
         A home for the practices that compound into a meaningful life — your
         <strong>habits</strong>, your <strong>reading</strong>,
         your <strong>journal</strong>, your <strong>fitness</strong>, and a
@@ -87,17 +91,17 @@
         <a class="btn btn--primary btn--lg" href="#download" data-track="hero-download">
           <svg aria-hidden="true" width="20" height="22" viewBox="-1 -1 16 18" fill="currentColor"><path d="M11.5 8.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.6-3.4zM9.2 1.6c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/></svg>
           <svg aria-hidden="true" width="18" height="20" viewBox="0 0 20 22" fill="currentColor"><path d="M3.6.6c-.3.3-.5.8-.5 1.3v18.2c0 .6.2 1 .5 1.3l10.2-10.4L3.6.6zm11.4 11.6l2.6-1.5c.9-.5.9-1.3 0-1.8l-2.3-1.3-2.8 2.8 2.5 1.8zm-2-3.3L5.3 1.2 13.5 6l-.5 2.9zm-.5 2.9L5.3 19.6 13 13.5l-.5-2.7z"/></svg>
-          <span>Download the app</span>
+          <span data-i18n="hero.cta_download">Download the app</span>
         </a>
         <a class="btn btn--ghost btn--lg" href="#pillars">
-          See what's inside
+          <span data-i18n="hero.cta_explore">See what's inside</span>
           <span aria-hidden="true" class="btn__arrow">→</span>
         </a>
       </div>
 
       <p class="hero__meta">
         <span class="hero__meta-dot" aria-hidden="true"></span>
-        Free to use · No ads, no paywalls
+        <span data-i18n="hero.meta">Free to use · No ads, no paywalls</span>
       </p>
     </div>
 
@@ -105,7 +109,7 @@
       <!-- Device frame -->
       <div class="device">
         <div class="device__notch" aria-hidden="true"></div>
-        <img class="device__screen" src="assets/screenshots/home.jpg" alt="The Zain home screen at night — today's habits, reading, and a gentle prompt to reflect." />
+        <img class="device__screen" src="assets/screenshots/home.jpg" alt="The Zain home screen at night — today's habits, reading, and a gentle prompt to reflect." data-i18n-attr="alt:hero.alt" />
       </div>
 
       <!-- Gold foil rule anchor -->
@@ -121,12 +125,12 @@
 <section class="pillars" id="pillars">
   <div class="wrap">
     <header class="section-head will-animate">
-      <div class="kicker"><span class="kicker__line"></span>Inside the app</div>
-      <h2 class="section-head__title">
+      <div class="kicker"><span class="kicker__line"></span><span data-i18n="pillars.kicker">Inside the app</span></div>
+      <h2 class="section-head__title" data-i18n="pillars.title">
         Six well-kept rooms.<br />
         <em>One companion.</em>
       </h2>
-      <p class="section-head__lede">
+      <p class="section-head__lede" data-i18n="pillars.lede">
         Most apps pull you in a dozen directions. Zain has six — chosen with
         care, laid out like the sections of a well-kept journal.
       </p>
@@ -135,50 +139,50 @@
     <div class="pillars__grid">
       <a class="pillar will-animate" href="#habits">
         <img class="pillar__icon" src="assets/icons/habits.png" alt="" />
-        <span class="pillar__kicker">The Ritual</span>
-        <h3 class="pillar__title">Habits</h3>
-        <p class="pillar__body">Streaks that don't shame. Checklists for the days that need scaffolding.</p>
-        <span class="pillar__read">Read more →</span>
+        <span class="pillar__kicker" data-i18n="pillars.habits.kicker">The Ritual</span>
+        <h3 class="pillar__title" data-i18n="pillars.habits.title">Habits</h3>
+        <p class="pillar__body" data-i18n="pillars.habits.body">Streaks that don't shame. Checklists for the days that need scaffolding.</p>
+        <span class="pillar__read" data-i18n="pillars.read_more">Read more →</span>
       </a>
 
       <a class="pillar will-animate" href="#library">
         <img class="pillar__icon" src="assets/icons/library.png" alt="" />
-        <span class="pillar__kicker">The Library</span>
-        <h3 class="pillar__title">Reading</h3>
-        <p class="pillar__body">A shelf for every book you've touched, with the notes and passages you want to remember.</p>
-        <span class="pillar__read">Read more →</span>
+        <span class="pillar__kicker" data-i18n="pillars.lib.kicker">The Library</span>
+        <h3 class="pillar__title" data-i18n="pillars.lib.title">Reading</h3>
+        <p class="pillar__body" data-i18n="pillars.lib.body">A shelf for every book you've touched, with the notes and passages you want to remember.</p>
+        <span class="pillar__read" data-i18n="pillars.read_more">Read more →</span>
       </a>
 
       <a class="pillar will-animate" href="#journal">
         <img class="pillar__icon" src="assets/icons/journal.png" alt="" />
-        <span class="pillar__kicker">The Journal</span>
-        <h3 class="pillar__title">Notes</h3>
-        <p class="pillar__body">Gratitude, reflection, lists, letters. A softer place than a blank page.</p>
-        <span class="pillar__read">Read more →</span>
+        <span class="pillar__kicker" data-i18n="pillars.jrn.kicker">The Journal</span>
+        <h3 class="pillar__title" data-i18n="pillars.jrn.title">Notes</h3>
+        <p class="pillar__body" data-i18n="pillars.jrn.body">Gratitude, reflection, lists, letters. A softer place than a blank page.</p>
+        <span class="pillar__read" data-i18n="pillars.read_more">Read more →</span>
       </a>
 
       <a class="pillar will-animate" href="#community">
         <img class="pillar__icon" src="assets/icons/community.png" alt="" />
-        <span class="pillar__kicker">The Gazette</span>
-        <h3 class="pillar__title">Community</h3>
-        <p class="pillar__body">A slow feed of the people you trust — book clubs, habit challenges, small wins.</p>
-        <span class="pillar__read">Read more →</span>
+        <span class="pillar__kicker" data-i18n="pillars.com.kicker">The Gazette</span>
+        <h3 class="pillar__title" data-i18n="pillars.com.title">Community</h3>
+        <p class="pillar__body" data-i18n="pillars.com.body">A slow feed of the people you trust — book clubs, habit challenges, small wins.</p>
+        <span class="pillar__read" data-i18n="pillars.read_more">Read more →</span>
       </a>
 
       <a class="pillar will-animate" href="#fitness">
         <img class="pillar__icon" src="assets/icons/fitness.png" alt="" />
-        <span class="pillar__kicker">The Broadsheet</span>
-        <h3 class="pillar__title">Fitness</h3>
-        <p class="pillar__body">Walks, workouts, personal records — the dossier of a body kept in motion.</p>
-        <span class="pillar__read">Read more →</span>
+        <span class="pillar__kicker" data-i18n="pillars.fit.kicker">The Broadsheet</span>
+        <h3 class="pillar__title" data-i18n="pillars.fit.title">Fitness</h3>
+        <p class="pillar__body" data-i18n="pillars.fit.body">Walks, workouts, personal records — the dossier of a body kept in motion.</p>
+        <span class="pillar__read" data-i18n="pillars.read_more">Read more →</span>
       </a>
 
       <a class="pillar will-animate" href="#insights">
         <img class="pillar__icon" src="assets/icons/insights.png" alt="" />
-        <span class="pillar__kicker">The Record</span>
-        <h3 class="pillar__title">Insights</h3>
-        <p class="pillar__body">Weekly reflections from your own data. Patterns you can actually use.</p>
-        <span class="pillar__read">Read more →</span>
+        <span class="pillar__kicker" data-i18n="pillars.ins.kicker">The Record</span>
+        <h3 class="pillar__title" data-i18n="pillars.ins.title">Insights</h3>
+        <p class="pillar__body" data-i18n="pillars.ins.body">Weekly reflections from your own data. Patterns you can actually use.</p>
+        <span class="pillar__read" data-i18n="pillars.read_more">Read more →</span>
       </a>
     </div>
   </div>
@@ -192,25 +196,25 @@
   <div class="wrap feature__inner">
     <div class="feature__copy will-animate">
       <img class="feature__glyph" src="assets/icons/habits.png" alt="" />
-      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Ritual Column</div>
-      <h2 class="feature__title">Build routines <em>that actually hold.</em></h2>
-      <p class="feature__lede">
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span><span data-i18n="feat.habits.kicker">The Ritual Column</span></div>
+      <h2 class="feature__title" data-i18n="feat.habits.title">Build routines <em>that actually hold.</em></h2>
+      <p class="feature__lede" data-i18n="feat.habits.lede">
         A habit tracker shouldn't make you feel bad on the day you skip. Zain
         is built around streaks you <em>earn</em> and checklists that support
         you when the day gets complicated.
       </p>
       <ul class="feature__list">
-        <li><span class="feature__li-dot"></span>Daily, weekly, and checklist habits — with their own rhythm.</li>
-        <li><span class="feature__li-dot"></span>Streak calendars that celebrate, not shame.</li>
-        <li><span class="feature__li-dot"></span>Challenges with friends — one small thing, done together.</li>
-        <li><span class="feature__li-dot"></span>Gentle reminders — never nagging, never noisy.</li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.habits.li1">Daily, weekly, and checklist habits — with their own rhythm.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.habits.li2">Streak calendars that celebrate, not shame.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.habits.li3">Challenges with friends — one small thing, done together.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.habits.li4">Gentle reminders — never nagging, never noisy.</span></li>
       </ul>
     </div>
 
     <div class="feature__art will-animate">
       <div class="device device--tilt-left">
         <div class="device__notch" aria-hidden="true"></div>
-        <img class="device__screen" src="assets/screenshots/habits-marketplace.jpg" alt="A habit challenge in the Zain community — pick it up yourself, or challenge a friend." />
+        <img class="device__screen" src="assets/screenshots/habits-marketplace.jpg" alt="A habit challenge in the Zain community — pick it up yourself, or challenge a friend." data-i18n-attr="alt:feat.habits.alt" />
       </div>
     </div>
   </div>
@@ -224,25 +228,25 @@
   <div class="wrap feature__inner">
     <div class="feature__copy will-animate">
       <img class="feature__glyph" src="assets/icons/library.png" alt="" />
-      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Library Desk</div>
-      <h2 class="feature__title">Read what matters. <em>Remember what you read.</em></h2>
-      <p class="feature__lede">
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span><span data-i18n="feat.lib.kicker">The Library Desk</span></div>
+      <h2 class="feature__title" data-i18n="feat.lib.title">Read what matters. <em>Remember what you read.</em></h2>
+      <p class="feature__lede" data-i18n="feat.lib.lede">
         A shelf for every book you're in the middle of. A place for the
         passages and thoughts that would otherwise slip away. Book clubs with
         people you actually want to read alongside.
       </p>
       <ul class="feature__list">
-        <li><span class="feature__li-dot"></span>Track currently reading, finished, and to-read.</li>
-        <li><span class="feature__li-dot"></span>Highlights and notes, kept with each book.</li>
-        <li><span class="feature__li-dot"></span>Reading goals without the pressure of a leaderboard.</li>
-        <li><span class="feature__li-dot"></span>Private book clubs — small, close-knit, real.</li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.lib.li1">Track currently reading, finished, and to-read.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.lib.li2">Highlights and notes, kept with each book.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.lib.li3">Reading goals without the pressure of a leaderboard.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.lib.li4">Private book clubs — small, close-knit, real.</span></li>
       </ul>
     </div>
 
     <div class="feature__art will-animate">
       <div class="device device--tilt-right">
         <div class="device__notch" aria-hidden="true"></div>
-        <img class="device__screen" src="assets/screenshots/library.jpg" alt="A Reading Room — 54 books, currently reading, and curated collections." />
+        <img class="device__screen" src="assets/screenshots/library.jpg" alt="A Reading Room — 54 books, currently reading, and curated collections." data-i18n-attr="alt:feat.lib.alt" />
       </div>
     </div>
   </div>
@@ -256,25 +260,25 @@
   <div class="wrap feature__inner">
     <div class="feature__copy will-animate">
       <img class="feature__glyph" src="assets/icons/journal.png" alt="" />
-      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Journal</div>
-      <h2 class="feature__title">A softer place <em>than a blank page.</em></h2>
-      <p class="feature__lede">
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span><span data-i18n="feat.jrn.kicker">The Journal</span></div>
+      <h2 class="feature__title" data-i18n="feat.jrn.title">A softer place <em>than a blank page.</em></h2>
+      <p class="feature__lede" data-i18n="feat.jrn.lede">
         Gratitude on the mornings you need it. Reflection when the day asks
         more of you. Lists, letters, and the small observations that become a
         life, re-read later.
       </p>
       <ul class="feature__list">
-        <li><span class="feature__li-dot"></span>Six entry types, each with its own mood and palette.</li>
-        <li><span class="feature__li-dot"></span>Offline-first — write on a plane, on a walk, anywhere.</li>
-        <li><span class="feature__li-dot"></span>Searchable, private, yours.</li>
-        <li><span class="feature__li-dot"></span>Optional prompts, never required.</li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.jrn.li1">Six entry types, each with its own mood and palette.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.jrn.li2">Offline-first — write on a plane, on a walk, anywhere.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.jrn.li3">Searchable, private, yours.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.jrn.li4">Optional prompts, never required.</span></li>
       </ul>
     </div>
 
     <div class="feature__art will-animate">
       <div class="device device--tilt-left">
         <div class="device__notch" aria-hidden="true"></div>
-        <img class="device__screen" src="assets/screenshots/journal.jpg" alt="This week in the journal — quotes saved across the week, softly shelved." />
+        <img class="device__screen" src="assets/screenshots/journal.jpg" alt="This week in the journal — quotes saved across the week, softly shelved." data-i18n-attr="alt:feat.jrn.alt" />
       </div>
     </div>
   </div>
@@ -288,25 +292,25 @@
   <div class="wrap feature__inner">
     <div class="feature__copy will-animate">
       <img class="feature__glyph" src="assets/icons/community.png" alt="" />
-      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Gazette</div>
-      <h2 class="feature__title">A feed that <em>roots for you.</em></h2>
-      <p class="feature__lede">
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span><span data-i18n="feat.com.kicker">The Gazette</span></div>
+      <h2 class="feature__title" data-i18n="feat.com.title">A feed that <em>roots for you.</em></h2>
+      <p class="feature__lede" data-i18n="feat.com.lede">
         A community where the front page is book clubs, habit challenges, and
         small wins. No public follower counts. No outrage. No infinite scroll
         optimised to hurt you.
       </p>
       <ul class="feature__list">
-        <li><span class="feature__li-dot"></span>Posts that celebrate streaks, books, and reflections.</li>
-        <li><span class="feature__li-dot"></span>Book clubs with shared notes and discussions.</li>
-        <li><span class="feature__li-dot"></span>Habit challenges with your closest people.</li>
-        <li><span class="feature__li-dot"></span>A feed you can close, and not miss.</li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.com.li1">Posts that celebrate streaks, books, and reflections.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.com.li2">Book clubs with shared notes and discussions.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.com.li3">Habit challenges with your closest people.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.com.li4">A feed you can close, and not miss.</span></li>
       </ul>
     </div>
 
     <div class="feature__art will-animate">
       <div class="device device--tilt-right">
         <div class="device__notch" aria-hidden="true"></div>
-        <img class="device__screen" src="assets/screenshots/community.jpg" alt="The community feed — a friend's run, a 10K completed, cheers from people who care." />
+        <img class="device__screen" src="assets/screenshots/community.jpg" alt="The community feed — a friend's run, a 10K completed, cheers from people who care." data-i18n-attr="alt:feat.com.alt" />
       </div>
     </div>
   </div>
@@ -320,25 +324,25 @@
   <div class="wrap feature__inner">
     <div class="feature__copy will-animate">
       <img class="feature__glyph" src="assets/icons/fitness.png" alt="" />
-      <div class="kicker kicker--oxblood"><span class="kicker__line"></span>The Broadsheet</div>
-      <h2 class="feature__title">The quiet dossier <em>of a body in motion.</em></h2>
-      <p class="feature__lede">
+      <div class="kicker kicker--oxblood"><span class="kicker__line"></span><span data-i18n="feat.fit.kicker">The Broadsheet</span></div>
+      <h2 class="feature__title" data-i18n="feat.fit.title">The quiet dossier <em>of a body in motion.</em></h2>
+      <p class="feature__lede" data-i18n="feat.fit.lede">
         Steps, walks, workouts, and personal records — kept the way a morning
         sports broadsheet would keep them. Clean newsprint. Earned gold for
         the records that matter.
       </p>
       <ul class="feature__list">
-        <li><span class="feature__li-dot"></span>Apple Health and Garmin sync, set-and-forget.</li>
-        <li><span class="feature__li-dot"></span>Personal records — celebrated in trophy gold.</li>
-        <li><span class="feature__li-dot"></span>Daily, weekly, and monthly summaries.</li>
-        <li><span class="feature__li-dot"></span>Fitness challenges with friends, not strangers.</li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.fit.li1">Apple Health and Garmin sync, set-and-forget.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.fit.li2">Personal records — celebrated in trophy gold.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.fit.li3">Daily, weekly, and monthly summaries.</span></li>
+        <li><span class="feature__li-dot"></span><span data-i18n="feat.fit.li4">Fitness challenges with friends, not strangers.</span></li>
       </ul>
     </div>
 
     <div class="feature__art will-animate">
       <div class="device device--tilt-left">
         <div class="device__notch" aria-hidden="true"></div>
-        <img class="device__screen" src="assets/screenshots/fitness-dashboard.jpg" alt="The fitness dashboard — trailing twelve weeks, the record book, and earned personal bests." />
+        <img class="device__screen" src="assets/screenshots/fitness-dashboard.jpg" alt="The fitness dashboard — trailing twelve weeks, the record book, and earned personal bests." data-i18n-attr="alt:feat.fit.alt" />
       </div>
     </div>
   </div>
@@ -352,9 +356,9 @@
   <div class="day__grain" aria-hidden="true"></div>
   <div class="wrap">
     <header class="section-head section-head--centered will-animate">
-      <div class="kicker"><span class="kicker__line"></span>A day in Zain</div>
-      <h2 class="section-head__title">How the day <em>holds together.</em></h2>
-      <p class="section-head__lede">
+      <div class="kicker"><span class="kicker__line"></span><span data-i18n="day.kicker">A day in Zain</span></div>
+      <h2 class="section-head__title" data-i18n="day.title">How the day <em>holds together.</em></h2>
+      <p class="section-head__lede" data-i18n="day.lede">
         A companion is only useful if it fits the rhythm of your day. Here's
         how ours tends to.
       </p>
@@ -364,32 +368,32 @@
       <li class="timeline__entry will-animate">
         <img class="timeline__icon" src="assets/icons/morning.png" alt="" />
         <time class="timeline__time">06:12</time>
-        <h3 class="timeline__title">The morning ritual</h3>
-        <p class="timeline__body">Three habits you care about, calmly checked. A gratitude note if the day calls for one.</p>
+        <h3 class="timeline__title" data-i18n="day.t1.title">The morning ritual</h3>
+        <p class="timeline__body" data-i18n="day.t1.body">Three habits you care about, calmly checked. A gratitude note if the day calls for one.</p>
       </li>
       <li class="timeline__entry will-animate">
         <img class="timeline__icon" src="assets/icons/smallTree.png" alt="" />
         <time class="timeline__time">10:40</time>
-        <h3 class="timeline__title">A chapter before work</h3>
-        <p class="timeline__body">Ten pages. A highlight. A passing thought, kept with the book.</p>
+        <h3 class="timeline__title" data-i18n="day.t2.title">A chapter before work</h3>
+        <p class="timeline__body" data-i18n="day.t2.body">Ten pages. A highlight. A passing thought, kept with the book.</p>
       </li>
       <li class="timeline__entry will-animate">
         <img class="timeline__icon" src="assets/icons/fitness.png" alt="" />
         <time class="timeline__time">17:30</time>
-        <h3 class="timeline__title">A walk, logged</h3>
-        <p class="timeline__body">Apple Health hands it over. You don't need to look — the Broadsheet keeps the record.</p>
+        <h3 class="timeline__title" data-i18n="day.t3.title">A walk, logged</h3>
+        <p class="timeline__body" data-i18n="day.t3.body">Apple Health hands it over. You don't need to look — the Broadsheet keeps the record.</p>
       </li>
       <li class="timeline__entry will-animate">
         <img class="timeline__icon" src="assets/icons/sunset.png" alt="" />
         <time class="timeline__time">20:05</time>
-        <h3 class="timeline__title">A note to yourself</h3>
-        <p class="timeline__body">A short reflection. A gratitude. A list of things the day gave you.</p>
+        <h3 class="timeline__title" data-i18n="day.t4.title">A note to yourself</h3>
+        <p class="timeline__body" data-i18n="day.t4.body">A short reflection. A gratitude. A list of things the day gave you.</p>
       </li>
       <li class="timeline__entry will-animate">
         <img class="timeline__icon" src="assets/icons/night.png" alt="" />
         <time class="timeline__time">22:18</time>
-        <h3 class="timeline__title">A soft close</h3>
-        <p class="timeline__body">Three habits done. A book page ahead. Tomorrow already a little gentler.</p>
+        <h3 class="timeline__title" data-i18n="day.t5.title">A soft close</h3>
+        <p class="timeline__body" data-i18n="day.t5.body">Three habits done. A book page ahead. Tomorrow already a little gentler.</p>
       </li>
     </ol>
   </div>
@@ -402,11 +406,11 @@
 <section class="pullquote">
   <div class="wrap pullquote__inner will-animate">
     <div class="pullquote__mark" aria-hidden="true">&ldquo;</div>
-    <p class="pullquote__body">
+    <p class="pullquote__body" data-i18n="pq.body">
       I've tried every habit app. This is the first one that felt like it was
       <em>on my side,</em> not keeping score against me.
     </p>
-    <p class="pullquote__cite">— A reader, London</p>
+    <p class="pullquote__cite" data-i18n="pq.cite">— A reader, London</p>
   </div>
 </section>
 
@@ -418,11 +422,11 @@
   <div class="download__grain" aria-hidden="true"></div>
   <div class="wrap download__inner">
     <div class="will-animate">
-      <div class="kicker kicker--light"><span class="kicker__line"></span>The App</div>
-      <h2 class="download__title">
+      <div class="kicker kicker--light"><span class="kicker__line"></span><span data-i18n="dl.kicker">The App</span></div>
+      <h2 class="download__title" data-i18n="dl.title">
         Available now <em>on iPhone and Android.</em>
       </h2>
-      <p class="download__lede">
+      <p class="download__lede" data-i18n="dl.lede">
         Free to use. No ads, no paywalls — just the app, every feature open
         from the first tap.
       </p>
@@ -430,18 +434,18 @@
       <div class="download__cta">
         <a class="btn btn--lg btn--light" href="https://apps.apple.com/app/id6757399804" data-track="download-appstore">
           <svg aria-hidden="true" width="20" height="22" viewBox="-1 -1 16 18" fill="currentColor"><path d="M11.5 8.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.6-3.4zM9.2 1.6c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/></svg>
-          <span>Download on the App Store</span>
+          <span data-i18n="dl.appstore">Download on the App Store</span>
         </a>
         <a class="btn btn--lg btn--light" href="https://play.google.com/store/apps/details?id=com.zainapp" data-track="download-playstore">
           <svg aria-hidden="true" width="18" height="20" viewBox="0 0 20 22" fill="currentColor"><path d="M3.6.6c-.3.3-.5.8-.5 1.3v18.2c0 .6.2 1 .5 1.3l10.2-10.4L3.6.6zm11.4 11.6l2.6-1.5c.9-.5.9-1.3 0-1.8l-2.3-1.3-2.8 2.8 2.5 1.8zm-2-3.3L5.3 1.2 13.5 6l-.5 2.9zm-.5 2.9L5.3 19.6 13 13.5l-.5-2.7z"/></svg>
-          <span>Get it on Google Play</span>
+          <span data-i18n="dl.playstore">Get it on Google Play</span>
         </a>
       </div>
 
       <ul class="download__bullets">
-        <li>No account required to look around.</li>
-        <li>Offline-first. Your journal works on a plane.</li>
-        <li>No ads. Ever. Your attention isn't the product.</li>
+        <li data-i18n="dl.b1">No account required to look around.</li>
+        <li data-i18n="dl.b2">Offline-first. Your journal works on a plane.</li>
+        <li data-i18n="dl.b3">No ads. Ever. Your attention isn't the product.</li>
       </ul>
     </div>
   </div>
@@ -455,19 +459,19 @@
   <div class="wrap">
     <div class="updates__card will-animate">
       <img class="updates__rose" src="assets/icons/rose.png" alt="" />
-      <div class="kicker"><span class="kicker__line"></span>The Dispatch</div>
-      <h3 class="updates__title">A short letter, <em>once in a while.</em></h3>
-      <p class="updates__lede">
+      <div class="kicker"><span class="kicker__line"></span><span data-i18n="up.kicker">The Dispatch</span></div>
+      <h3 class="updates__title" data-i18n="up.title">A short letter, <em>once in a while.</em></h3>
+      <p class="updates__lede" data-i18n="up.lede">
         Product updates, the occasional reflection, a seasonal reading list.
         No spam. You can leave any time.
       </p>
       <form id="waitlistForm" class="updates__form" novalidate>
-        <label for="waitlistEmail" class="sr-only">Your email</label>
-        <input id="waitlistEmail" name="email" type="email" required autocomplete="email" placeholder="you@thezainapp.com" />
-        <button type="submit" class="btn btn--primary">Subscribe</button>
+        <label for="waitlistEmail" class="sr-only" data-i18n="up.email_label">Your email</label>
+        <input id="waitlistEmail" name="email" type="email" required autocomplete="email" placeholder="you@thezainapp.com" data-i18n-attr="placeholder:up.placeholder" />
+        <button type="submit" class="btn btn--primary" data-i18n="up.submit">Subscribe</button>
       </form>
-      <p id="waitlistSuccess" class="updates__success" hidden>On the list. We'll write when we have something worth saying.</p>
-      <p class="updates__fine">One email. Unsubscribe with one tap.</p>
+      <p id="waitlistSuccess" class="updates__success" hidden data-i18n="up.success">On the list. We'll write when we have something worth saying.</p>
+      <p class="updates__fine" data-i18n="up.fine">One email. Unsubscribe with one tap.</p>
     </div>
   </div>
 </section>
@@ -482,37 +486,37 @@
     <div class="footer__brand">
       <img class="footer__mark" src="assets/brand/logo.png" alt="" />
       <p class="footer__wordmark">Zain</p>
-      <p class="footer__tagline">A daily companion for living with intention.</p>
+      <p class="footer__tagline" data-i18n="ft.tagline">A daily companion for living with intention.</p>
     </div>
 
-    <nav class="footer__nav" aria-label="Footer">
+    <nav class="footer__nav" aria-label="Footer" data-i18n-attr="aria-label:ft.footer_aria">
       <div>
-        <h4>The App</h4>
+        <h4 data-i18n="ft.app">The App</h4>
         <ul>
-          <li><a href="#pillars">What's inside</a></li>
-          <li><a href="#day">A day in Zain</a></li>
-          <li><a href="#download">Download</a></li>
+          <li><a href="#pillars" data-i18n="ft.inside">What's inside</a></li>
+          <li><a href="#day" data-i18n="ft.day">A day in Zain</a></li>
+          <li><a href="#download" data-i18n="ft.download">Download</a></li>
         </ul>
       </div>
       <div>
-        <h4>Support</h4>
+        <h4 data-i18n="ft.support">Support</h4>
         <ul>
-          <li><a href="../support.html">Help centre</a></li>
+          <li><a href="support.html" data-i18n="ft.help">Help centre</a></li>
           <li><a href="mailto:hello@thezainapp.com">hello@thezainapp.com</a></li>
-          <li><a href="../delete-account.html">Delete account</a></li>
+          <li><a href="delete-account.html" data-i18n="ft.delete">Delete account</a></li>
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <h4 data-i18n="ft.legal">Legal</h4>
         <ul>
-          <li><a href="../privacy.html">Privacy</a></li>
-          <li><a href="../terms.html">Terms</a></li>
+          <li><a href="privacy.html" data-i18n="ft.privacy">Privacy</a></li>
+          <li><a href="terms.html" data-i18n="ft.terms">Terms</a></li>
         </ul>
       </div>
     </nav>
   </div>
 
-  <p class="colophon wrap">
+  <p class="colophon wrap" data-i18n="ft.colophon">
     Zain · Vol. I · made with care in 2026 · Set in Georgia &amp; Inter · Printed on the web.
   </p>
 </footer>
@@ -521,15 +525,16 @@
 <!-- Sticky download bar (appears after hero) -->
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <div class="wrap sticky-cta__inner">
-    <span class="sticky-cta__copy">Zain · A daily companion</span>
+    <span class="sticky-cta__copy" data-i18n="sticky.copy">Zain · A daily companion</span>
     <a class="btn btn--primary btn--small" href="#download" data-track="sticky-download">
       <svg aria-hidden="true" width="14" height="16" viewBox="0 0 14 16" fill="currentColor"><path d="M11.5 8.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.6-3.4zM9.2 1.6c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/></svg>
       <svg aria-hidden="true" width="14" height="16" viewBox="0 0 20 22" fill="currentColor"><path d="M3.6.6c-.3.3-.5.8-.5 1.3v18.2c0 .6.2 1 .5 1.3l10.2-10.4L3.6.6zm11.4 11.6l2.6-1.5c.9-.5.9-1.3 0-1.8l-2.3-1.3-2.8 2.8 2.5 1.8zm-2-3.3L5.3 1.2 13.5 6l-.5 2.9zm-.5 2.9L5.3 19.6 13 13.5l-.5-2.7z"/></svg>
-      <span>Download</span>
+      <span data-i18n="sticky.download">Download</span>
     </a>
   </div>
 </div>
 
+<script src="i18n.js"></script>
 <script src="home.js"></script>
 </body>
 </html>
