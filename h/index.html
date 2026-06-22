@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#FBF9F4" />
+
+<title>Join me on Zain</title>
+<meta name="description" content="A friend invited you to track a habit on Zain. Open the app to accept or download Zain free." />
+
+<!-- Open Graph — static metadata, cached by social platforms at link-share time.
+     We use the brand PNG (known to unfurl reliably across WhatsApp / iMessage /
+     X / FB / LinkedIn). Per-habit OG image generation is Phase 3. -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Join me on Zain" />
+<meta property="og:description" content="A friend invited you to track a habit. Tap to open in the Zain app." />
+<meta property="og:image" content="https://thezainapp.com/assets/brand/logo_with_name.png" />
+<meta property="og:url" content="https://thezainapp.com/h/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Join me on Zain" />
+<meta name="twitter:description" content="A friend invited you to track a habit. Tap to open in the Zain app." />
+<meta name="twitter:image" content="https://thezainapp.com/assets/brand/logo_with_name.png" />
+
+<!-- iOS Smart App Banner — appears automatically on Safari mobile if app
+     not installed. Direct route to the App Store with the deep-link
+     preserved as `app-argument`. -->
+<meta name="apple-itunes-app" content="app-id=6757399804" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="../assets/brand/logo.png" />
+<link rel="apple-touch-icon" href="../assets/brand/logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<main class="invite-card">
+  <!-- Brand wordmark -->
+  <div class="brand">
+    <img src="../assets/brand/logo.png" alt="Zain" />
+    <span>Zain</span>
+  </div>
+
+  <!-- Hero — populated by JS once the BE preview lands. Skeleton state
+       always renders so the page never looks empty (audit fix: render
+       generic hero on BE failure / bad id / archived habit). -->
+  <div class="hero">
+    <div class="emoji" id="habit-emoji">🌱</div>
+    <p class="eyebrow" id="invite-eyebrow">You're invited to join</p>
+    <h1 class="habit-name" id="habit-name">a habit on Zain</h1>
+    <p class="from" id="from-line">A friend invites you to join them</p>
+  </div>
+
+  <!-- Primary action — opens the app via custom scheme. JS attaches a
+       handler that times out → App Store fallback if the scheme doesn't
+       resolve (i.e. app not installed). -->
+  <a class="cta cta-primary" id="open-app" href="#">
+    <span>Open in Zain</span>
+    <span class="arrow" aria-hidden="true">→</span>
+  </a>
+
+  <!-- Secondary action — explicit App Store fallback. Always works. -->
+  <a class="cta cta-secondary" id="install-app" href="https://apps.apple.com/app/id6757399804">
+    <span>Get the app</span>
+  </a>
+
+  <!-- Value-prop list — why Zain matters. Stays static so the page
+       remains useful even if the BE fetch fails. -->
+  <ul class="why">
+    <li>Daily habits stick 3× when shared with a friend</li>
+    <li>See each other's streaks. Celebrate wins together.</li>
+    <li>No ads. No noise. Just you, your habits, and your people.</li>
+  </ul>
+
+  <p class="footer">
+    Made with <span aria-hidden="true">❤︎</span> by Zain
+    · <a href="https://thezainapp.com">thezainapp.com</a>
+  </p>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

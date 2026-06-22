@@ -1,0 +1,192 @@
+/* Zain habit-invite landing — minimal, warm, mobile-first. Uses the
+   same warm-cream palette as the marketing site so visitors feel a
+   single brand even if they jump from /h/ to /. */
+
+:root {
+  --paper:       #FBF9F4;
+  --paper-soft:  #F7F2E5;
+  --ink:         #0A3F42;
+  --moss:        #4A6253;
+  --ink-soft:    #7A8B85;
+  --fern:        #3E7C4A;
+  --fern-deep:   #2E5E3A;
+  --gold:        #C9A962;
+  --rule:        #E8E0CC;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 48px;
+}
+
+.invite-card {
+  width: 100%;
+  max-width: 420px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 28px 24px 24px;
+  box-shadow:
+    0 1px 0 rgba(62, 42, 30, 0.04),
+    0 12px 32px rgba(62, 42, 30, 0.08);
+  border: 1px solid var(--rule);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  opacity: 0.85;
+}
+.brand img { width: 24px; height: 24px; border-radius: 6px; }
+.brand span {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+  color: var(--fern-deep);
+}
+
+.hero {
+  text-align: center;
+  padding: 12px 4px 20px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 20px;
+}
+.emoji {
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.eyebrow {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--fern);
+  letter-spacing: 0.4px;
+  margin: 0 0 6px;
+}
+.habit-name {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.15;
+}
+.from {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--moss);
+  margin: 0;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: transform 80ms ease, box-shadow 200ms ease;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.cta:active { transform: scale(0.98); }
+
+.cta-primary {
+  background: var(--fern);
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(62, 124, 74, 0.28);
+}
+.cta-primary:hover { background: var(--fern-deep); }
+.cta-primary .arrow { transition: transform 200ms ease; }
+.cta-primary:hover .arrow { transform: translateX(3px); }
+
+.cta-secondary {
+  background: transparent;
+  color: var(--moss);
+  border: 1px solid var(--rule);
+}
+.cta-secondary:hover {
+  background: var(--paper-soft);
+}
+
+.why {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 16px;
+  display: grid;
+  gap: 10px;
+}
+.why li {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--moss);
+  padding-left: 22px;
+  position: relative;
+}
+.why li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--fern);
+  font-weight: 700;
+}
+
+.footer {
+  text-align: center;
+  font-size: 11.5px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 16px 0 0;
+}
+.footer a {
+  color: var(--fern);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+/* Skeleton shimmer while metadata loads */
+.is-loading .habit-name,
+.is-loading .from {
+  position: relative;
+  color: transparent;
+  background: linear-gradient(90deg, var(--paper-soft) 0%, var(--rule) 50%, var(--paper-soft) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: 6px;
+  display: inline-block;
+  min-width: 200px;
+  height: 1em;
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+@media (max-width: 380px) {
+  .habit-name { font-size: 24px; }
+  .emoji { font-size: 48px; }
+  .invite-card { padding: 22px 18px 20px; }
+}

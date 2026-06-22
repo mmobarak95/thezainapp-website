@@ -15,7 +15,9 @@
           "/challenge/*",
           "/reading-buddy/*",
           "/invite",
-          "/i/*"
+          "/i/*",
+          "/h/*",
+          "/h"
         ]
       }
     ]
