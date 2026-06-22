@@ -286,6 +286,24 @@
       }
     });
 
+    // image src swap by language: data-i18n-src="ar:assets/screenshots/ar/home.jpg"
+    // Drop multiple pairs comma-separated if more locales are added later.
+    // Falls back to the original src when no entry exists for the current lang.
+    document.querySelectorAll('[data-i18n-src]').forEach((el) => {
+      if (!el.hasAttribute('data-i18n-en-src')) {
+        el.setAttribute('data-i18n-en-src', el.getAttribute('src') || '');
+      }
+      const map = {};
+      el.getAttribute('data-i18n-src').split(',').forEach((pair) => {
+        const [code, path] = pair.split(':').map((s) => s.trim());
+        if (code && path) map[code] = path;
+      });
+      const next = map[lang] || el.getAttribute('data-i18n-en-src');
+      if (el.getAttribute('src') !== next) {
+        el.setAttribute('src', next);
+      }
+    });
+
     // attribute translations: data-i18n-attr="attr:key,attr:key"
     document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
       const spec = el.getAttribute('data-i18n-attr');
