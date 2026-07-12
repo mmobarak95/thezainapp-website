@@ -1277,7 +1277,7 @@ body.dark-scene .scene-caption{color:rgba(243,234,218,.5)}
   <aside class="chapter-rail" id="chapterRail" aria-label="Chapters">
     <div class="rail-brand"><span class="rb-w">Zain</span><span class="rb-i">Issue 001 · pre-seed</span></div>
     <div class="rc"><span class="t" id="railClock">6:58 am</span><span class="lbl">One day · eleven scenes</span></div>
-    <ol id="railList"><li><button class="cur"><span class="cn">—</span><span class="ct2">The name</span></button></li><li><button><span class="cn">01</span><span class="ct2">The hook</span></button></li><li><button><span class="cn">02</span><span class="ct2">The community</span></button></li><li><button><span class="cn">03</span><span class="ct2">The problem</span></button></li><li><button><span class="cn">04</span><span class="ct2">The solution</span></button></li><li><button><span class="cn">05</span><span class="ct2">Why now</span></button></li><li><button><span class="cn">06</span><span class="ct2">The field</span></button></li><li><button><span class="cn">07</span><span class="ct2">The plans</span></button></li><li><button><span class="cn">08</span><span class="ct2">The standings</span></button></li><li><button><span class="cn">09</span><span class="ct2">The team</span></button></li><li><button><span class="cn">10</span><span class="ct2">The reckoning &amp; the ask</span></button></li><li><button><span class="cn">11</span><span class="ct2">The last page</span></button></li></ol>
+    <ol id="railList"></ol>
   </aside>
 
   <div class="phone-wrap" style="--ps: 0.7956;">
@@ -4371,7 +4371,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
     if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5 && scene>0){ setScene(scene + (dx<0?1:-1)); }
   }, {passive:true});
   window.addEventListener('hashchange', function(){
-    var m = (location.hash||'').match(/^#s(\d+)$/);
+    var m = (location.hash||'').match(/^#s([1-9]\d*)$/);
     if(m && +m[1]!==scene) setScene(+m[1]);
   });
 
@@ -4613,7 +4613,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
 
 
   /* boot */
-  var m = (location.hash||'').match(/^#s(\d+)$/);
+  var m = (location.hash||'').match(/^#s([1-9]\d*)$/);
   personalize();
   if(m){
     typedOnce = false;
