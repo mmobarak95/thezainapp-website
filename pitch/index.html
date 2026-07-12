@@ -2781,7 +2781,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
                 <span class="glassbtn"><i class="ic fa6 i-share-nodes" style="font-size:12px"></i></span>
               </div>
               <h3>The Field</h3>
-              <p class="sub">Three rings. They close the way markets do — <b>outside-in.</b></p>
+              <p class="sub">Three cuts of one market, closing to the one we win — <b>outside-in.</b></p>
             </div>
 
             <div class="fieldlog">
@@ -2794,23 +2794,26 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
               </div>
             </div>
 
-            <div class="rings-stage">
-              <svg width="200" height="200" viewBox="0 0 210 210" role="img" aria-label="TAM SAM SOM rings">
-                <circle cx="105" cy="105" r="92" fill="none" stroke="#DAD4C4" stroke-width="12"/>
-                <circle cx="105" cy="105" r="92" fill="none" stroke="#143B42" stroke-width="12" stroke-linecap="round"
-                  stroke-dasharray="578" stroke-dashoffset="578" transform="rotate(-90 105 105)" class="mring" data-off="0"/>
-                <circle cx="105" cy="105" r="68" fill="none" stroke="#DAD4C4" stroke-width="12"/>
-                <circle cx="105" cy="105" r="68" fill="none" stroke="#A88B54" stroke-width="12" stroke-linecap="round"
-                  stroke-dasharray="427" stroke-dashoffset="427" transform="rotate(-90 105 105)" class="mring" data-off="0"/>
-                <circle cx="105" cy="105" r="44" fill="none" stroke="#DAD4C4" stroke-width="12"/>
-                <circle cx="105" cy="105" r="44" fill="none" stroke="#C88A1D" stroke-width="12" stroke-linecap="round"
-                  stroke-dasharray="276" stroke-dashoffset="276" transform="rotate(-90 105 105)" class="mring" data-off="0"/>
-                <text x="105" y="99" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="26" fill="#C88A1D" id="somFig">$0M</text>
-                <text x="105" y="117" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="10" fill="#3D4148">obtainable ARR</text>
-              </svg>
+            <div class="cuts-stack" style="margin:14px 14px 6px;display:flex;flex-direction:column;gap:10px">
+              <div style="background:#143B42;color:#F3EEE3;border-radius:14px;padding:14px 18px;display:flex;align-items:baseline;justify-content:space-between">
+                <span style="font-family:var(--mono);font-size:11px;letter-spacing:2.4px;color:rgba(243,238,227,.72)">TAM</span>
+                <span style="font-family:var(--serif);font-weight:700;font-size:34px;letter-spacing:-.5px">~$25B</span>
+              </div>
+              <p style="text-align:center;font-family:var(--serif);font-size:13.5px;line-height:1.45;color:#3D4148;margin:0 14px">Habit + fitness + mental-wellness + reading apps, global</p>
+              <div style="background:#3B7877;color:#F3EEE3;border-radius:14px;padding:14px 18px;display:flex;align-items:baseline;justify-content:space-between">
+                <span style="font-family:var(--mono);font-size:11px;letter-spacing:2.4px;color:rgba(243,238,227,.72)">SAM</span>
+                <span style="font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:-.4px">~$2.4B</span>
+              </div>
+              <p style="text-align:center;font-family:var(--serif);font-size:13.5px;line-height:1.45;color:#3D4148;margin:0 14px">Self-improvement subscribers in launch geos (EN + AR)</p>
+              <div style="background:#C88A1D;color:#F3EEE3;border-radius:14px;padding:12px 18px;display:flex;align-items:baseline;justify-content:space-between">
+                <span style="font-family:var(--mono);font-size:11px;letter-spacing:2.4px;color:rgba(243,238,227,.9)">SOM</span>
+                <span style="text-align:right;line-height:1.1"><span style="font-family:var(--serif);font-weight:700;font-size:28px;letter-spacing:-.4px">$12M</span><br><span style="font-family:var(--serif);font-style:italic;font-size:11px;color:rgba(243,238,227,.9)">obtainable ARR</span></span>
+              </div>
+              <p style="text-align:center;font-family:var(--serif);font-weight:700;font-size:14.5px;color:#6E1E2B;margin:2px 14px">100k paying members in 3 years &mdash; the cut we win first</p>
+              <p style="text-align:center;font-family:var(--serif);font-style:italic;font-size:12.5px;line-height:1.5;color:#5A6470;margin:4px 20px 8px">Widths are schematic, equal steps &mdash; at true scale the gold bar would be under half a pixel wide. The numbers carry the magnitude.</p>
             </div>
 
-            <div class="ring-legend">
+            <div class="ring-legend" hidden>
               <div class="ring-item"><span class="sw" style="background:#143B42"></span><span class="nm">TAM</span>
                 <span class="desc">Habit + fitness + mental-wellness + reading apps, global</span><span class="fig">~$25B</span></div>
               <div class="ring-item"><span class="sw" style="background:#A88B54"></span><span class="nm">SAM</span>
@@ -3035,10 +3038,10 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
               <div class="ccard" style="margin:18px 0 26px">
                 <div class="toprow">
                   <span class="kicker">The Charter · Pre-seed</span>
-                  <span class="streak-chip" style="background:rgba(13,115,119,.08);color:var(--teal)"><i class="ic mci i-compass" style="font-size:11px"></i><span>18 months</span></span>
+                  <span class="streak-chip" style="background:transparent;color:var(--teal);border:1px solid var(--teal);font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:2px;padding:5px 10px"><span>18-MO RUNWAY</span></span>
                 </div>
-                <h3 style="font-size:40px;line-height:44px;letter-spacing:-1px;font-weight:700" id="askTitle">$500k</h3>
-                <p style="font-family:var(--serif);font-style:italic;font-size:14px;color:var(--slate);margin:-4px 0 10px">the runway to Series-ready</p>
+                <h3 style="font-size:52px;line-height:56px;letter-spacing:-1.5px;font-weight:700;color:#C88A1D;font-family:var(--serif)" id="askTitle">&euro;300k</h3>
+                <p style="font-family:var(--serif);font-style:italic;font-size:14px;color:var(--slate);margin:-4px 0 10px">the runway to Series-ready.</p>
                 <div class="card-t" style="margin-top:4px">Use of funds</div>
                 <div class="week-row">
                   <div class="tile" style="background:rgba(13,115,119,.10)">🛠️</div>
@@ -3109,7 +3112,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
               <div class="fin-plate">
                 <div class="fin-plate-eb">The ask</div>
                 <div class="fin-stats">
-                  <div class="fs"><b>$500k</b><span>pre-seed</span></div>
+                  <div class="fs"><b>&euro;300k</b><span>pre-seed</span></div>
                   <div class="fs"><b>18 mo</b><span>runway</span></div>
                   <div class="fs"><b>50 / 30 / 20</b><span>product · growth · team</span></div>
                 </div>
@@ -3247,7 +3250,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
      right:{eb:'Founder as power user', p:'The roadmap is written by daily use, not surveys. 412 days active, 1,286 entries — the app you just spent a day in is how he runs his life.', cite:''}},
     {clock:'10:41', mer:'pm', cap:'10 · The reckoning & the ask', dark:true,
      left:{eb:'The ask, in-product', p:'The app grades its own pitch, then prices the next chapter as a Charter plan — <em>the ask, in the product\u2019s own language.</em>', cite:''},
-     right:{eb:'The terms', p:'$500k pre-seed · 18 months · product 50 / growth 30 / team 20 · milestones: 20k members, D30 ≥ 20% (vs the 3.3% median), 4% free→paid, 0.6 invited friends per member.', cite:'Today: 1,240 WAU · 11% D30 among 2+-domain members — 3× the category median, small base. Cohort tables in the data room.'}},
+     right:{eb:'The terms', p:'€300k pre-seed · 18 months · product 50 / growth 30 / team 20 · milestones: 20k members, D30 ≥ 20% (vs the 3.3% median), 4% free→paid, 0.6 invited friends per member.', cite:'Today: 1,240 WAU · 11% D30 among 2+-domain members — 3× the category median, small base. Cohort tables in the data room.'}},
     {clock:'11:59', mer:'pm', cap:'11 · The last page', dark:true,
      left:{eb:'The day, drawn as one line', p:'The night opened with a sky of scattered apps. It closes with the same sky — the eleven chapters you just walked, <em>connected into one ascending line.</em> That picture is the company.', cite:''},
      right:{eb:'The buttons are live', p:'Proof band, ask band, three weeks. The seal opens a real email to the founder; the data room is one tap below it. <em>Three weeks from seal to answer — we move either way.</em>', cite:'hello@thezainapp.com · thezainapp.com'}}
@@ -4279,6 +4282,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
       }, reduceMotion?0:i*650);
     });
     var fig = $('somFig'), target = 12;
+    if(!fig) return;
     setTimeout(function(){
       if(reduceMotion){ fig.textContent = '$12M'; return; }
       var t0 = performance.now();
