@@ -1386,7 +1386,7 @@ body.dark-scene .scene-caption{color:rgba(243,234,218,.5)}
 .s0 textarea{
   width:100%;background:#fff;border:1px solid var(--charter-border);border-radius:12px;
   padding:13px 14px;font-family:var(--serif);font-size:15px;line-height:1.45;color:var(--ink);
-  outline:none;resize:none;transition:border-color .25s, box-shadow .25s;
+  outline:none;resize:none;overflow:hidden;transition:border-color .25s, box-shadow .25s;
 }
 .s0 textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,115,119,.12)}
 .s0 textarea::placeholder{color:var(--placeholder);font-family:var(--sans);font-size:13.5px}
@@ -3545,11 +3545,13 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
     personalize();
     setScene(1);
   });
-  $('focusInput').addEventListener('input', function(){ demo.focus = this.value; });
+  function fitFocus(){ var t = $('focusInput'); t.style.height = 'auto'; t.style.height = (t.scrollHeight + 2) + 'px'; }
+  $('focusInput').addEventListener('input', function(){ demo.focus = this.value; fitFocus(); });
   document.querySelectorAll('.ftile[data-focus]').forEach(function(c){
     c.addEventListener('click', function(){
       demo.focus = c.dataset.focus;
       $('focusInput').value = c.dataset.focus;
+      fitFocus();
       document.querySelectorAll('.ftile').forEach(function(t){ t.classList.remove('sel'); });
       c.classList.add('sel');
     });
@@ -3813,7 +3815,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
     $('charterTitle').textContent = (name ? name+'\u2019s' : 'Your')+' plan \u2014 '+planT;
     if(name){
       $('epShow').textContent = 'The Zain Studio · recorded for '+name;
-      $('reckCoach').textContent = "You’ve seen the whole product, "+name+". Each week the coach reviews what happened, gives a verdict, and sets the week ahead — this page is that review, applied to the pitch itself.";
+      if($('reckCoach')) $('reckCoach').textContent = "You’ve seen the whole product, "+name+". Each week the coach reviews what happened, gives a verdict, and sets the week ahead — this page is that review, applied to the pitch itself.";
       if($('goodnight')) $('goodnight').textContent = 'Good night, '+name+'. See you in the morning.';
       if($('dawnGreet')) $('dawnGreet').textContent = 'Good morning, '+name+'.';
     if($('finLived')) $('finLived').textContent = name+', you lived one day inside Zain. Imagine ninety in a row — for a million people.';
