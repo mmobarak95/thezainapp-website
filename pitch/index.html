@@ -231,15 +231,15 @@ body{
 }
 /* ambient sky per scene — the day passing around the phone */
 body[data-scene="0"]{background:linear-gradient(180deg,#0E1220 0%,#1E2742 60%,#3A2E3F 100%)}
-body[data-scene="1"]{background:linear-gradient(180deg,#DDEAE6 0%,#F2EFE4 55%,#F6EEDC 100%)}
-body[data-scene="2"]{background:linear-gradient(180deg,#E3ECE0 0%,#F4EFE0 55%,#F8ECD2 100%)}
-body[data-scene="3"]{background:linear-gradient(180deg,#E9E4D6 0%,#EFEAE0 100%)}
-body[data-scene="4"]{background:linear-gradient(180deg,#EDF2EF 0%,#F4F2EA 100%)}
-body[data-scene="5"]{background:linear-gradient(180deg,#2E3134 0%,#3D3830 100%)}
-body[data-scene="6"]{background:linear-gradient(180deg,#D9D4C6 0%,#E9E5DA 100%)}
+body[data-scene="1"]{background:linear-gradient(180deg,#E8DFC9 0%,#F1EAD8 100%)}
+body[data-scene="2"]{background:linear-gradient(180deg,#E8DFC9 0%,#F1EAD8 100%)}
+body[data-scene="3"]{background:linear-gradient(180deg,#E8DFC9 0%,#F1EAD8 100%)}
+body[data-scene="4"]{background:linear-gradient(180deg,#E8DFC9 0%,#F1EAD8 100%)}
+body[data-scene="5"]{background:linear-gradient(180deg,#E8DFC9 0%,#F1EAD8 100%)}
+body[data-scene="6"]{background:linear-gradient(180deg,#E8DFC9 0%,#F1EAD8 100%)}
 body[data-scene="7"]{background:linear-gradient(180deg,#E8DFC9 0%,#F1EAD8 100%)}
-body[data-scene="8"]{background:linear-gradient(180deg,#DCD7C9 0%,#E9E5DA 100%)}
-body[data-scene="9"]{background:linear-gradient(180deg,#E4DECE 0%,#EFEAE0 100%)}
+body[data-scene="8"]{background:linear-gradient(180deg,#E8DFC9 0%,#F1EAD8 100%)}
+body[data-scene="9"]{background:linear-gradient(180deg,#E8DFC9 0%,#F1EAD8 100%)}
 body[data-scene="10"]{background:linear-gradient(180deg,#141A30 0%,#1E2742 70%,#2C3E6F 100%)}
 body[data-scene="11"]{background:linear-gradient(180deg,#1E2742 0%,#3A2E3F 55%,#6B4A3F 100%)}
 
@@ -350,6 +350,8 @@ body[data-scene="11"]{background:linear-gradient(180deg,#1E2742 0%,#3A2E3F 55%,#
 .margin-note p em{font-style:italic}
 .margin-note .cite{font-family:var(--serif);font-style:italic;font-size:13px;line-height:1.55;color:var(--ink-mute);margin-top:10px}
 .margin-note .cite b{color:var(--sepia);font-weight:400}
+.margin-note p a{color:var(--oxblood);text-decoration:none;border-bottom:1px solid rgba(184,152,90,.6);white-space:nowrap}
+.margin-note p a:hover{border-bottom-color:var(--oxblood)}
 .margin-note+.margin-note{margin-top:12px;padding-top:12px;border-top:1px solid rgba(184,152,90,.35)}
 
 
@@ -2194,7 +2196,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
 .tnr-body.turn{animation:tnTurn .38s ease both}
 @keyframes tnTurn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .tnr-kick{font-family:var(--sans);font-weight:700;font-size:9px;letter-spacing:2.6px;color:var(--oxblood)}
-.tnr-ava{position:relative;width:72px;height:72px;border-radius:50%;overflow:hidden;margin:16px auto 0;border:2px solid rgba(184,152,90,.55);box-shadow:0 6px 18px rgba(62,42,30,.18);background:var(--card-bc)}
+.tnr-ava{display:block;position:relative;width:132px;height:132px;border-radius:50%;overflow:hidden;margin:18px auto 0;border:2px solid rgba(184,152,90,.55);box-shadow:0 6px 18px rgba(62,42,30,.18);background:var(--card-bc)}
 .tnr-ava img{width:100%;height:100%;object-fit:cover;display:block}
 .tnr-ava b{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-family:var(--serif);font-size:26px;color:#fff;background:var(--teal)}
 .tnr-ava.noimg b{display:flex}
@@ -2203,6 +2205,42 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
 .tnr-rule{display:block;width:48px;height:1.5px;background:var(--gold-foil);margin:16px auto 0}
 .tnr-prose{font-family:var(--serif);font-size:15.5px;line-height:1.62;color:var(--ink-soft);margin-top:16px;text-align:left}
 .tnr-date{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--ink-mute);opacity:.8;margin-top:14px;text-align:right}
+/* founder bio: scannable credential strip + set-apart personal note */
+.bio-cred{text-align:left;margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.bio-row{display:flex;gap:11px;align-items:flex-start}
+.bio-ic{flex:none;width:20px;font-size:15px;line-height:1.5;text-align:center}
+.bio-tx{font-family:var(--serif);font-size:12.5px;line-height:1.52;color:var(--ink-soft)}
+.bio-tx b{font-weight:700;color:var(--ink)}
+.bio-tx em{font-style:italic}
+.bio-note{margin-top:20px;text-align:left;background:var(--card-bc);border:1px solid var(--card-border);border-radius:14px;padding:15px 17px}
+.bio-eyebrow{font-family:var(--sans);font-weight:700;font-size:9px;letter-spacing:2.6px;text-transform:uppercase;color:var(--oxblood)}
+.bio-hr{display:block;width:38px;height:1.5px;background:var(--gold-foil);margin-top:9px}
+.bio-quote{font-family:var(--serif);font-size:14.5px;line-height:1.66;color:var(--ink);margin-top:12px}
+.bio-sign{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--sepia);margin-top:12px;text-align:right}
+/* ── scene 11: over to you — CTA epilogue on the night sky ── */
+.cta{padding:46px 20px 46px;text-align:center}
+.cta-clock{font-family:var(--serif);font-style:italic;font-size:13px;color:rgba(243,234,218,.55);margin-top:16px}
+.cta-title{font-family:var(--serif);font-size:27px;line-height:1.22;letter-spacing:-.3px;color:#F3EADA;margin-top:8px}
+.cta-title em{font-style:italic;color:var(--gold)}
+.cta-sub{font-family:var(--serif);font-style:italic;font-size:13.5px;line-height:1.5;color:rgba(243,234,218,.7);margin-top:10px}
+.cta-card{margin-top:18px;background:rgba(243,234,218,.06);border:1px solid rgba(184,152,90,.35);border-radius:16px;padding:16px 17px;text-align:left}
+.cta-eyebrow{font-family:var(--sans);font-weight:700;font-size:9px;letter-spacing:2.6px;text-transform:uppercase;color:var(--gold)}
+.cta-hint{font-family:var(--serif);font-style:italic;font-size:12.5px;color:rgba(243,234,218,.65);margin-top:6px}
+.cta-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.cta-chip{padding:6px 12px;border-radius:999px;border:1px dashed rgba(184,152,90,.5);background:transparent;color:rgba(243,234,218,.85);font-family:var(--serif);font-style:italic;font-size:12px;cursor:pointer;transition:border-color .18s ease,background .18s ease,color .18s ease}
+.cta-chip:hover{border-color:var(--gold)}
+.cta-chip.sel{border-style:solid;border-color:var(--gold);background:rgba(201,169,98,.16);color:#F3EADA}
+.cta textarea{width:100%;margin-top:12px;background:rgba(14,18,32,.5);border:1px solid rgba(184,152,90,.4);border-radius:12px;padding:12px 13px;font-family:var(--serif);font-size:14px;line-height:1.5;color:#F3EADA;outline:none;resize:none;overflow:hidden;transition:border-color .25s}
+.cta textarea::placeholder{color:rgba(243,234,218,.4);font-family:var(--sans);font-size:12.5px}
+.cta textarea:focus{border-color:var(--gold)}
+.cta .btn-charter{margin-top:12px}
+.cta-privacy{font-family:var(--sans);font-size:10px;letter-spacing:.2px;color:rgba(243,234,218,.45);text-align:center;margin-top:8px}
+.cta-row{display:flex;align-items:flex-start;gap:11px;margin-top:13px}
+.cta-row .tile2{width:34px;height:34px;border-radius:10px;background:rgba(201,169,98,.14);display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+.cta-row a{font-family:var(--serif);font-size:14.5px;color:#F3EADA;text-decoration:none;border-bottom:1px solid rgba(184,152,90,.5)}
+.cta-row a:hover{border-bottom-color:var(--gold)}
+.cta-row .sub2{font-family:var(--serif);font-style:italic;font-size:11.5px;color:rgba(243,234,218,.55);margin-top:3px}
+.cta-sign{font-family:var(--serif);font-style:italic;font-size:13px;color:rgba(243,234,218,.6);margin-top:24px}
 .tnr-bar{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px 16px 20px;border-top:1px solid rgba(184,152,90,.4);background:#FBF7EC}
 .tnr-pos{display:flex;align-items:center;gap:8px;min-width:0}
 .tnr-pos b{font-family:var(--sans);font-weight:700;font-size:9px;letter-spacing:2px;color:var(--sepia);text-transform:uppercase;white-space:nowrap}
@@ -3058,7 +3096,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
             <div class="divider chap"><i></i><span>09 · The team</span><i></i></div>
 
             <div class="nhx-mast">
-              <div class="nhx-eyebrow">The Sanctuary</div>
+              <div class="nhx-eyebrow">The Masthead</div>
               <h3 class="nhx-title">Notes</h3>
               <div class="nhx-tabs">
                 <span class="on">All notes<i></i></span>
@@ -3199,6 +3237,52 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
                 </div>
               </div>
             </div>
+            <button class="next-cue on-dark" data-next="">one more page, and it’s yours <span class="chev">→</span></button>
+          </div>
+        </section>
+
+        <!-- ═══════ SCENE 11 — OVER TO YOU (CTA epilogue) ═══════ -->
+        <section class="screen s11f" id="scr11" inert="">
+          <div class="cta">
+            <div class="divider chap on-dark" style="padding-left:0;padding-right:0"><i></i><span>11 · Over to you</span><i></i></div>
+
+            <div class="cta-clock">12:00 am</div>
+            <h3 class="cta-title">The day is over.<br><em>The rest is yours.</em></h3>
+            <p class="cta-sub">You just lived one day inside Zain. Two small asks before you go.</p>
+
+            <div class="cta-card">
+              <div class="cta-eyebrow">First impressions</div>
+              <p class="cta-hint">Words that come to mind, a sentence, whatever is easy.</p>
+              <div class="cta-chips" id="ctaChips">
+                <button type="button" class="cta-chip">intentional</button>
+                <button type="button" class="cta-chip">calm</button>
+                <button type="button" class="cta-chip">ambitious</button>
+                <button type="button" class="cta-chip">polished</button>
+                <button type="button" class="cta-chip">I’d use this</button>
+                <button type="button" class="cta-chip">not sure yet</button>
+              </div>
+              <textarea id="ctaText" rows="3" maxlength="600" placeholder="Type anything…" aria-label="Your impressions"></textarea>
+              <button type="button" class="btn-charter" id="ctaSend">Send it to Mo</button>
+              <p class="cta-privacy">Opens your own mail app. Nothing is sent until you press send there.</p>
+            </div>
+
+            <div class="cta-card">
+              <div class="cta-eyebrow">The app is live</div>
+              <div class="cta-row">
+                <div class="tile2">📱</div>
+                <div><a href="https://apps.apple.com/app/id6757399804" target="_blank" rel="noopener">App Store</a> &nbsp;·&nbsp; <a href="https://play.google.com/store/apps/details?id=com.zainapp" target="_blank" rel="noopener">Google Play</a><div class="sub2">download Zain and join the community today</div></div>
+              </div>
+              <div class="cta-row">
+                <div class="tile2">✉️</div>
+                <div><a href="mailto:hello@thezainapp.com">hello@thezainapp.com</a><div class="sub2">for the deeper look: data room and a working build</div></div>
+              </div>
+              <div class="cta-row">
+                <div class="tile2">🌱</div>
+                <div><a href="https://thezainapp.com" target="_blank" rel="noopener">thezainapp.com</a><div class="sub2">the app and the story, in one place</div></div>
+              </div>
+            </div>
+
+            <p class="cta-sign" id="ctaSign">Thank you for spending the day here. See you in the morning.</p>
           </div>
         </section>
 
@@ -3230,13 +3314,13 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
     <div class="mobile-note" id="mobileNote">
       <div class="eyebrow" id="mnEyebrow">The day, drawn as one line</div>
       <p id="mnBody">The chapters you just walked, <em>connected into one ascending line.</em> That picture is the company. The ledger lists what the pitch showed; the ask prices what comes next. €300k buys 18 focused months, and the four milestones were chosen because they de-risk the next round: 20k members proves pull, 20% D30 proves the coach works, 4% paid proves the model, and 0.6 invites per member proves it spreads itself.</p>
-      <div class="cite" id="mnCite" style="">Today: 1,240 WAU · 11% D30 among 2+-domain members — 3× the category median, small base. hello@thezainapp.com · thezainapp.com</div>
+      <div class="cite" id="mnCite" style="">hello@thezainapp.com · thezainapp.com</div>
     </div>
   </div><!-- /phone-wrap -->
 
   <aside class="notes-panel on" id="notesPanel" aria-label="Editor&#39;s notes">
     <div class="nph"><span>Editor's notes</span><i></i></div>
-    <div id="notesBody"><div class="margin-note"><div class="eyebrow">The day, drawn as one line</div><div class="rule"></div><p>The chapters you just walked, <em>connected into one ascending line.</em> That picture is the company.</p></div><div class="margin-note"><div class="eyebrow">The ask, on the record</div><div class="rule"></div><p>The ledger lists what the pitch showed; the ask prices what comes next. €300k buys 18 focused months, and the four milestones were chosen because they de-risk the next round: 20k members proves pull, 20% D30 proves the coach works, 4% paid proves the model, and 0.6 invites per member proves it spreads itself.</p><div class="cite">Today: 1,240 WAU · 11% D30 among 2+-domain members — 3× the category median, small base. hello@thezainapp.com · thezainapp.com</div></div></div>
+    <div id="notesBody"><div class="margin-note"><div class="eyebrow">The day, drawn as one line</div><div class="rule"></div><p>The chapters you just walked, <em>connected into one ascending line.</em> That picture is the company.</p></div><div class="margin-note"><div class="eyebrow">The ask, on the record</div><div class="rule"></div><p>The ledger lists what the pitch showed; the ask prices what comes next. €300k buys 18 focused months, and the four milestones were chosen because they de-risk the next round: 20k members proves pull, 20% D30 proves the coach works, 4% paid proves the model, and 0.6 invites per member proves it spreads itself.</p><div class="cite">hello@thezainapp.com · thezainapp.com</div></div></div>
   </aside>
 </div><!-- /stage -->
 
@@ -3249,7 +3333,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
   'use strict';
   var name = '';
   var scene = 0;
-  var TOTAL = 11;
+  var TOTAL = 12;
   var visited = {2:false,3:false,4:false,6:false,9:false};
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -3336,7 +3420,10 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
      right:{eb:'Founder as power user', p:'Mo is user #1: 412 days active, 1,286 entries of his own. The roadmap is written by that daily use, not by surveys. <em>Everything you walked through today was part of his real mornings before it ever shipped.</em>', cite:''}},
     {clock:'11:59', mer:'pm', cap:'10 · Roadmap', dark:true,
      left:{eb:'The day, drawn as one line', p:'The chapters you just walked, <em>connected into one ascending line.</em> That picture is the company.', cite:''},
-     right:{eb:'The ask, on the record', p:'The ledger lists what the pitch showed; the ask prices what comes next. €300k buys 18 focused months, and the four milestones were chosen because they de-risk the next round: 20k members proves pull, 20% D30 proves the coach works, 4% paid proves the model, and 0.6 invites per member proves it spreads itself.', cite:'Today: 1,240 WAU · 11% D30 among 2+-domain members — 3× the category median, small base. hello@thezainapp.com · thezainapp.com'}}
+     right:{eb:'The ask, on the record', p:'The ledger lists what the pitch showed; the ask prices what comes next. €300k buys 18 focused months, and the four milestones were chosen because they de-risk the next round: 20k members proves pull, 20% D30 proves the coach works, 4% paid proves the model, and 0.6 invites per member proves it spreads itself.', cite:'hello@thezainapp.com · thezainapp.com'}},
+    {clock:'12:00', mer:'am', cap:'11 · Over to you', dark:true,
+     left:{eb:'The morning after', p:'The pitch ends where the app begins: with intention. Whatever the day left you with, the box on the phone is where it goes.', cite:''},
+     right:{eb:'Already live', p:'This isn’t a prototype. The app you just spent a day in is live in both stores — download it and join the community: <a href="https://apps.apple.com/app/id6757399804" target="_blank" rel="noopener">App&nbsp;Store</a> · <a href="https://play.google.com/store/apps/details?id=com.zainapp" target="_blank" rel="noopener">Google&nbsp;Play</a>', cite:'hello@thezainapp.com · thezainapp.com'}}
   ];
 
   var $ = function(id){return document.getElementById(id)};
@@ -3378,8 +3465,8 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
     if(n!==9 && typeof closeTeamReader === 'function') closeTeamReader(true);
     if(n!==1){ jT.forEach(function(h){ h.cancel ? h.cancel() : clearTimeout(h); }); jT.length = 0; var pt = $('pushToast'); if(pt) pt.classList.remove('in'); }
     $('sbClock').textContent = s.clock;
-    $('statusbar').classList.toggle('light', n===5||n===10);
-    $('homeInd').classList.toggle('light', n===5||n===10);
+    $('statusbar').classList.toggle('light', n===5||n===10||n===11);
+    $('homeInd').classList.toggle('light', n===5||n===10||n===11);
     $('sceneCaption').textContent = s.cap;
     $('progFill').style.width = ((n)/(TOTAL-1)*100)+'%';
     $('prevBtn').disabled = (n===0);
@@ -3455,7 +3542,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
 
   /* ---------- play mode (Stories) ---------- */
   var playMode = false, playTimer = null;
-  var PLAY_DUR = {1:18900,2:24000,3:15000,4:14000,5:18000,6:11000,7:12000,8:14000,9:15000,10:18000};
+  var PLAY_DUR = {1:18900,2:24000,3:15000,4:14000,5:18000,6:11000,7:12000,8:14000,9:15000,10:18000,11:14000};
   function pdur(n){ return reduceMotion ? Math.min(PLAY_DUR[n]||9000, 9000) : PLAY_DUR[n]; }
   function startPlay(){
     playMode = true;
@@ -3475,7 +3562,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
     if(n < 1){ exitPlay(); return; }
     updatePlayBtn();
     var pips = document.querySelectorAll('#storyPips .pip');
-    $('storyPips').classList.toggle('light', n===5||n===10);
+    $('storyPips').classList.toggle('light', n===5||n===10||n===11);
     pips.forEach(function(pp, i){
       var idx = i+1, bar = pp.firstChild;
       pp.classList.remove('cur','past');
@@ -4497,6 +4584,34 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
   document.querySelectorAll('[data-next]').forEach(function(b){
     b.addEventListener('click', function(){ setScene(scene+1) });
   });
+
+  /* ---------- Scene 11: first impressions → mailto composer ---------- */
+  (function(){
+    var chips = document.querySelectorAll('#ctaChips .cta-chip');
+    chips.forEach(function(c){
+      c.addEventListener('click', function(){ c.classList.toggle('sel'); });
+    });
+    var ta = $('ctaText');
+    if(ta){
+      ta.addEventListener('input', function(){ ta.style.height='auto'; ta.style.height=(ta.scrollHeight+2)+'px'; });
+    }
+    var send = $('ctaSend');
+    if(send){
+      send.addEventListener('click', function(){
+        var words = [];
+        document.querySelectorAll('#ctaChips .cta-chip.sel').forEach(function(c){ words.push(c.textContent); });
+        var txt = ta ? ta.value.trim() : '';
+        var body = '';
+        if(words.length) body += 'Words that came to mind: ' + words.join(', ') + '\n\n';
+        if(txt) body += txt + '\n\n';
+        if(!body) body = '(no notes — just wanted to say hello)\n\n';
+        body += 'Sent from the Zain pitch' + (name ? ' · ' + name : '') + '.';
+        location.href = 'mailto:hello@thezainapp.com?subject=' +
+          encodeURIComponent('Zain pitch · first impressions') +
+          '&body=' + encodeURIComponent(body);
+      });
+    }
+  })();
   document.addEventListener('keydown', function(e){
     if(ovOpen) return;
     if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
@@ -4666,6 +4781,22 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
   var TEAM_NOTES = [
     { role:'Founder', name:'Mo', handle:'@mo · user #1', pic:'mo',
       body:'',
+      bioHTML:
+        '<i class="tnr-rule"></i>'+
+        '<div class="bio-cred">'+
+          '<div class="bio-row"><span class="bio-ic">🎓</span><span class="bio-tx"><b>CS &amp; Mathematics</b>, University of Minnesota. Dean’s-pick CS tutor and UROP research scholar in <em>fractal algorithms</em>.</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">🌍</span><span class="bio-tx"><b>M.Eng. Software Engineering</b>, Arizona State, on a scholarship for young STEM leaders across the Middle East.</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">🤝</span><span class="bio-tx"><b>AMEL</b> Communication &amp; Leadership fellow (The African Middle Eastern Leadership Project).</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">🏅</span><span class="bio-tx">Finalist, <b>Nudge Global Impact Challenge</b>.</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">🥇</span><span class="bio-tx">On the team selected as the <b>Netherlands winner</b> of the UN SDG Accelerator.</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">💻</span><span class="bio-tx">Engineer in Minnesota, then machine-learning systems for a Silicon Valley SaaS startup. At <b>ABN AMRO</b>: software engineer, then product owner, now <b>senior product owner</b> leading multiple teams.</span></div>'+
+        '</div>'+
+        '<div class="bio-note">'+
+          '<div class="bio-eyebrow">Note from Mo</div>'+
+          '<i class="bio-hr"></i>'+
+          '<p class="bio-quote">Zain started as my own app, one place for the things I care about: my habits, my books, my journals, my training, and the people around me. It made my days feel like mine again, and now I get to build that for everyone. Zain helps you spend your time on what matters, make real progress on what you love, and share the journey with people who get it.</p>'+
+          '<div class="bio-sign">— Mo</div>'+
+        '</div>',
       date:'Journal · tonight, 10:00 pm' },
     { role:'', name:'Ali', handle:'@ali · pages, not dashboards', pic:'ali',
       body:'',
@@ -4698,7 +4829,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
       '<span class="tnr-ava'+(img?'':' noimg')+'">'+(img?'<img src="'+img+'" alt="">':'')+'<b>'+n.name.charAt(0)+'</b></span>'+
       (n.role ? '<h4 class="tnr-role">'+n.role+'</h4>' : '<h4 class="tnr-role">'+n.name+'</h4>')+
       '<div class="tnr-by">'+(n.role ? n.name+' · ' : '')+n.handle+'</div>'+
-      (n.body ? '<i class="tnr-rule"></i><p class="tnr-prose">'+n.body+'</p>' : '')+
+      (n.bioHTML ? n.bioHTML : (n.body ? '<i class="tnr-rule"></i><p class="tnr-prose">'+n.body+'</p>' : ''))+
       '<div class="tnr-date">'+n.date+'</div>';
     var pos = $('tnrPos'); if(pos) pos.textContent = (i+1)+' of '+TEAM_NOTES.length;
     var pv = $('tnrPrev'); if(pv) pv.disabled = (i===0);
