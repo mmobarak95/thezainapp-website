@@ -2972,7 +2972,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
               <div class="fstep in set">
                 <div class="fbar som"><span class="fb-tag">SOM</span>
                   <span class="fb-figwrap"><span class="fb-fig" id="somFig">$12M</span><span class="fb-sub">obtainable ARR</span></span></div>
-                <div class="fb-cap win">100k paying members in 3 years — the cut we win first</div>
+                <div class="fb-cap win">125k paying members in 3 years — the cut we win first</div>
               </div>
               <p class="funnel-note in" id="funnelNote">Widths are schematic, equal steps — at true scale the gold bar would be under half a pixel wide. The numbers carry the magnitude.</p>
             </div>
@@ -3262,7 +3262,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
                 <button type="button" class="cta-chip">not sure yet</button>
               </div>
               <textarea id="ctaText" rows="3" maxlength="600" placeholder="Type anything…" aria-label="Your impressions"></textarea>
-              <button type="button" class="btn-charter" id="ctaSend">Send it to Mo</button>
+              <button type="button" class="btn-charter" id="ctaSend">Send it to the team</button>
               <p class="cta-privacy">Opens your own mail app. Nothing is sent until you press send there.</p>
             </div>
 
@@ -3274,7 +3274,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
               </div>
               <div class="cta-row">
                 <div class="tile2">✉️</div>
-                <div><a href="mailto:hello@thezainapp.com">hello@thezainapp.com</a><div class="sub2">for the deeper look: data room and a working build</div></div>
+                <div><a href="mailto:hello@thezainapp.com">hello@thezainapp.com</a><div class="sub2">for the deeper look: the data room and numbers</div></div>
               </div>
               <div class="cta-row">
                 <div class="tile2">🌱</div>
@@ -3334,6 +3334,46 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
   var name = '';
   var scene = 0;
   var TOTAL = 12;
+
+  /* ---------- pitch telemetry → BE (api/Pitch/Record): scene coverage, active time, return visits ---------- */
+  var PITCH_API = 'https://zain1-linux.azurewebsites.net/api/Pitch/Record';
+  function pitchPerf(){ return (window.performance && performance.now) ? performance.now() : 0; }
+  var pitchSid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+                 : (pitchPerf().toString(36) + '-' + Math.random().toString(36).slice(2));
+  var pitchReturns = 1;
+  try { pitchReturns = (parseInt(localStorage.getItem('zain_pitch_opens') || '0', 10) || 0) + 1;
+        localStorage.setItem('zain_pitch_opens', String(pitchReturns)); } catch(e){}
+  var pitchScenes = {}, pitchMax = 0;
+  var pitchActiveMs = 0, pitchSince = (document.visibilityState === 'hidden') ? 0 : pitchPerf();
+  function trackScene(n){ if(typeof n !== 'number' || n < 0) return; pitchScenes[n] = 1; if(n > pitchMax) pitchMax = n; }
+  function pitchActiveSeconds(){ var t = pitchActiveMs + (pitchSince ? pitchPerf() - pitchSince : 0); return Math.max(0, Math.round(t / 1000)); }
+  function pitchParams(kind){
+    var p = new URLSearchParams();
+    p.set('sessionId', pitchSid);
+    p.set('kind', kind);
+    p.set('name', name || '');
+    p.set('scenesSeen', String(Object.keys(pitchScenes).length));
+    p.set('maxScene', String(pitchMax));
+    p.set('completed', (pitchMax >= TOTAL - 1) ? 'true' : 'false');
+    p.set('timeSeconds', String(pitchActiveSeconds()));
+    p.set('returnVisits', String(pitchReturns));
+    return p;
+  }
+  var pitchVisitSent = false;
+  function pitchSendVisit(){
+    if(pitchVisitSent) return; pitchVisitSent = true;
+    try {
+      var p = pitchParams('visit');
+      if(navigator.sendBeacon){ navigator.sendBeacon(PITCH_API, p); }
+      else { fetch(PITCH_API, {method:'POST', body:p, keepalive:true}).catch(function(){}); }
+    } catch(e){}
+  }
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'hidden'){ if(pitchSince){ pitchActiveMs += pitchPerf() - pitchSince; pitchSince = 0; } pitchSendVisit(); }
+    else if(!pitchSince){ pitchSince = pitchPerf(); }
+  });
+  window.addEventListener('pagehide', pitchSendVisit);
+  trackScene(0);
   var visited = {2:false,3:false,4:false,6:false,9:false};
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -3389,38 +3429,38 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
 
   var SCENES = [
     {clock:'6:58', mer:'am', cap:'The name', dark:true,
-     left:{eb:'Before you enter', p:'<em>Nothing here is a slide.</em> Every screen is built from Zain’s real components, the exact fonts, colors, and buttons members touch every day, so it feels like using the app.', cite:''},
+      left:{eb:'', p:'', cite:''},
      right:{eb:'Two minutes of input', p:'Give it your name, one focus, and what’s on your nightstand, and the pitch onboards you the way the app would: <em>your habits, the shape of your day, and the rest of the story all built from what you share.</em>', cite:''}},
     {clock:'7:04', mer:'am', cap:'01 · The hook', dark:false,
      left:{eb:'The thesis', p:'Zain is one app where your habits, books, podcasts, workouts, and journal live in the same head. That’s the whole bet: <em>a coach is only useful if it sees the whole life it’s coaching.</em>', cite:''},
-     right:{eb:'What you’re seeing', p:'The home screen was just <em>built from what you typed</em>: your habit from your focus, your book mid-shelf, your podcast queued and waiting. No template woke up this morning.', cite:''}},
+      right:{eb:'What you’re seeing', p:'The home screen was just <em>built from what you typed</em>: your habit from your focus, your book mid-shelf, your podcast queued and waiting.', cite:''}},
     {clock:'7:09', mer:'am', cap:'02 · The community', dark:false,
-     left:{eb:'A feed of intentions, not impressions', p:'Friends don’t just watch each other here, they join in. Tap a friend’s 6am meditation and it lands on your plan tomorrow at 6am too; pick up the book they’re reading and your notes meet inside the same chapters. <em>The feed’s job is momentum, not attention.</em> There is nothing to post that isn’t something you did.', cite:''},
-     right:{eb:'Honest note', p:'What you’re watching is a real member’s first hour of the morning, replayed in ten seconds. The patterns come from live production data with the names changed, and in the shipping app <em>nothing posts without your say.</em>', cite:''}},
+      left:{eb:'A feed of intentions, not impressions', p:'Tap a friend’s 6am meditation and it lands on your plan tomorrow at 6am too. Pick up the book they’re reading and your notes meet inside the same chapters, and discussions can grow. Nothing in the feed is posted for show — <em>it’s things people actually did, read, reflected, or chose.</em>', cite:''},
+      right:{eb:'', p:'', cite:''}},
     {clock:'7:15', mer:'am', cap:'03 · The problem', dark:false,
      left:{eb:'Three trackers, no coach', p:'The trackers aren’t bad, they’re blind. Your reading app doesn’t know you skipped the gym, and your fitness app doesn’t know why. <em>Someone still has to hold the whole picture, and until now that someone was you.</em>', cite:''},
-     right:{eb:'The receipts', p:'A streak honors real effort, but when the number resets there is nothing underneath to catch you: no why, no next step, no one who noticed. So most people quietly move on. <em>The numbers below are the whole category admitting it.</em>', cite:'† 70% abandonment within 100 days — JMIR scoping review, 2024. † Median 30-day retention 3.3% across 93 apps — Baumel et al., 2019.'}},
+      right:{eb:'The receipts', p:'A streak rewards you for showing up, but it doesn’t explain why it matters or what to do when it breaks — so when people miss a day, <em>most just stop opening the app.</em> These aren’t just our numbers: they’re from independent research across dozens of habit and wellness apps.', cite:'† 70% abandonment within 100 days — JMIR scoping review, 2024. † Median 30-day retention 3.3% across 93 apps — Baumel et al., 2019.'}},
     {clock:'7:30', mer:'am', cap:'04 · The solution', dark:false,
-     left:{eb:'This is the moat', p:'Every week ends with <em>the Weekly Debrief</em>: the coach reads the week you actually had, the kept mornings, the skipped run, the chapter that ran long, and drafts next week around it. You can push back, and it will defend the plan or bend it.', cite:''},
-     right:{eb:'Try it', p:'The suggestion on screen is live: the coach noticed yesterday’s miss and drafted one change. <em>Add it to the calendar</em> and watch the plan bend itself around your actual life. That is what a hyper-personal coach looks like in practice.', cite:''}},
+      left:{eb:'This is the moat', p:'Every week ends with <em>the Weekly Debrief.</em> The coach reviews what actually happened: the mornings you kept, the run you skipped, the chapter that ran long, and builds next week’s plan around it. You can push back on any part of it, and the coach adjusts.', cite:''},
+      right:{eb:'Try it', p:'The suggestion on screen is live: the coach noticed you missed yesterday and drafted one change. Tap <em>“add to calendar”</em> and next week’s plan updates around it.', cite:''}},
     {clock:'12:30', mer:'pm', cap:'05 · Why now', dark:true,
-     left:{eb:'Three forces, three sources', p:'Three chapters, one stat each: what coaching now costs, what people already use AI for, and where the money already flows. Any one of them is a trend. <em>All three pointing the same way is a starting gun.</em>', cite:''},
-     right:{eb:'Liner notes', p:'A 24/7 coach is suddenly within everyone’s reach, people already assemble an intentional life from fragments, and intention is what the spending rewards. None of this was true three years ago. <em>That is the whole point.</em>', cite:'† Stanford HAI AI Index 2025 · Epoch AI † HBR Top-100 Gen-AI Use Cases 2025 † Global Wellness Institute 2025 · Sensor Tower'}},
+      left:{eb:'Why now, plainly', p:'Three things changed, and none of them were true three years ago. Coaching got attainable: inference costs dropped 280× in 18 months, so a 24/7 coach now costs cents per user per week instead of a salary. People are already using AI this way — therapy and companionship is the top consumer AI use case this year, “organize my life” is second. And the spending is already there: wellness is a $6.8 trillion market outgrowing global GDP. Any one of these on its own would be a trend. <em>Together, they’re why this is buildable now and wasn’t before.</em>', cite:'† Stanford HAI AI Index 2025 · Epoch AI † HBR Top-100 Gen-AI Use Cases 2025 † Global Wellness Institute 2025 · Sensor Tower'},
+      right:{eb:'', p:'', cite:''}},
     {clock:'5:30', mer:'pm', cap:'06 · The field', dark:false,
-     left:{eb:'Outside-in', p:'Read it top-down: the whole market, the slice we can serve, and the cut we win first. The gold bar looks small because we drew it honestly. <em>At true scale it would be half a pixel wide, and it still funds a real company.</em>', cite:''},
-     right:{eb:'Why this slice', p:'English plus Arabic is a deliberate first cut: the Arabic-speaking self-improvement audience is enormous, underserved, and Zain ships in both languages from day one. And we open with readers on purpose, because they already show up daily for something slow. <em>That is exactly the muscle the rest of the app coaches.</em>', cite:'† Straits Research · Polaris · Precedence · Verified Market Research'}},
+      left:{eb:'Outside-in', p:'The bottom number is what we think we can win in the first 3 years. It’s small on purpose. We’re not claiming a big slice on day one — we’re showing you the real, achievable target, and <em>it’s still a $12M business.</em>', cite:''},
+      right:{eb:'Why this slice', p:'We’re launching in English and Arabic first. Arabic is a big, underserved market for self-improvement apps, and building bilingual from day one means we don’t have to retrofit it later. Within that, we’re starting with readers — people who already have a daily reading habit — <em>because it’s easier to add a coach to a habit someone already has than to convince someone to build a new habit from scratch.</em>', cite:'† Straits Research · Polaris · Precedence · Verified Market Research'}},
     {clock:'8:00', mer:'pm', cap:'07 · The plans', dark:false,
      left:{eb:'The model', p:'$4.99 is deliberately the price of a single-domain app, but it unlocks the whole thing. The $10 tier is where the thesis lives: people already pay that much for a meditation library alone or a running coach alone. <em>Zain AI is the same price for a coach that has read everything.</em>', cite:''},
-     right:{eb:'Why $10 holds', p:'Serving an AI companion costs cents, so the price carries software margins. And retention compounds with domains: leaving means walking away from your plan, your shelf, your notes, and your people all at once. <em>Clubs and partnerships stack on top.</em>', cite:''}},
+      right:{eb:'What comes later', p:'Once the core product works, there’s room to grow revenue beyond subscription: paid group cohorts and challenges, affiliate deals with the books and gyms already inside the app, a marketplace for creators and coaches, and licensing the platform to other apps. None of this is priced into the model above — <em>it’s upside on top of it.</em>', cite:''}},
     {clock:'9:15', mer:'pm', cap:'08 · The standings', dark:false,
      left:{eb:'Everyone tracks', p:'Every app on this map is genuinely good at its square; tracking is a solved problem. What’s unsolved is the seams between the squares, <em>and the seams are where lives actually fall apart.</em>', cite:''},
      right:{eb:'Including the AI wave', p:'Rosebud journals with AI, Rocky coaches by chat, Headspace calms the mind — the nearest neighbours, named on the map. Each coaches <em>one</em> domain. Cheap LLM inference opened the all-in-one corner about two years ago; nobody moved in.', cite:''}},
     {clock:'10:00', mer:'pm', cap:'09 · The team', dark:false,
-     left:{eb:'The team page, as notes', p:'No headshot grid; the team ships as a three-entry series in the app’s own Notes, read the way members would read them. Mo builds Zain and runs his life inside it, Ali keeps the product honest (pages, not dashboards), and Paula grows the community and tells its story.', cite:''},
-     right:{eb:'Founder as power user', p:'Mo is user #1: 412 days active, 1,286 entries of his own. The roadmap is written by that daily use, not by surveys. <em>Everything you walked through today was part of his real mornings before it ever shipped.</em>', cite:''}},
+      left:{eb:'The team page, as notes', p:'No headshot grid; the team ships as a three-entry series in the app’s own Notes, read the way members would read them.', cite:''},
+      right:{eb:'The three of them', p:'Mo builds Zain, and runs his own life inside it. Ali keeps the product honest — <em>pages, not dashboards.</em> Paula grows the community and tells the story.', cite:''}},
     {clock:'11:59', mer:'pm', cap:'10 · Roadmap', dark:true,
-     left:{eb:'The day, drawn as one line', p:'The chapters you just walked, <em>connected into one ascending line.</em> That picture is the company.', cite:''},
-     right:{eb:'The ask, on the record', p:'The ledger lists what the pitch showed; the ask prices what comes next. €300k buys 18 focused months, and the four milestones were chosen because they de-risk the next round: 20k members proves pull, 20% D30 proves the coach works, 4% paid proves the model, and 0.6 invites per member proves it spreads itself.', cite:'hello@thezainapp.com · thezainapp.com'}},
+      left:{eb:'', p:'', cite:''},
+      right:{eb:'The ask, on the record', p:'€300k funds 18 months, split three ways: half goes straight into product, so we keep shipping weekly; a third into growth, building out community and creator partnerships; the rest into our first two hires. By the end of it we want 20,000 members, 20% day-30 retention — six times the category median — and 4% of members converting to paid. <em>Those three numbers are what unlock the next round.</em>', cite:'hello@thezainapp.com · thezainapp.com'}},
     {clock:'12:00', mer:'am', cap:'11 · Over to you', dark:true,
      left:{eb:'The morning after', p:'The pitch ends where the app begins: with intention. Whatever the day left you with, the box on the phone is where it goes.', cite:''},
      right:{eb:'Already live', p:'This isn’t a prototype. The app you just spent a day in is live in both stores — download it and join the community: <a href="https://apps.apple.com/app/id6757399804" target="_blank" rel="noopener">App&nbsp;Store</a> · <a href="https://play.google.com/store/apps/details?id=com.zainapp" target="_blank" rel="noopener">Google&nbsp;Play</a>', cite:'hello@thezainapp.com · thezainapp.com'}}
@@ -3429,6 +3469,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
   var $ = function(id){return document.getElementById(id)};
 
   function marginHTML(m){
+    if(!m || (!m.eb && !m.p)) return '';
     var h = '<div class="margin-note"><div class="eyebrow">'+m.eb+'</div><div class="rule"></div><p>'+m.p+'</p>';
     if(m.cite) h += '<div class="cite">'+m.cite+'</div>';
     return h+'</div>';
@@ -3450,6 +3491,7 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
   function setScene(n){
     if(n<0||n>=TOTAL) return;
     scene = n;
+    trackScene(n);
     document.body.setAttribute('data-scene', n);
     var s = SCENES[n];
     document.body.classList.toggle('dark-scene', s.dark);
@@ -3484,8 +3526,8 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
     var mn = $('mobileNote');
     if(n===0){ mn.hidden = true; } else {
       mn.hidden = false;
-      $('mnEyebrow').textContent = s.left.eb.replace(/<[^>]*>/g,'');
-      $('mnBody').innerHTML = s.left.p + ' ' + s.right.p;
+      $('mnEyebrow').textContent = (s.left.eb || s.right.eb || '').replace(/<[^>]*>/g,'');
+      $('mnBody').innerHTML = [s.left.p, s.right.p].filter(Boolean).join(' ');
       $('mnCite').textContent = ((s.left.cite||'') + ' ' + (s.right.cite||'')).replace(/<[^>]*>/g,'').trim();
       $('mnCite').style.display = $('mnCite').textContent ? '' : 'none';
     }
@@ -4601,14 +4643,31 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
         var words = [];
         document.querySelectorAll('#ctaChips .cta-chip.sel').forEach(function(c){ words.push(c.textContent); });
         var txt = ta ? ta.value.trim() : '';
-        var body = '';
-        if(words.length) body += 'Words that came to mind: ' + words.join(', ') + '\n\n';
-        if(txt) body += txt + '\n\n';
-        if(!body) body = '(no notes — just wanted to say hello)\n\n';
-        body += 'Sent from the Zain pitch' + (name ? ' · ' + name : '') + '.';
-        location.href = 'mailto:hello@thezainapp.com?subject=' +
-          encodeURIComponent('Zain pitch · first impressions') +
-          '&body=' + encodeURIComponent(body);
+        /* safety net: never lose what they typed, even if the network fails */
+        try { localStorage.setItem('zain_pitch_last', JSON.stringify({name:name||'', words:words, text:txt, at:pitchPerf()})); } catch(e){}
+        function mailtoFallback(){
+          var body = '';
+          if(words.length) body += 'Words that came to mind: ' + words.join(', ') + '\n\n';
+          if(txt) body += txt + '\n\n';
+          if(!body) body = '(no notes — just wanted to say hello)\n\n';
+          body += 'Sent from the Zain pitch' + (name ? ' · ' + name : '') + '.';
+          location.href = 'mailto:hello@thezainapp.com?subject=' +
+            encodeURIComponent('Zain pitch · first impressions') +
+            '&body=' + encodeURIComponent(body);
+        }
+        /* primary path: POST to the backend so it's captured server-side even
+           if the visitor has no mail client. mailto is the human fallback. */
+        var done = false;
+        function finish(ok){ if(done) return; done = true; clearTimeout(to);
+          if(ok){ send.textContent = 'Sent ✓'; send.disabled = true; } else { mailtoFallback(); } }
+        var to = setTimeout(function(){ finish(false); }, 4000);
+        var p = pitchParams('feedback');
+        p.set('chips', words.join(', '));
+        p.set('impressions', txt);
+        fetch(PITCH_API, {method:'POST', body:p})
+          .then(function(r){ if(!r.ok) return {success:false}; return r.json().catch(function(){ return {success:true}; }); })
+          .then(function(d){ finish(d && (d.success || d.Success)); })
+          .catch(function(){ finish(false); });
       });
     }
   })();
@@ -4800,9 +4859,37 @@ body.held .phone-screen *,body.held #overture *{animation-play-state:paused !imp
       date:'Journal · tonight, 10:00 pm' },
     { role:'', name:'Ali', handle:'@ali · pages, not dashboards', pic:'ali',
       body:'',
+      bioHTML:
+        '<i class="tnr-rule"></i>'+
+        '<div class="bio-cred">'+
+          '<div class="bio-row"><span class="bio-ic">🎓</span><span class="bio-tx"><b>B.Sc. Graphic Design &amp; Animation</b>, Faculty of Fine Arts, Helwan University (2018).</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">🎨</span><span class="bio-tx"><b>Creative Director</b>, 8+ years across branding, visual identity, and creative strategy — clients include <b>Al-Futtaim</b>, <b>BYD</b>, M&amp;S, Aldo, AFAQY, and the <b>Saudi Ministry of Hajj &amp; Umrah</b>.</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">🎬</span><span class="bio-tx"><em>500+</em> commercial and product videos, turning complex ideas into clear visual stories.</span></div>'+
+        '</div>'+
+        '<div class="bio-note">'+
+          '<div class="bio-eyebrow">Note from Ali</div>'+
+          '<i class="bio-hr"></i>'+
+          '<p class="bio-quote">Most apps like this are basically dashboards, all charts and counters competing for your attention. I wanted Zain to feel calm: pages you actually want to read, not numbers to manage. That’s the part I care about, keeping it human instead of clinical.</p>'+
+          '<div class="bio-sign">— Ali</div>'+
+        '</div>',
       date:'Journal · last week' },
     { role:'', name:'Paula', handle:'@paula · growth & story', pic:'paula',
       body:'',
+      bioHTML:
+        '<i class="tnr-rule"></i>'+
+        '<div class="bio-cred">'+
+          '<div class="bio-row"><span class="bio-ic">🎓</span><span class="bio-tx"><b>BSc Psychology</b>, IE University, Madrid — <em>Cum Laude</em>, awarded Best Final Project in the Bachelor of Psychology. <b>MSc International Development Studies</b> &amp; <b>MSc Business Administration</b>.</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">💼</span><span class="bio-tx">Project Manager at <b>Dalberg</b>: brand building and storytelling for global health and development organizations; contributed to <em>$850K in new business</em> over six months.</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">📈</span><span class="bio-tx">Growth &amp; communications at a <b>FemTech startup</b>: grew Instagram <em>800%</em>, LinkedIn <em>400%</em>, and supported a $250K+ pre-seed round.</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">🎵</span><span class="bio-tx">Trained as a pianist at the <b>Koninklijk Conservatorium Den Haag</b>, and with the <b>Nationale Ballet</b> of the Netherlands.</span></div>'+
+          '<div class="bio-row"><span class="bio-ic">🎤</span><span class="bio-tx">On the <b>TEDx Amsterdam</b> production team, helping bring speaker talks to the stage.</span></div>'+
+        '</div>'+
+        '<div class="bio-note">'+
+          '<div class="bio-eyebrow">Note from Paula</div>'+
+          '<i class="bio-hr"></i>'+
+          '<p class="bio-quote">I studied psychology because I wanted to understand why people actually change, and why most tools built to help them don’t. AI is the first technology that can hold the whole picture instead of one slice of it: not just what you logged, but what you’re working toward. That’s the story I get to help tell at Zain. My job is making sure the right people find it, understand why it matters, and stay long enough to feel it change their days the way it’s changed mine.</p>'+
+          '<div class="bio-sign">— Paula</div>'+
+        '</div>',
       date:'Journal · Tuesday, 9:12 pm' }
   ];
   var teamTimers = [], tnIndex = 0;
