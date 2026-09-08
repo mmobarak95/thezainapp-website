@@ -114,16 +114,16 @@ ${phone(1050,0,310,'days3')}`);
 pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">When a week goes wrong</div>
 <div class="d49 abs nowrap rise" style="left:0;top:${b(8)}px">Then week three happens.</div>
 <div class="d49 ox abs" data-step="1" style="left:0;top:${b(15)}px;width:${c(8)}px">Zain knows the week you actually had.</div>
-<div class="d49 abs" data-step="2" style="left:0;top:${b(28)}px;width:${c(7)}px">Zain adapts the plan,<br><span class="ox">and the goal is still on track.</span></div>
+<div class="d49 abs" data-step="2" style="left:0;top:${b(28)}px;width:${c(7)}px">It will adapt the plan for you,<br><span class="ox">and the goal is still on track.</span></div>
 ${phone(1050,0,310,'badweek')}`);
 // 7 · write to the coach
 pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">When the week changes on a Tuesday</div>
 <div class="d49 abs rise" style="left:0;top:${b(8)}px;width:${c(7)}px">Tell Zain what&rsquo;s going on,<br>in your own words.</div>
-<div class="d49 ox abs" data-step="1" style="left:0;top:${b(22)}px;width:${c(7)}px">The plan changes<br>the same day.</div>
+<div class="d49 ox abs" data-step="1" style="left:0;top:${b(22)}px;width:${c(7)}px">And your calendar updates<br>with your updated plan.</div>
 <div class="cap abs" data-step="1" style="left:0;top:${b(36)}px;width:${c(5)}px">Work got heavy? Say so. It won&rsquo;t wait for Monday to fix the week.</div>
 ${phone(1050,0,310,'margin')}`);
 // 8 · why not a chatbot
-const WHY=[['Zain already knows your week','You don&rsquo;t have to explain what happened. The habits you ticked, the runs your watch caught, the ones you skipped. Zain already knows, so you never have to type it in.'],['It comes to you','Monday morning, the note is waiting on your home screen. Miss two sessions of your plan in one week, and Zain helps you replan the week so you can get back on track.'],['And the goal is still on track','It will move the week around as much as it needs to. It won&rsquo;t move the race. And it remembers what you said on day one.']];
+const WHY=[['Zain is with you during your week','You don&rsquo;t have to explain what happened. The habits you ticked, the runs your watch caught, the ones you skipped. Zain already knows, so you never have to type it in.'],['It comes to you','Monday morning, the note is waiting on your home screen. Miss two sessions of your plan in one week, and Zain helps you replan the week so you can get back on track.'],['And the goal is still on track','It will move the week around as much as it needs to. The goal adapts to how your life is going, so it always stays within reach.']];
 let p8=`<div class="eyebrow abs rise" style="left:0;top:0">Why not just a chatbot?</div><div class="d61 abs nowrap rise" style="left:0;top:${b(3)}px">A chat window can write a plan.<br><span class="ox">It can&rsquo;t see your week.</span></div>`;
 const P8W=300, P8Y=b(37), P8STILL=['read-still','home-practice','margin'];
 WHY.forEach(([h,t],i)=>{const x=i*(TRI+TGUT);p8+=`<div class="rule" data-step="${i+1}" style="left:${x}px;top:${b(20)}px;width:${TRI}px"></div><div class="d25 abs" data-step="${i+1}" style="left:${x}px;top:${b(22)}px;width:${TRI}px">${h}</div><div class="cap abs" data-step="${i+1}" style="left:${x}px;top:${b(27)}px;width:${TRI-30}px">${t}</div>${phoneImg(x+(TRI-P8W)/2,P8Y,P8W,P8STILL[i],i+1)}`});
@@ -131,16 +131,16 @@ pages.push(p8);
 // 9 · the whole of you
 pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">What that changes</div>
 <div class="d49 abs nowrap rise" style="left:0;top:${b(6)}px">A running app plans your runs.</div>
-<div class="d49 ox abs rise" style="left:0;top:${b(13)}px;width:${c(7)}px">Zain plans them around<br>the rest of your life.</div>
+<div class="d49 ox abs rise" style="left:0;top:${b(13)}px;width:${c(7)}px">Zain plans your goals around<br>the rest of your life.</div>
 <div class="rule" data-step="1" style="left:0;top:${b(28)}px;width:${c(5)}px"></div>
 <div class="cap abs" data-step="1" style="left:0;top:${b(30)}px;width:${c(5)}px">The book you&rsquo;re halfway through, the evenings you protected, the runs you actually did, and what you wrote to the coach. It fits the person, not just the goal.</div>
 ${phone(1050,0,310,'whole')}`);
 // 10 · where this is
-const ROWS=[['June','Friends and family. About five hundred people tested the foundation: habits, journal, books.',''],['15 September','The launch. Zain intelligence opens to everyone: a plan in your own words, the weekly read, the coach&rsquo;s note.',''],['Three languages','English, Arabic and Turkish. Native in all three, right&#8209;to&#8209;left first.','Made for everyone, in their own language. More languages to follow.'],['December','The first plans reach week twelve. That is when the chart gets drawn again, with real people on it.','']];
+const ROWS=[['June','Friends and family. About five hundred people tested the foundation: habits, journal, books.',''],['15 September','The launch. Zain intelligence opens to everyone: say what you&rsquo;re working toward, and Zain builds the plan, puts it on your calendar, and adapts it every week as life happens.',''],['Three languages','English, Arabic and Turkish. Native in all three, right&#8209;to&#8209;left first.','Made for everyone, in their own language. More languages to follow.']];
 let p10=`<div class="eyebrow abs rise" style="left:0;top:0">Where this is</div>`;const PITCH=b(12),TOP=b(5);
 ROWS.forEach(([k,v,sub],i)=>{const y=TOP+i*PITCH;const st=i===0?'':`data-step="${i}"`;p10+=`<div class="rule" ${st} style="left:0;top:${y}px;width:${LW}px"></div><div class="eyebrow abs" ${st} style="left:0;top:${y+16}px;width:${c(2)}px">${k}</div><div class="d31 abs" ${st} style="left:${cx(3)}px;top:${y+12}px;width:${c(7)}px">${v}</div>`;if(sub)p10+=`<div class="cap abs" ${st} style="left:${cx(3)}px;top:${y+108}px;width:${c(7)}px">${sub}</div>`;});
 ['ico-habits','ico-books','ico-notes'].forEach((f,j)=>{p10+=`<img class="abs rise" src="assets/${f}.png" style="left:${cx(10)+j*72}px;top:${TOP+22}px;height:60px">`});
-p10+=`<div class="rule" data-step="3" style="left:0;top:${TOP+4*PITCH}px;width:${LW}px"></div>`;
+p10+=`<div class="rule" data-step="2" style="left:0;top:${TOP+3*PITCH}px;width:${LW}px"></div>`;
 pages.push(p10);
 // 11 · close
 pages.push(`<img class="abs rise" src="assets/mark.png" style="left:0;top:0;height:56px">
