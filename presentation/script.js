@@ -35,7 +35,7 @@ window.SCRIPT = [
     "The book you're halfway through, the evenings you protected, the runs you actually did. It fits the person, not just the goal." ] },
   { title: "Where this is", dur: 20, lines: [
     "(click) We soft-launched in June to friends and family; about five hundred people tested the foundation.",
-    "(click) On the fifteenth of September, Zain intelligence opens to everyone: say what you're working toward, and Zain builds the plan, puts it on your calendar, and adapts it every week as life happens.",
+    "(click) On the fifteenth of September, Zain intelligence opens to everyone: tell Zain your goal, and it builds the plan, puts it on your calendar and keeps adapting it as life happens.",
     "(click) In English, Arabic and Turkish, right-to-left first." ] },
   { title: "Close", dur: 15, lines: [
     "That grid is still true of every plan I made before. (the right grid fills) The one I'm on now is on week nine.",
