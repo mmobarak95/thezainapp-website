@@ -322,6 +322,11 @@ body.lang-ar .cap { font-family: Tajawal, Inter, sans-serif; letter-spacing: 0; 
   position: absolute;
   left: 50%; bottom: 6%;
   width: 86%;
+  height: auto;
+  /* Anchored to the bottom, so an unknown height means the card's own top
+     edge jumps when the file finally arrives — a layout shift of exactly
+     the card's height. Reserve the ratio. */
+  aspect-ratio: 1110 / 1087;
   transform: translate(-50%, 34%);
   opacity: 0;
   border-radius: 12px;
