@@ -8,16 +8,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // NAVIGATION — sticky glass effect (throttled)
     // ═══════════════════════════════════════════════════════════════════════
 
+    // The shared masthead replaced the old fixed navbar on every page that
+    // loads this file. Both are optional now: a null here used to throw and
+    // take the rest of the file — the FAQ accordions included — down with it.
     const navbar = document.querySelector('.navbar');
+    const masthead = document.querySelector('.masthead');
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
 
     function handleNavScroll() {
+        if (!navbar) return;
         navbar.classList.toggle('scrolled', window.scrollY > 50);
     }
 
-    window.addEventListener('scroll', throttle(handleNavScroll, 100));
-    handleNavScroll();
+    if (navbar) {
+        window.addEventListener('scroll', throttle(handleNavScroll, 100));
+        handleNavScroll();
+    }
 
     // Mobile menu toggle
     if (mobileMenuBtn && mobileMenu) {
@@ -58,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
-                const offset = navbar.offsetHeight + 16;
+                const offset = ((navbar || masthead || {}).offsetHeight || 0) + 16;
                 const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
                 window.scrollTo({ top, behavior: 'smooth' });
             }
@@ -213,7 +220,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (other !== item) {
                     other.classList.remove('open');
                     other.querySelector('.faq-answer').style.maxHeight = '0';
-                    const otherIcon = other.querySelector('.faq-question span');
+                    // last-child: the icon this file appends, not the question text
+                    const otherIcon = other.querySelector('.faq-question span:last-child');
                     if (otherIcon) { otherIcon.innerHTML = '+'; otherIcon.style.transform = 'none'; }
                 }
             });

@@ -161,11 +161,24 @@
             color: #8B8680;
             text-decoration: none;
         }
+        .langs button {
+            appearance: none; background: none; border: 0; cursor: pointer;
+            font-family: 'Inter', -apple-system, sans-serif; font-size: 12px;
+            letter-spacing: .1em; text-transform: uppercase; color: #6B6560;
+            padding: 6px 7px; border-radius: 2px;
+        }
+        .langs button:hover { color: #2D2B28; }
+        .langs button[aria-current="true"] { color: #2D2B28; font-weight: 600; }
+        .langs span { color: #C4BFB8; font-size: 11px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch to Arabic" lang="ar" style="position:absolute;top:16px;right:16px;background:transparent;border:1px solid #C4BFB8;color:#2D2B28;font-family:'Amiri',Georgia,serif;font-size:14px;padding:6px 12px;border-radius:999px;cursor:pointer;">العربية</button>
+        <div class="langs" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang_aria" style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:2px;">
+            <button type="button" data-lang="en" lang="en">EN</button><span aria-hidden="true">&middot;</span>
+            <button type="button" data-lang="ar" lang="ar">AR</button><span aria-hidden="true">&middot;</span>
+            <button type="button" data-lang="tr" lang="tr">TR</button>
+        </div>
         <img src="/assets/images/logo.png" alt="Zain" class="logo">
         <h1 class="brand">Zain</h1>
         <p class="tagline" data-i18n="open.tagline">LIVE WITH INTENTION</p>
