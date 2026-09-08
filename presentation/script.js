@@ -39,5 +39,5 @@ window.SCRIPT = [
     "(click) In English, Arabic and Turkish, right-to-left first." ] },
   { title: "Close", dur: 15, lines: [
     "That grid is still true of every plan I made before. (the right grid fills) The one I'm on now is on week nine.",
-    "(click) A bad week used to end the plan. Now it just changes it." ] },
+    "(click) A bad week used to end the plan. With Zain, the plan changes and you keep going." ] },
 ];
