@@ -87,19 +87,19 @@ ${grid(0,b(11),BEFORE,{start:1.6,step:0.22})}
 pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">What happened, every time</div>
 <div class="d49 abs nowrap rise" style="left:0;top:${b(12)}px">They were all good on the day I wrote them.</div>
 <div class="d49 abs nowrap" data-step="1" style="left:0;top:${b(19)}px">Then a bad week came, the way one always does.</div>
-<div class="d49 ox abs nowrap" data-step="2" style="left:0;top:${b(28)}px">And the plan had no idea.</div>
+<div class="d49 ox abs nowrap" data-step="2" style="left:0;top:${b(28)}px">And the plan stayed fixed.</div>
 <div class="rule" data-step="2" style="left:0;top:${b(40)}px;width:${c(5)}px"></div>
 <div class="cap abs" data-step="2" style="left:0;top:${b(42)}px;width:${c(5)}px">A plan gets written on a good day, and life doesn&rsquo;t only have good days. The week everything went wrong, the plan asked for the same thing anyway. So I stopped, the way everyone does.</div>`);
 // 3 · what Zain is
 const PW3=245, PX3=[575,845,1115], PH3=PH(PW3);
 pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">What Zain is</div>
-<div class="d49 abs rise" style="left:0;top:${b(8)}px;width:${c(5)}px">Habits. Journal.<br>Books. Training.</div>
+<div class="d49 abs rise" style="left:0;top:${b(8)}px;width:${c(5)}px">Habits. Journal.<br>Books.</div>
 <div class="d49 ox abs" data-step="1" style="left:0;top:${b(24)}px;width:${c(5)}px">One place,<br>and a calendar<br>that adapts to your life.</div>
 ${phone(PX3[0],b(2),PW3,'home-d')}${phone(PX3[1],b(2),PW3,'notes-a')}${phone(PX3[2],b(2),PW3,'books-a')}
 <div class="eyebrow abs rise" style="left:${PX3[0]}px;top:${b(2)+PH3+18}px;width:${PW3}px;text-align:center">habits &amp; training</div><div class="eyebrow abs rise" style="left:${PX3[1]}px;top:${b(2)+PH3+18}px;width:${PW3}px;text-align:center">journal</div><div class="eyebrow abs rise" style="left:${PX3[2]}px;top:${b(2)+PH3+18}px;width:${PW3}px;text-align:center">books</div>`);
 // 4 · three goals
 const cardW=300; const cardH=[Math.round(cardW*1087/1110),Math.round(cardW*981/1110),Math.round(cardW*981/1110)];
-let p4=`<div class="eyebrow abs rise" style="left:0;top:0">Three people typed this, and got these back</div>`;
+let p4=`<div class="eyebrow abs rise" style="left:0;top:0">Three different goals, and how Zain planned them</div>`;
 const P4H=PH(cardW);
 ['type-marathon','type-job','type-mindful'].forEach((s,i)=>{const x=i*(TRI+TGUT)+(TRI-cardW)/2;p4+=phone(x,b(3),cardW,s,{cls:'dim'});});
 ['plan-1','plan-2','plan-3'].forEach((s,i)=>{const x=i*(TRI+TGUT)+(TRI-cardW)/2;p4+=`<img class="card" data-step="1" src="assets/${s}.png" style="left:${x}px;top:${b(3)+P4H-cardH[i]-28}px;width:${cardW}px">`;});
