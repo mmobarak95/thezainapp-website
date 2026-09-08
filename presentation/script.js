@@ -1,43 +1,43 @@
 // The spoken script, one entry per page. Shown in the presenter window.
 window.SCRIPT = [
   { title: "Dots", dur: 25, lines: [
-    "Every plan I ever made looked like this.",
-    "(the dots fill) Week one, easy. Week two, mostly. Then one bad week. (they stop) And nothing after it.",
-    "(beat) I'm Mo. I'm not the disciplined one. That's why Zain exists." ] },
+    "Every plan I made for one of my goals eventually ended up looking like this.",
+    "(the dots fill) The first week goes according to plan, and it's usually smooth. The second week, a little less so, but mostly okay.",
+    "And then one bad week happens. (they stop) You get off track, and after that it's really hard to come back." ] },
   { title: "Three lines", dur: 20, lines: [
-    "They were all good on the day I wrote them.",
-    "Then a bad week came, the way one always does.",
-    "And the plan stayed fixed. A plan gets written on a good day, and life doesn't only have good days. The apps in between just counted." ] },
+    "They were all good plans on the day I wrote them.",
+    "(click) But then a bad week would come, the way it usually does.",
+    "(click) And the plan stayed fixed. The longer it stayed fixed while I drifted further off track, the harder it got to come back. That's where Zain comes in." ] },
   { title: "What Zain is", dur: 25, lines: [
-    "Zain is one app for your habits, your journal, your books. One place.",
-    "(click) And a calendar that adapts to your life. Let me show you three." ] },
+    "Zain is one home for the habits you want to build, the journals and thoughts you want to keep, and the books you want to spend time with.",
+    "(click) All in one place, with a calendar that adapts to your life. Let me show you what that looks like." ] },
   { title: "Three goals", dur: 30, lines: [
-    "Three different goals. Run a marathon. Find a new job. Be more mindful. They type it the way they'd say it.",
-    "(click: the cards rise) Zain asks a couple of questions, and lays the weeks out, on real dates." ] },
+    "Running a marathon. Finding a new job. Or just being a little more present.",
+    "(click: the cards rise) Zain asks you a few questions, and then lays the plan out for you, on your calendar." ] },
   { title: "On your days", dur: 25, lines: [
-    "The next morning it isn't a plan anymore. Zain puts your goal on your calendar, next to your habits. Today's run, marked with what it's for.",
-    "(click) Tick it, and the plan knows." ] },
+    "Zain puts your goals on your calendar, right next to your habits.",
+    "(click) And on each one, you can see how it fits into the goal." ] },
   { title: "The bad week", dur: 45, lines: [
-    "Then week three happens. Because week three always happens. (silence, three seconds)",
-    "(click) Zain knows the week you actually had. Not the runs you planned. The ones you did.",
-    "And it says what it thinks, in plain words: don't make it up by doubling Saturday. Repeat last week. Move strength off Friday.",
-    "(click) It will adapt the plan for you, and the goal is still on track." ] },
-  { title: "Write to Zain", dur: 25, lines: [
-    "And when the week changes on a Tuesday, you don't wait for Monday. You tell Zain what's going on, in your own words.",
-    "(the reply arrives) And your calendar updates with your updated plan." ] },
+    "Then the dreaded week three happens, the way it always does, and you slip off the plan. (silence, three seconds)",
+    "(click) But Zain knows the week you actually had, not the one you planned.",
+    "(click) So it replans the week for you, and the goal is still on track." ] },
+  { title: "Tell Zain", dur: 25, lines: [
+    "And if you have one of those weeks that goes wrong from the very first day, you just tell Zain what's going on.",
+    "(the reply arrives; click) And your calendar updates with your updated plan, so you can get back on track." ] },
   { title: "Why not a chatbot", dur: 30, lines: [
-    "So why not just ask a chatbot? A chat window can write a plan. It can't see your week.",
-    "(click) Zain is with you during your week. You don't have to explain what happened: the habits you ticked, the runs your watch caught, the ones you skipped.",
-    "(click) It comes to you. Monday morning the note is waiting, and if you miss two sessions of your plan in a week, Zain helps you replan the week so you get back on track.",
-    "(click) And the goal is still on track. It will move the week around as much as it needs to, and the goal adapts to how your life is going." ] },
+    "So why not just ask a chatbot? ChatGPT, Claude. They can write you a great plan. But they can't see your week.",
+    "(click) Zain is with you during the week. It already knows the habits you ticked, the runs your watch tracked, and the ones you skipped because there wasn't time. You never have to type any of it in.",
+    "(click) And it comes to you. At the end of every week there's a note waiting on your home screen: how last week actually went, and how to replan the week ahead.",
+    "(click) And the goal stays within reach. The week moves around as much as it needs to, and the plan adapts to your life." ] },
   { title: "The whole of you", dur: 20, lines: [
-    "A running app plans your runs. Zain plans your goals around the rest of your life.",
-    "The book you're halfway through, the evenings you protected, the runs you actually did. It fits the person, not just the goal." ] },
+    "A running app plans your workouts. Zain plans your goal around the rest of your life.",
+    "(click) The book you're halfway through. The evenings you want to keep for yourself. The runs you actually did. It fits around you as a person, not just the one goal." ] },
   { title: "Where this is", dur: 20, lines: [
-    "(click) We soft-launched in June to friends and family; about five hundred people tested the foundation.",
-    "(click) On the fifteenth of September, Zain intelligence opens to everyone: tell Zain your goal, and it builds the plan, puts it on your calendar and keeps adapting it as life happens.",
-    "(click) In English, Arabic and Turkish, right-to-left first." ] },
+    "So where are we? We released Zain to friends and family in June, as a soft launch. From word of mouth alone, about five hundred people have tested the foundation: their habits, their journals, their books, and the social side of it.",
+    "(click) And next week, on the fifteenth, we launch everything I've shown you today. You tell Zain your goal, it builds the plan on your calendar, and it keeps adapting it to your life.",
+    "(click) We've also built Zain natively in English, Arabic and Turkish, because making this accessible to different kinds of people is a big part of the mission." ] },
   { title: "Close", dur: 15, lines: [
-    "That grid is still true of every plan I made before. (the right grid fills) The one I'm on now is on week nine.",
-    "(click) A bad week used to end the plan. With Zain, the plan changes and you keep going." ] },
+    "So if you're like me, and you love setting goals but never quite finish them\u2026",
+    "(the right grid fills) This is the first plan I've stayed with. It's on week nine.",
+    "(click) A bad week used to end the plan. With Zain, the plan changes, and you keep going. Thank you." ] },
 ];
