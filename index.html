@@ -39,7 +39,6 @@
       media="print" onload="this.media='all'" />
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" /></noscript>
 
-<link rel="preload" as="image" href="assets/clips/type-marathon.jpg" fetchpriority="high" />
 <link rel="stylesheet" href="chrome.css" />
 <link rel="stylesheet" href="home.css" />
 <script>document.documentElement.classList.add('js');</script>
@@ -102,8 +101,10 @@
 
       <div class="hero__stage" data-stage>
         <div class="phone">
-          <video data-clip="type-marathon" poster="assets/clips/type-marathon.jpg" muted playsinline preload="none" loop
-                 aria-label="A goal being typed into Zain in plain words." data-i18n-attr="aria-label:hero.clip_alt"></video>
+          <div class="phone__screen">
+            <img class="phone__still" src="assets/clips/type-marathon.jpg" alt="A goal being typed into Zain in plain words." width="604" height="1314" fetchpriority="high" data-i18n-attr="alt:hero.clip_alt" />
+            <video data-clip="type-marathon" muted playsinline preload="none" loop aria-hidden="true"></video>
+          </div>
         </div>
         <img class="hero__card" src="assets/clips/plan-1.jpg" alt="" loading="lazy" />
       </div>
@@ -139,8 +140,10 @@
         </div>
         <div class="step__stage will">
           <div class="phone">
-            <video data-clip="days3" poster="assets/clips/days3.jpg" muted playsinline preload="none" loop
-                   aria-label="The home screen, with today’s session listed beside the day’s habits, then ticked off." data-i18n-attr="aria-label:week.s1.clip_alt"></video>
+            <div class="phone__screen">
+            <img class="phone__still" src="assets/clips/days3.jpg" alt="The home screen, with today’s session listed beside the day’s habits, then ticked off." width="604" height="1314" loading="lazy" data-i18n-attr="alt:week.s1.clip_alt" />
+            <video data-clip="days3" muted playsinline preload="none" loop aria-hidden="true"></video>
+          </div>
           </div>
         </div>
       </article>
@@ -153,8 +156,10 @@
         </div>
         <div class="step__stage will">
           <div class="phone">
-            <video data-clip="badweek" poster="assets/clips/badweek.jpg" muted playsinline preload="none" loop
-                   aria-label="A week read back: the sessions done, the ones missed, and the coach’s note about it." data-i18n-attr="aria-label:week.s2.clip_alt"></video>
+            <div class="phone__screen">
+            <img class="phone__still" src="assets/clips/badweek.jpg" alt="A week read back: the sessions done, the ones missed, and the coach’s note about it." width="604" height="1314" loading="lazy" data-i18n-attr="alt:week.s2.clip_alt" />
+            <video data-clip="badweek" muted playsinline preload="none" loop aria-hidden="true"></video>
+          </div>
           </div>
         </div>
       </article>
@@ -167,8 +172,10 @@
         </div>
         <div class="step__stage will">
           <div class="phone">
-            <video data-clip="margin" poster="assets/clips/margin.jpg" muted playsinline preload="none" loop
-                   aria-label="A line typed to the coach, and the reply sliding up with the changed week." data-i18n-attr="aria-label:week.s3.clip_alt"></video>
+            <div class="phone__screen">
+            <img class="phone__still" src="assets/clips/margin.jpg" alt="A line typed to the coach, and the reply sliding up with the changed week." width="604" height="1314" loading="lazy" data-i18n-attr="alt:week.s3.clip_alt" />
+            <video data-clip="margin" muted playsinline preload="none" loop aria-hidden="true"></video>
+          </div>
           </div>
         </div>
       </article>
@@ -188,8 +195,10 @@
     <div class="found__row">
       <div class="found__col will">
         <div class="phone phone--sm">
-          <video data-clip="days3" poster="assets/clips/days3.jpg" muted playsinline preload="none" loop
-                 aria-label="The day’s habits and today’s training session in one list." data-i18n-attr="aria-label:found.c1.alt"></video>
+          <div class="phone__screen">
+            <img class="phone__still" src="assets/clips/days3.jpg" alt="The day’s habits and today’s training session in one list." width="604" height="1314" loading="lazy" data-i18n-attr="alt:found.c1.alt" />
+            <video data-clip="days3" muted playsinline preload="none" loop aria-hidden="true"></video>
+          </div>
         </div>
         <p class="eyebrow found__label" data-i18n="found.c1.label">Habits &amp; training</p>
         <p class="cap found__line" data-i18n="found.c1.line">Today’s habits and today’s session, in one list.</p>
@@ -197,8 +206,10 @@
 
       <div class="found__col will">
         <div class="phone phone--sm">
-          <video data-clip="notes-a" poster="assets/clips/notes-a.jpg" muted playsinline preload="none" loop
-                 aria-label="The journal, with the entries written this week." data-i18n-attr="aria-label:found.c2.alt"></video>
+          <div class="phone__screen">
+            <img class="phone__still" src="assets/clips/notes-a.jpg" alt="The journal, with the entries written this week." width="604" height="1314" loading="lazy" data-i18n-attr="alt:found.c2.alt" />
+            <video data-clip="notes-a" muted playsinline preload="none" loop aria-hidden="true"></video>
+          </div>
         </div>
         <p class="eyebrow found__label" data-i18n="found.c2.label">Journal</p>
         <p class="cap found__line" data-i18n="found.c2.line">Write the day down, and read it back later.</p>
@@ -206,8 +217,10 @@
 
       <div class="found__col will">
         <div class="phone phone--sm">
-          <video data-clip="books-a" poster="assets/clips/books-a.jpg" muted playsinline preload="none" loop
-                 aria-label="The book being read, and the shelf behind it." data-i18n-attr="aria-label:found.c3.alt"></video>
+          <div class="phone__screen">
+            <img class="phone__still" src="assets/clips/books-a.jpg" alt="The book being read, and the shelf behind it." width="604" height="1314" loading="lazy" data-i18n-attr="alt:found.c3.alt" />
+            <video data-clip="books-a" muted playsinline preload="none" loop aria-hidden="true"></video>
+          </div>
         </div>
         <p class="eyebrow found__label" data-i18n="found.c3.label">Books</p>
         <p class="cap found__line" data-i18n="found.c3.line">What you’re reading, how far you are, and the lines you kept.</p>
@@ -215,8 +228,10 @@
 
       <div class="found__col will">
         <div class="phone phone--sm">
-          <video data-clip="community" poster="assets/clips/community.jpg" muted playsinline preload="none" loop
-                 aria-label="The community feed, scrolling." data-i18n-attr="aria-label:found.c4.alt"></video>
+          <div class="phone__screen">
+            <img class="phone__still" src="assets/clips/community.jpg" alt="The community feed, scrolling." width="604" height="1314" loading="lazy" data-i18n-attr="alt:found.c4.alt" />
+            <video data-clip="community" muted playsinline preload="none" loop aria-hidden="true"></video>
+          </div>
         </div>
         <p class="eyebrow found__label" data-i18n="found.c4.label">Community</p>
         <p class="cap found__line" data-i18n="found.c4.line">People working on their own weeks, at their own pace.</p>
@@ -239,9 +254,7 @@
           <h3 class="d4" data-i18n="why.c1.title">Zain is with you during your week</h3>
           <p class="cap why__body" data-i18n="why.c1.body">You don’t have to explain what happened. The habits you ticked, the runs your watch caught, the ones you skipped. Zain already knows, so you never have to type it in.</p>
         </div>
-        <div class="phone phone--sm">
-          <img src="assets/clips/read-still.jpg" alt="The coach&#8217;s read of the week, and the sessions it counted." data-i18n-attr="alt:why.c1.alt" loading="lazy" />
-        </div>
+        <div class="phone phone--sm"><div class="phone__screen"><img src="assets/clips/read-still.jpg" alt="The coach&#8217;s read of the week, and the sessions it counted." data-i18n-attr="alt:why.c1.alt" loading="lazy" /></div></div>
       </div>
 
       <div class="why__col will">
@@ -250,9 +263,7 @@
           <h3 class="d4" data-i18n="why.c2.title">It comes to you</h3>
           <p class="cap why__body" data-i18n="why.c2.body">Monday morning, the note is waiting on your home screen. Miss two sessions of your plan in one week, and Zain helps you replan the week so you can get back on track.</p>
         </div>
-        <div class="phone phone--sm">
-          <img src="assets/clips/home-practice.jpg" alt="The home screen, with the plan&#8217;s note waiting among the day&#8217;s habits." data-i18n-attr="alt:why.c2.alt" loading="lazy" />
-        </div>
+        <div class="phone phone--sm"><div class="phone__screen"><img src="assets/clips/home-practice.jpg" alt="The home screen, with the plan&#8217;s note waiting among the day&#8217;s habits." data-i18n-attr="alt:why.c2.alt" loading="lazy" /></div></div>
       </div>
 
       <div class="why__col will">
@@ -261,9 +272,7 @@
           <h3 class="d4" data-i18n="why.c3.title">And the goal is still on track</h3>
           <p class="cap why__body" data-i18n="why.c3.body">It will move the week around as much as it needs to. The goal adapts to how your life is going, so it always stays within reach.</p>
         </div>
-        <div class="phone phone--sm">
-          <img src="assets/clips/margin-still.jpg" alt="The plan screen, showing this week&#8217;s sessions." data-i18n-attr="alt:why.c3.alt" loading="lazy" />
-        </div>
+        <div class="phone phone--sm"><div class="phone__screen"><img src="assets/clips/margin-still.jpg" alt="The plan screen, showing this week&#8217;s sessions." data-i18n-attr="alt:why.c3.alt" loading="lazy" /></div></div>
       </div>
     </div>
   </div>

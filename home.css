@@ -74,15 +74,27 @@ a { color: inherit; }
   max-width: 302px;
   margin-inline: auto;
 }
-.phone video, .phone img {
+/* The still is the picture; the clip fades in over it once it plays, so
+   the phone reads the same with scripting off, with motion reduced, or
+   before the video has a frame. */
+.phone__screen {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #000;
+}
+.phone__screen img, .phone__screen video {
   display: block; width: 100%; height: auto;
   aspect-ratio: 604 / 1314;
   object-fit: cover;
-  border-radius: 30px;
-  background: #000;
 }
+.phone__screen video {
+  position: absolute; inset: 0; height: 100%;
+  opacity: 0; transition: opacity .35s ease;
+}
+.phone__screen video.playing { opacity: 1; }
 .phone--sm { max-width: 236px; border-radius: 30px; padding: 7px; }
-.phone--sm video, .phone--sm img { border-radius: 24px; }
+.phone--sm .phone__screen { border-radius: 24px; }
 
 /* ── hero ─────────────────────────────────────────────────── */
 

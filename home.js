@@ -170,6 +170,7 @@
     try {
       v.muted = true;
       v.defaultMuted = true;
+      v.addEventListener('playing', () => v.classList.add('playing'), { once: true });
       const p = v.play();
       if (p && p.catch) p.catch(() => {});
       if (v.readyState < 3) {
@@ -179,7 +180,7 @@
           if (q && q.catch) q.catch(() => {});
         }, { once: true });
       }
-    } catch (_) { /* the poster stands in */ }
+    } catch (_) { /* the still stands on its own */ }
   }
 
   if (!reduced && !saveData && videos.length) {
