@@ -79,13 +79,13 @@ a { color: inherit; }
    before the video has a frame. */
 .phone__screen {
   position: relative;
+  aspect-ratio: 604 / 1314;
   border-radius: 30px;
   overflow: hidden;
   background: #000;
 }
 .phone__screen img, .phone__screen video {
-  display: block; width: 100%; height: auto;
-  aspect-ratio: 604 / 1314;
+  display: block; width: 100%; height: 100%;
   object-fit: cover;
 }
 .phone__screen video {
@@ -128,7 +128,14 @@ a { color: inherit; }
 
 /* ── dot grids ────────────────────────────────────────────── */
 
-.dots { direction: ltr; display: block; width: 100%; height: auto; }
+.dots {
+  direction: ltr; display: block; width: 100%; height: auto;
+  aspect-ratio: 1360 / 256;   /* the full grid; JS restates it per variant */
+}
+/* The compact grid, and the full one below the width where home.js switches
+   the full grid to compact geometry (720px). Keep the two in step. */
+.dots[data-compact="1"] { aspect-ratio: 280 / 178; }
+@media (max-width: 719px) { .dots { aspect-ratio: 280 / 178; } }
 .dots circle { fill: none; stroke: var(--gold); stroke-width: 1.25; }
 .dots circle.faint { opacity: .45; }
 .dots circle.on { fill: var(--ink); stroke: var(--ink); opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(.4); }
