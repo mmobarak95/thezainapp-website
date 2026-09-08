@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Zain, the live pitch</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--paper:#FAF7F2;--ink:#0A3F42;--ox:#6E1E2B;--gold:#B8985A;--slate:#5A7577;--teal:#0D7377}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#0e0f0f;overflow:hidden;font-family:Georgia,"Times New Roman",serif;color:var(--ink)}
+#stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;margin:-450px 0 0 -800px;background:var(--paper);transform-origin:center center;overflow:hidden}
+.page{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .45s ease}
+.page.in{opacity:1;visibility:visible}
+.live{position:absolute;left:120px;top:100px;width:1360px;height:684px;z-index:2}
+.terrain{position:absolute;left:120px;top:818px;width:1360px;height:40px;z-index:1}
+.eyebrow{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);font-weight:600}
+.eyebrow.ink{color:var(--ink)}
+.cap{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px;line-height:26px;color:var(--slate)}
+.d76{font-size:76px;line-height:96px;letter-spacing:-.018em}
+.d61{font-size:61px;line-height:84px;letter-spacing:-.014em}
+.d49{font-size:49px;line-height:72px;letter-spacing:-.010em}
+.d31{font-size:31px;line-height:48px}
+.d25{font-size:25px;line-height:36px}
+.ox{color:var(--ox)}
+.abs{position:absolute}
+.rule{position:absolute;height:0;border-top:1px solid var(--gold)}
+.nowrap{white-space:nowrap}
+/* builds */
+[data-step]{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+[data-step].shown{opacity:1;transform:none}
+.page.in .rise{animation:rise .7s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+/* dots */
+.dot{position:absolute;width:16px;height:16px;border-radius:50%;border:1.25px solid var(--gold);background:transparent}
+.dot.on{background:var(--ink);border-color:var(--ink);opacity:0;transform:scale(.4)}
+.page.in .dot.on{animation:pop .28s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--d)}
+.dot.faint{opacity:.45}
+.dot.on.instant{animation:none!important;opacity:1;transform:none}
+@keyframes pop{to{opacity:1;transform:scale(1)}}
+/* phone */
+.phone{position:absolute;background:#0b0b0b;border-radius:38px;padding:9px;box-shadow:0 30px 60px rgba(62,42,30,.28),0 2px 6px rgba(0,0,0,.25),inset 0 0 0 1px rgba(255,255,255,.06)}
+.phone video,.phone img{display:block;width:100%;border-radius:32px;background:#000}
+.phone.crop{overflow:hidden}
+.card{position:absolute;border-radius:14px;box-shadow:0 24px 48px rgba(62,42,30,.30);transform:translateY(420px);opacity:0;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .5s ease}
+.card.shown{transform:none;opacity:1}
+.dim{transition:opacity .8s ease}
+.page.in .dimmed{opacity:.45}
+.store{position:absolute}
+#hud{position:absolute;right:14px;bottom:10px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:.1em;color:rgba(10,63,66,.35);text-transform:uppercase}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="pages"></div>
+  <div id="hud"></div>
+</div>
+<script src="script.js"></script>
+<script>
+const b=n=>n*12, COL=95, GUT=20, c=n=>n*COL+(n-1)*GUT, cx=i=>i*(COL+GUT), TRI=420, TGUT=50, LW=1360;
+const PH=w=>Math.round((w-18)*1311/604)+18; // outer phone height for outer width w
+function phone(x,y,w,src,opts={}){const h=PH(w);const inner=opts.viewport?`height:${opts.viewport}px;`:'';return `<div class="phone ${opts.viewport?'crop':''} ${opts.cls||''}" style="left:${x}px;top:${y}px;width:${w}px;${inner}"><video muted playsinline preload="auto" poster="clips/${src}.png" src="clips/${src}.mp4"${opts.loop?' loop':''}></video></div>`}
+function phoneImg(x,y,w,src,step){return `<div class="phone" ${step?`data-step="${step}"`:''} style="left:${x}px;top:${y}px;width:${w}px"><img src="clips/${src}.png"></div>`}
+function terrain(p){const W=LW,AMP=13,pts=[];for(let i=0;i<=W;i+=8){const t=i/W;pts.push([i,20-AMP*(0.55*Math.sin(t*5.6)+0.45*Math.sin(t*2.1+0.7))])}
+ const walked=pts.filter(q=>q[0]<=W*p).map(q=>q.join(',')).join(' '),ahead=pts.filter(q=>q[0]>=W*p).map(q=>q.join(',')).join(' ');let dia='';
+ for(const m of [0.22,0.46,0.72,0.94]){const mx=W*m,my=20-AMP*(0.55*Math.sin(m*5.6)+0.45*Math.sin(m*2.1+0.7));dia+=`<path d="M${mx} ${my-4.6}L${mx+4.6} ${my}L${mx} ${my+4.6}L${mx-4.6} ${my}Z" fill="${m<=p?'#B8985A':'none'}" stroke="#B8985A" stroke-width="1"/>`}
+ return `<svg class="terrain" width="${W}" height="40" viewBox="0 0 ${W} 40"><polyline points="${ahead}" fill="none" stroke="#B8985A" stroke-opacity=".28" stroke-width="1"/><polyline points="${walked}" fill="none" stroke="#B8985A" stroke-width="1.4"/>${dia}</svg>`}
+function grid(x0,y0,kept,{dot=16,sp=32,colw=COL+GUT,start=0.8,step=0.18,ahead=13,instant=false,labels=true}={}){let out='',k=0;
+ for(let wk=0;wk<12;wk++){const row=kept[wk+1]||[0,0,0,0,0,0,0];const x=x0+wk*colw+Math.round((colw-GUT-dot)/2);
+  for(let d=0;d<7;d++){const v=row[d];if(v===null)continue;const faint=wk+1>=ahead?' faint':'';
+   if(v){out+=`<div class="dot on${instant?' instant':''}" style="left:${x}px;top:${y0+d*sp}px;width:${dot}px;height:${dot}px;--d:${(start+k*step).toFixed(2)}s"></div>`;k++}
+   else out+=`<div class="dot${faint}" style="left:${x}px;top:${y0+d*sp}px;width:${dot}px;height:${dot}px"></div>`}
+  if(labels)out+=`<div class="eyebrow abs" style="left:${x0+wk*colw}px;top:${y0+7*sp+12}px;width:${colw-GUT}px;text-align:center;font-size:${dot>=14?11:9}px">${dot>=14?'wk ':''}${wk+1}</div>`}
+ return out}
+const BEFORE={1:[1,1,1,1,1,1,1],2:[1,1,1,0,1,1,1],3:[1,1,0,0,0,0,0],4:[1,0,0,0,0,0,0]};
+const NOW={1:[1,1,1,1,1,1,1],2:[1,1,1,1,0,1,1],3:[1,1,0,0,0,0,0],4:[1,0,1,1,0,1,1],5:[1,1,1,0,1,1,1],6:[1,1,1,1,1,1,1],7:[1,1,0,1,1,0,1],8:[1,1,1,1,0,1,1],9:[1,1,1,null,null,null,null]};
+const APPLE='<svg width="21" height="21" viewBox="0 0 24 24" fill="#0A3F42"><path d="M17.05 12.54c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.2 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.14.84-1.22 1.18-2.41 1.2-2.47-.03-.01-2.29-.88-2.31-3.49zM14.88 5.9c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.55 1.31-.56.65-1.05 1.68-.92 2.68.97.07 1.96-.49 2.57-1.23z"/></svg>';
+const PLAY='<svg width="21" height="21" viewBox="0 0 24 24" fill="#0A3F42"><path d="M3.6 2.4c-.3.3-.5.8-.5 1.4v16.4c0 .6.2 1.1.5 1.4l.1.1 9.2-9.2v-.2L3.6 2.4z"/><path d="M16 15.6l-3.1-3.1v-.2l3.1-3.1.1.1 3.6 2.1c1 .6 1 1.5 0 2.1L16 15.6z"/><path d="M16.1 15.5 12.9 12.3 3.6 21.6c.3.4.9.4 1.5.1l11-6.2"/><path d="M16.1 8.5 5.1 2.3c-.6-.3-1.2-.3-1.5.1l9.3 9.3 3.2-3.2z"/></svg>';
+function storeRow(x,y){return `<div class="abs" style="left:${x}px;top:${y}px">${APPLE}</div><div class="eyebrow abs" style="left:${x+33}px;top:${y+6}px">App Store</div><div class="abs" style="left:${x+250}px;top:${y}px">${PLAY}</div><div class="eyebrow abs" style="left:${x+283}px;top:${y+6}px">Google Play</div><div class="eyebrow abs" style="left:${x+500}px;top:${y+6}px">thezainapp.com</div>`}
+
+const pages=[];
+// 1 · dots
+pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">Twelve weeks, one dot a day</div>
+${grid(0,b(11),BEFORE,{start:1.6,step:0.22})}
+<div class="d49 abs nowrap rise" style="left:0;top:${b(38)}px">Every plan I ever made looked like this.</div>
+<div class="cap abs" data-step="1" style="left:0;top:${b(46)}px;width:${c(6)}px">Week one, easy. Week two, mostly. Then one bad week, and nothing after it.</div>`);
+// 2 · three lines
+pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">What happened, every time</div>
+<div class="d49 abs nowrap rise" style="left:0;top:${b(12)}px">They were all good on the day I wrote them.</div>
+<div class="d49 abs nowrap" data-step="1" style="left:0;top:${b(19)}px">Then a bad week came, the way one always does.</div>
+<div class="d49 ox abs nowrap" data-step="2" style="left:0;top:${b(28)}px">And the plan had no idea.</div>
+<div class="rule" data-step="2" style="left:0;top:${b(40)}px;width:${c(5)}px"></div>
+<div class="cap abs" data-step="2" style="left:0;top:${b(42)}px;width:${c(5)}px">A plan gets written on a good day, and life doesn&rsquo;t only have good days. The week everything went wrong, the plan asked for the same thing anyway. So I stopped, the way everyone does.</div>`);
+// 3 · what Zain is
+const PW3=245, PX3=[575,845,1115], PH3=PH(PW3);
+pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">What Zain is</div>
+<div class="d49 abs rise" style="left:0;top:${b(8)}px;width:${c(5)}px">Habits. Journal.<br>Books. Training.</div>
+<div class="d49 ox abs" data-step="1" style="left:0;top:${b(24)}px;width:${c(5)}px">One page, and a plan<br>that moves with you.</div>
+<div class="cap abs" data-step="1" style="left:0;top:${b(40)}px;width:${c(4)}px">Everything you do for yourself, in one app. That is the page the plan reads.</div>
+${phone(PX3[0],b(2),PW3,'home-d')}${phone(PX3[1],b(2),PW3,'notes-a')}${phone(PX3[2],b(2),PW3,'books-a')}
+<div class="eyebrow abs rise" style="left:${PX3[0]}px;top:${b(2)+PH3+18}px;width:${PW3}px;text-align:center">habits &amp; training</div><div class="eyebrow abs rise" style="left:${PX3[1]}px;top:${b(2)+PH3+18}px;width:${PW3}px;text-align:center">journal</div><div class="eyebrow abs rise" style="left:${PX3[2]}px;top:${b(2)+PH3+18}px;width:${PW3}px;text-align:center">books</div>`);
+// 4 · three goals
+const cardW=300; const cardH=[Math.round(cardW*1087/1110),Math.round(cardW*981/1110),Math.round(cardW*981/1110)];
+let p4=`<div class="eyebrow abs rise" style="left:0;top:0">Three people typed this, and got these back</div>`;
+const P4H=PH(cardW);
+['type-marathon','type-job','type-mindful'].forEach((s,i)=>{const x=i*(TRI+TGUT)+(TRI-cardW)/2;p4+=phone(x,b(3),cardW,s,{cls:'dim'});});
+['plan-1','plan-2','plan-3'].forEach((s,i)=>{const x=i*(TRI+TGUT)+(TRI-cardW)/2;p4+=`<img class="card" data-step="1" src="assets/${s}.png" style="left:${x}px;top:${b(3)+P4H-cardH[i]-28}px;width:${cardW}px">`;});
+pages.push(p4);
+// 5 · on your days
+pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">An ordinary day, with a plan in it</div>
+<div class="d49 abs nowrap rise" style="left:0;top:${b(8)}px">Zain puts your goal on your calendar.</div>
+<div class="d49 ox abs" data-step="1" style="left:0;top:${b(15)}px;width:${c(7)}px">Each day shows the next small step,<br>and what it&rsquo;s for.</div>
+<div class="cap abs" data-step="1" style="left:0;top:${b(30)}px;width:${c(5)}px">Today&rsquo;s session sits beside your other habits, marked with the plan it belongs to and how far along you are. Tick it, and the plan knows.</div>
+${phone(1050,0,310,'days3')}`);
+// 6 · the bad week
+pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">When a week goes wrong</div>
+<div class="d49 abs nowrap rise" style="left:0;top:${b(8)}px">Then week three happens.</div>
+<div class="d49 ox abs" data-step="1" style="left:0;top:${b(15)}px;width:${c(7)}px">It reads the week you actually had.</div>
+<div class="d49 abs" data-step="2" style="left:0;top:${b(28)}px;width:${c(7)}px">It changes the plan.<br><span class="ox">Never the goal.</span></div>
+<div class="cap abs" data-step="3" style="left:0;top:${b(42)}px;width:${c(5)}px">Take the changes you like, leave the ones you don&rsquo;t. The race is still on the same day.</div>
+${phone(1050,0,310,'badweek')}`);
+// 7 · write to the coach
+pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">When the week changes on a Tuesday</div>
+<div class="d49 abs rise" style="left:0;top:${b(8)}px;width:${c(7)}px">Tell the coach what&rsquo;s going on,<br>in your own words.</div>
+<div class="d49 ox abs" data-step="1" style="left:0;top:${b(22)}px;width:${c(7)}px">The plan changes<br>the same day.</div>
+<div class="cap abs" data-step="1" style="left:0;top:${b(36)}px;width:${c(5)}px">Work got heavy? Say so. It won&rsquo;t wait for Monday to fix the week.</div>
+${phone(1050,0,310,'margin')}`);
+// 8 · why not a chatbot
+const WHY=[['Zain already knows your week','You don&rsquo;t have to explain what happened. The habits you ticked, the runs your watch caught, the ones you skipped. Zain already knows, so you never have to type it in.'],['It comes to you','Monday morning, the note is waiting on your home screen. Miss two sessions of your plan in one week, and Zain helps you replan the week so you can get back on track.'],['And the goal is still on track','It will move the week around as much as it needs to. It won&rsquo;t move the race. And it remembers what you said on day one.']];
+let p8=`<div class="eyebrow abs rise" style="left:0;top:0">Why not just a chatbot?</div><div class="d61 abs nowrap rise" style="left:0;top:${b(3)}px">A chat window can write a plan.<br><span class="ox">It can&rsquo;t see your week.</span></div>`;
+const P8W=300, P8Y=b(37), P8STILL=['read-still','home-practice','margin'];
+WHY.forEach(([h,t],i)=>{const x=i*(TRI+TGUT);p8+=`<div class="rule" data-step="${i+1}" style="left:${x}px;top:${b(20)}px;width:${TRI}px"></div><div class="d25 abs" data-step="${i+1}" style="left:${x}px;top:${b(22)}px;width:${TRI}px">${h}</div><div class="cap abs" data-step="${i+1}" style="left:${x}px;top:${b(27)}px;width:${TRI-30}px">${t}</div>${phoneImg(x+(TRI-P8W)/2,P8Y,P8W,P8STILL[i],i+1)}`});
+pages.push(p8);
+// 9 · the whole of you
+pages.push(`<div class="eyebrow abs rise" style="left:0;top:0">What that changes</div>
+<div class="d49 abs nowrap rise" style="left:0;top:${b(6)}px">A running app plans your runs.</div>
+<div class="d49 ox abs rise" style="left:0;top:${b(13)}px;width:${c(7)}px">Zain plans them around<br>the rest of your life.</div>
+<div class="rule" data-step="1" style="left:0;top:${b(28)}px;width:${c(5)}px"></div>
+<div class="cap abs" data-step="1" style="left:0;top:${b(30)}px;width:${c(5)}px">The book you&rsquo;re halfway through, the evenings you protected, the runs you actually did, and what you wrote to the coach. It fits the person, not just the goal.</div>
+${phone(1050,0,310,'whole')}`);
+// 10 · where this is
+const ROWS=[['June','Friends and family. About five hundred people tested the foundation: habits, journal, books.',''],['15 September','The launch. Zain intelligence opens to everyone: a plan in your own words, the weekly read, the coach&rsquo;s note.',''],['Three languages','English, Arabic and Turkish. Native in all three, right&#8209;to&#8209;left first.','Made for everyone, in their own language. More languages to follow.'],['December','The first plans reach week twelve. That is when the chart gets drawn again, with real people on it.','']];
+let p10=`<div class="eyebrow abs rise" style="left:0;top:0">Where this is</div>`;const PITCH=b(12),TOP=b(5);
+ROWS.forEach(([k,v,sub],i)=>{const y=TOP+i*PITCH;const st=i===0?'':`data-step="${i}"`;p10+=`<div class="rule" ${st} style="left:0;top:${y}px;width:${LW}px"></div><div class="eyebrow abs" ${st} style="left:0;top:${y+16}px;width:${c(2)}px">${k}</div><div class="d31 abs" ${st} style="left:${cx(3)}px;top:${y+12}px;width:${c(7)}px">${v}</div>`;if(sub)p10+=`<div class="cap abs" ${st} style="left:${cx(3)}px;top:${y+108}px;width:${c(7)}px">${sub}</div>`;});
+['ico-habits','ico-books','ico-notes'].forEach((f,j)=>{p10+=`<img class="abs rise" src="assets/${f}.png" style="left:${cx(10)+j*72}px;top:${TOP+22}px;height:60px">`});
+p10+=`<div class="rule" data-step="3" style="left:0;top:${TOP+4*PITCH}px;width:${LW}px"></div>`;
+pages.push(p10);
+// 11 · close
+pages.push(`<img class="abs rise" src="assets/mark.png" style="left:0;top:0;height:56px">
+<div class="eyebrow abs rise" style="left:0;top:${b(6)}px">Every plan before</div>${grid(0,b(9),BEFORE,{dot:10,sp:22,colw:24,instant:true,labels:true})}
+<div class="eyebrow abs rise" style="left:${cx(6)}px;top:${b(6)}px">The one I&rsquo;m on now &middot; week nine</div>${grid(cx(6),b(9),NOW,{dot:10,sp:22,colw:24,start:1.0,step:0.09,ahead:10})}
+<div class="d61 abs nowrap" data-step="1" style="left:0;top:${b(28)}px">A bad week used to end the plan.<br><span class="ox">Now it just changes it.</span></div>
+<div class="rule" data-step="2" style="left:0;top:${b(46)}px;width:${c(8)}px"></div><div class="abs" data-step="2" style="left:0;top:${b(49)}px;width:${c(8)}px;height:40px">${storeRow(0,0)}</div>`);
+
+const root=document.getElementById('pages');
+root.innerHTML=pages.map((inner,i)=>`<section class="page" id="p${i+1}"><div class="live">${inner}</div>${terrain(i/(pages.length-1))}</section>`).join('');
+const P=[...document.querySelectorAll('.page')];let cur=-1,step=0,t0=null,auto=new URLSearchParams(location.search).get('auto')==='1',timers=[];
+const bc=('BroadcastChannel' in window)?new BroadcastChannel('zain-live'):null;
+function maxStep(pg){return Math.max(0,...[...pg.querySelectorAll('[data-step]')].map(e=>+e.dataset.step))}
+function applySteps(pg){pg.querySelectorAll('[data-step]').forEach(e=>e.classList.toggle('shown',+e.dataset.step<=step));pg.querySelectorAll('.dim').forEach(e=>e.classList.toggle('dimmed',step>=1));}
+function show(i,{replay=false}={}){i=Math.max(0,Math.min(P.length-1,i));if(i===cur&&!replay)return;
+ if(cur>=0){const old=P[cur];old.classList.remove('in');old.querySelectorAll('video').forEach(v=>v.pause());}
+ cur=i;step=0;const pg=P[cur];pg.classList.remove('in');void pg.offsetWidth;pg.classList.add('in');applySteps(pg);
+ pg.querySelectorAll('video').forEach(v=>{try{v.muted=true;v.defaultMuted=true;v.currentTime=0;const tryPlay=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>{});};tryPlay();if(v.readyState<3)v.addEventListener('loadeddata',tryPlay,{once:true});}catch(e){}});
+ if(cur>0&&!t0)t0=Date.now();location.hash=String(cur+1);hud();post();schedule();}
+function next(){const pg=P[cur];if(step<maxStep(pg)){step++;applySteps(pg);hud();post();schedule();}else show(cur+1);}
+function prev(){if(step>0){step--;applySteps(P[cur]);hud();post();}else show(cur-1);}
+function hud(){document.getElementById('hud').textContent=`${cur+1} / ${P.length}`}
+function post(){if(bc)bc.postMessage({type:'state',page:cur,step,max:maxStep(P[cur]),total:P.length,t0})}
+function schedule(){timers.forEach(clearTimeout);timers=[];if(!auto||!started)return;const d=(SCRIPT[cur]||{dur:20}).dur*1000,m=maxStep(P[cur]);const slice=d/(m+1);timers.push(setTimeout(()=>{if(step<m){next();}else if(cur<P.length-1)show(cur+1);},slice));}
+let started=false;
+window.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;const k=e.key;
+ if(k==='ArrowRight'||k===' '||k==='PageDown'||k==='Enter'){e.preventDefault();started=true;next();}
+ else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();prev();}
+ else if(k==='Home'){show(0);}else if(k==='End'){show(P.length-1);}
+ else if(k==='r'){show(cur,{replay:true});}else if(k==='t'){t0=Date.now();post();}
+ else if(k==='f'){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}
+ else if(k==='p'){window.open('presenter.html','zain-presenter','width=900,height=620');}
+ else if(/^[0-9]$/.test(k)){const n=k==='0'?10:+k;show(n-1);}});
+window.addEventListener('click',e=>{started=true;next();});
+function kick(){document.querySelectorAll('.page.in video').forEach(v=>{if(v.paused&&!v.ended){const p=v.play();if(p&&p.catch)p.catch(()=>{});}});}
+window.addEventListener('keydown',kick,{capture:true});window.addEventListener('pointerdown',kick,{capture:true});
+if(bc)bc.onmessage=ev=>{const m=ev.data||{};if(m.type==='cmd'){started=true;if(m.cmd==='next')next();else if(m.cmd==='prev')prev();else if(m.cmd==='reset'){t0=null;show(0);}else if(m.cmd==='clock'){t0=Date.now();post();}else if(m.cmd==='hello')post();}};
+function fit(){const s=Math.min(innerWidth/1600,innerHeight/900);document.getElementById('stage').style.transform=`scale(${s})`}
+window.addEventListener('resize',fit);fit();
+const h=parseInt((location.hash||'#1').slice(1))||1;show(h-1);
+</script>
+</body>
+</html>
