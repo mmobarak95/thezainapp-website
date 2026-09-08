@@ -9,21 +9,21 @@ window.SCRIPT = [
     "Then a bad week came, the way one always does.",
     "And the plan had no idea. A plan gets written on a good day, and life doesn't only have good days. The apps in between just counted." ] },
   { title: "What Zain is", dur: 25, lines: [
-    "Zain is one app for your habits, your journal, your books, your training. Everything you do for yourself, on one page.",
-    "And on that page, a coach. Zain makes a plan that moves with you. Let me show you three." ] },
+    "Zain is one app for your habits, your journal, your books, your training. One place.",
+    "(click) And a calendar that adapts to your life. Let me show you three." ] },
   { title: "Three goals", dur: 30, lines: [
     "Three people. Run a marathon. Find a new job. Be more mindful. They type it in their own words.",
     "(click: the cards rise) Zain asks a couple of questions, and lays the weeks out, on real dates." ] },
   { title: "On your days", dur: 25, lines: [
-    "The next morning it isn't a plan anymore. It's on your calendar. Today's run, beside your other habits, marked with what it's for.",
+    "The next morning it isn't a plan anymore. Zain puts your goal on your calendar, next to your habits. Today's run, marked with what it's for.",
     "(click) Tick it, and the plan knows." ] },
   { title: "The bad week", dur: 45, lines: [
     "Then week three happens. Because week three always happens. (silence, three seconds)",
-    "(click) Zain reads the week you actually had. Not the runs you planned. The ones you did.",
+    "(click) Zain knows the week you actually had. Not the runs you planned. The ones you did.",
     "And it says what it thinks, in plain words: don't make it up by doubling Saturday. Repeat last week. Move strength off Friday.",
-    "(click) Take the changes you like, leave the rest. The race is still on the same day." ] },
-  { title: "Write to the coach", dur: 25, lines: [
-    "And when the week changes on a Tuesday, you don't wait for Monday. You tell the coach what's going on, in your own words.",
+    "(click) Zain adapts the plan, and the goal is still on track. The race day doesn't move." ] },
+  { title: "Write to Zain", dur: 25, lines: [
+    "And when the week changes on a Tuesday, you don't wait for Monday. You tell Zain what's going on, in your own words.",
     "(the reply arrives) And the plan changes the same day." ] },
   { title: "Why not a chatbot", dur: 30, lines: [
     "So why not just ask a chatbot? A chat window can write a plan. It can't see your week.",
