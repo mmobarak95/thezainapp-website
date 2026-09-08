@@ -7,12 +7,12 @@ window.SCRIPT = [
   { title: "Three lines", dur: 20, lines: [
     "They were all good on the day I wrote them.",
     "Then a bad week came, the way one always does.",
-    "And the plan had no idea. A plan gets written on a good day, and life doesn't only have good days. The apps in between just counted." ] },
+    "And the plan stayed fixed. A plan gets written on a good day, and life doesn't only have good days. The apps in between just counted." ] },
   { title: "What Zain is", dur: 25, lines: [
-    "Zain is one app for your habits, your journal, your books, your training. One place.",
+    "Zain is one app for your habits, your journal, your books. One place.",
     "(click) And a calendar that adapts to your life. Let me show you three." ] },
   { title: "Three goals", dur: 30, lines: [
-    "Three people. Run a marathon. Find a new job. Be more mindful. They type it in their own words.",
+    "Three different goals. Run a marathon. Find a new job. Be more mindful. They type it the way they'd say it.",
     "(click: the cards rise) Zain asks a couple of questions, and lays the weeks out, on real dates." ] },
   { title: "On your days", dur: 25, lines: [
     "The next morning it isn't a plan anymore. Zain puts your goal on your calendar, next to your habits. Today's run, marked with what it's for.",
